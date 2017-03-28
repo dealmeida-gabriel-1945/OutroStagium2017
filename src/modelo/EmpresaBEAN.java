@@ -21,7 +21,7 @@ public class EmpresaBEAN {
     private String email;
     private String cidade;
     private String estado;
-    private RepresentanteLegalBEAN representanteLegal;
+    private int representanteLegal;
     
 //==============================================================================
 
@@ -105,13 +105,15 @@ public class EmpresaBEAN {
         this.estado = estado;
     }
 
-    public RepresentanteLegalBEAN getRepresentanteLegal() {
+    public int getRepresentanteLegal() {
         return representanteLegal;
     }
 
-    public void setRepresentanteLegal(RepresentanteLegalBEAN representanteLegal) {
+    public void setRepresentanteLegal(int representanteLegal) {
         this.representanteLegal = representanteLegal;
     }
+
+    
     
     
 }

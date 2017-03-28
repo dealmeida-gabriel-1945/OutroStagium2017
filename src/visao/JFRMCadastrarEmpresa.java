@@ -5,12 +5,20 @@
  */
 package visao;
 
+import controle.EmpresaControle;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import modelo.EmpresaBEAN;
+import modelo.RepresentanteLegalBEAN;
+
 /**
  *
  * @author user
  */
 public class JFRMCadastrarEmpresa extends javax.swing.JFrame {
 
+    private EmpresaControle empControle = new EmpresaControle();
+    
     /**
      * Creates new form JFRMCadastrarCursos
      */
@@ -19,6 +27,7 @@ public class JFRMCadastrarEmpresa extends javax.swing.JFrame {
         this.setResizable(false);
         this.setSize(950, 800);
         this.setLocationRelativeTo(null);
+        this.preencherCombo();
     }
 
     /**
@@ -189,6 +198,11 @@ public class JFRMCadastrarEmpresa extends javax.swing.JFrame {
 
         BTNLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/trash-bin-symbolPqn.png"))); // NOI18N
         BTNLimpar.setText("Limpar");
+        BTNLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNLimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -265,6 +279,8 @@ public class JFRMCadastrarEmpresa extends javax.swing.JFrame {
 
         jLabel13.setText("Representante Legal:");
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---" }));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -311,19 +327,22 @@ public class JFRMCadastrarEmpresa extends javax.swing.JFrame {
                             .addComponent(jLabel23))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TFEstado)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(FTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(FTFCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(TFEstado)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(FTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(FTFCaixaPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel13)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addContainerGap())
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(FTFCaixaPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addContainerGap())
+                                .addComponent(FTFCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel20)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -385,6 +404,11 @@ public class JFRMCadastrarEmpresa extends javax.swing.JFrame {
 
         BTNVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/left-arrowPqn.png"))); // NOI18N
         BTNVoltar.setText("Voltar");
+        BTNVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNVoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -419,11 +443,21 @@ public class JFRMCadastrarEmpresa extends javax.swing.JFrame {
         JMICadastrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         JMICadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Add-businessmanPqn.png"))); // NOI18N
         JMICadastrar.setText("Cadastrar");
+        JMICadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMICadastrarActionPerformed(evt);
+            }
+        });
         jMenu.add(JMICadastrar);
 
         JMILimpar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         JMILimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/trash-bin-symbolPqn.png"))); // NOI18N
         JMILimpar.setText("Limpar");
+        JMILimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMILimparActionPerformed(evt);
+            }
+        });
         jMenu.add(JMILimpar);
 
         JMIVoltar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
@@ -467,8 +501,100 @@ public class JFRMCadastrarEmpresa extends javax.swing.JFrame {
     }//GEN-LAST:event_FTFTelefoneActionPerformed
 
     private void BTNCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNCadastrarActionPerformed
+        boolean campos = this.verificaCampos();
         
+        if (campos == true) {
+            EmpresaBEAN emp = new EmpresaBEAN();
+            int codRep = empControle.codigoRepresentante((String) jComboBox1.getSelectedItem());
+            emp.setRazaoSocial_nome(TFRazaoSocial.getText());
+            emp.setNomeFantasia(TFNomeFantasia.getText());
+            emp.setNumRegistro(TFNumDeRegistro.getText());
+            emp.setEndereco(TFEndereco.getText());
+            emp.setEmail(TFEmail.getText());
+            emp.setCidade(TFCidade.getText());
+            emp.setEstado(TFEstado.getText());
+            emp.setCaixaPostal(FTFCaixaPostal.getText());
+            emp.setFone(FTFTelefone.getText());
+            emp.setCep(FTFCEP.getText());
+            emp.setRepresentanteLegal(codRep);
+            
+            boolean r = empControle.cadastrar(emp);
+            
+            if (r == true) {
+                JOptionPane.showMessageDialog(null, "Empresa cadastrado com sucesso!!!");
+            } else if (r == false) {
+                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Empresa já cadastrado");
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Campos vazios!!!");
+        }
     }//GEN-LAST:event_BTNCadastrarActionPerformed
+
+    private void BTNLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNLimparActionPerformed
+        TFRazaoSocial.setText("");
+        TFNomeFantasia.setText("");
+        TFNumDeRegistro.setText("");
+        TFEndereco.setText("");
+        TFEmail.setText("");
+        TFCidade.setText("");
+        TFEstado.setText("");
+        FTFCaixaPostal.setText("");
+        FTFTelefone.setText("");
+        FTFCEP.setText("");
+        jComboBox1.setSelectedIndex(0);
+    }//GEN-LAST:event_BTNLimparActionPerformed
+
+    private void JMICadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMICadastrarActionPerformed
+       boolean campos = this.verificaCampos();
+        
+        if (campos == true) {
+            EmpresaBEAN emp = new EmpresaBEAN();
+            int codRep = empControle.codigoRepresentante((String) jComboBox1.getSelectedItem());
+            emp.setRazaoSocial_nome(TFRazaoSocial.getText());
+            emp.setNomeFantasia(TFNomeFantasia.getText());
+            emp.setNumRegistro(TFNumDeRegistro.getText());
+            emp.setEndereco(TFEndereco.getText());
+            emp.setEmail(TFEmail.getText());
+            emp.setCidade(TFCidade.getText());
+            emp.setEstado(TFEstado.getText());
+            emp.setCaixaPostal(FTFCaixaPostal.getText());
+            emp.setFone(FTFTelefone.getText());
+            emp.setCep(FTFCEP.getText());
+            emp.setRepresentanteLegal(codRep);
+            
+            boolean r = empControle.cadastrar(emp);
+            
+            if (r == true) {
+                JOptionPane.showMessageDialog(null, "Empresa cadastrado com sucesso!!!");
+            } else if (r == false) {
+                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Empresa já cadastrado");
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Campos vazios!!!");
+        }
+    }//GEN-LAST:event_JMICadastrarActionPerformed
+
+    private void JMILimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMILimparActionPerformed
+        TFRazaoSocial.setText("");
+        TFNomeFantasia.setText("");
+        TFNumDeRegistro.setText("");
+        TFEndereco.setText("");
+        TFEmail.setText("");
+        TFCidade.setText("");
+        TFEstado.setText("");
+        FTFCaixaPostal.setText("");
+        FTFTelefone.setText("");
+        FTFCEP.setText("");
+        jComboBox1.setSelectedIndex(0);
+    }//GEN-LAST:event_JMILimparActionPerformed
+
+    private void BTNVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNVoltarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BTNVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -567,4 +693,19 @@ public class JFRMCadastrarEmpresa extends javax.swing.JFrame {
     private javax.swing.JLabel lblName6;
     private javax.swing.JLabel lblName7;
     // End of variables declaration//GEN-END:variables
+
+    private boolean verificaCampos() {
+        if (("".equals(TFRazaoSocial.getText())) || ("".equals(TFNomeFantasia.getText())) || ("".equals(TFNumDeRegistro.getText())) || ("".equals(TFEndereco.getText())) || ("".equals(TFEmail.getText())) || ("".equals(TFCidade.getText())) || ("".equals(TFEstado.getText())) || ("".equals(FTFCaixaPostal.getText())) || ("".equals(FTFTelefone.getText())) || ("".equals(FTFCEP.getText())) || (jComboBox1.getSelectedIndex() == 0)) {
+            return false;
+        }
+        return true;
+    }
+
+    private void preencherCombo() {
+        ArrayList<RepresentanteLegalBEAN> Rep = empControle.todosRep();
+
+        for (RepresentanteLegalBEAN Repres : Rep) {
+            jComboBox1.addItem(Repres.getNome());
+        }
+    }
 }

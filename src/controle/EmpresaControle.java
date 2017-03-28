@@ -5,10 +5,34 @@
  */
 package controle;
 
+import java.util.ArrayList;
+import modelo.EmpresaBEAN;
+import modelo.EmpresaMySqlDAO;
+import modelo.RepresentanteLegalBEAN;
+
 /**
  *
  * @author Darkfocus
  */
 public class EmpresaControle {
+    
+    private EmpresaMySqlDAO eDAO = new EmpresaMySqlDAO();
+
+    public ArrayList<RepresentanteLegalBEAN> todosRep() {
+        return eDAO.todosRepresentantes();
+    }
+
+    public int codigoRepresentante(String rep) {
+        return eDAO.codRepresentante(rep);
+    }
+
+    public boolean cadastrar(EmpresaBEAN e) {
+        
+        boolean v = eDAO.verificarEmpresa(e.getNomeFantasia());
+        if (v == true) {
+            return eDAO.cadastrar(e);
+        } 
+        return false;
+    }
     
 }
