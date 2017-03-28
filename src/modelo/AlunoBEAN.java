@@ -33,10 +33,8 @@ public class AlunoBEAN {
     private String email;
     private String conhecimento_informatica;
     private String carteira_habilitacao;
-    private String inicioDoCurso_mes;
-    private String incioDoCurso_ano;
-    private String formatura_mes;
-    private String foramtura_ano;
+    private String inicioDoCurso;
+    private String formatura;
     
 //==============================================================================
 //==============================================================================
@@ -209,39 +207,20 @@ public class AlunoBEAN {
         this.carteira_habilitacao = carteira_habilitacao;
     }
 
-    public String getInicioDoCurso_mes() {
-        return inicioDoCurso_mes;
+    public String getInicioDoCurso() {
+        return inicioDoCurso;
     }
 
-    public void setInicioDoCurso_mes(String inicioDoCurso_mes) {
-        this.inicioDoCurso_mes = inicioDoCurso_mes;
+    public void setInicioDoCurso(String inicioDoCurso) {
+        this.inicioDoCurso = inicioDoCurso;
     }
 
-    public String getIncioDoCurso_ano() {
-        return incioDoCurso_ano;
+    public String getFormatura() {
+        return formatura;
     }
 
-    public void setIncioDoCurso_ano(String incioDoCurso_ano) {
-        this.incioDoCurso_ano = incioDoCurso_ano;
+    public void setFormatura(String formatura) {
+        this.formatura = formatura;
     }
 
-    public String getFormatura_mes() {
-        return formatura_mes;
-    }
-
-    public void setFormatura_mes(String formatura_mes) {
-        this.formatura_mes = formatura_mes;
-    }
-
-    public String getForamtura_ano() {
-        return foramtura_ano;
-    }
-
-    public void setForamtura_ano(String foramtura_ano) {
-        this.foramtura_ano = foramtura_ano;
-    }
-    
-    
-    
-    
 }

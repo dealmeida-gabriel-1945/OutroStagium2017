@@ -5,11 +5,20 @@
  */
 package visao;
 
+import controle.AlunoControle;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import modelo.AlunoBEAN;
+
 /**
  *
  * @author user
  */
 public class JFRMListarAlunos extends javax.swing.JFrame {
+    
+    private DefaultTableModel dTable;
+    ArrayList <AlunoBEAN> alunAL = new ArrayList <AlunoBEAN>();
+    AlunoControle aluC = new AlunoControle();
 
     /**
      * Creates new form JFRMListarAlunos
@@ -17,6 +26,8 @@ public class JFRMListarAlunos extends javax.swing.JFrame {
     public JFRMListarAlunos() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
+        
+        this.preencheTabela();
     }
 
     /**
@@ -75,7 +86,7 @@ public class JFRMListarAlunos extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaContas = new javax.swing.JTable();
+        tabelaAlunos = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -404,8 +415,8 @@ public class JFRMListarAlunos extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tabelaContas.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 10, 10, 10, new java.awt.Color(0, 255, 102)));
-        tabelaContas.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaAlunos.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 10, 10, 10, new java.awt.Color(0, 255, 102)));
+        tabelaAlunos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {}
             },
@@ -413,12 +424,12 @@ public class JFRMListarAlunos extends javax.swing.JFrame {
 
             }
         ));
-        tabelaContas.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabelaAlunos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelaContasMouseClicked(evt);
+                tabelaAlunosMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tabelaContas);
+        jScrollPane1.setViewportView(tabelaAlunos);
 
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -610,9 +621,9 @@ public class JFRMListarAlunos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tabelaContasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaContasMouseClicked
+    private void tabelaAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaAlunosMouseClicked
 
-    }//GEN-LAST:event_tabelaContasMouseClicked
+    }//GEN-LAST:event_tabelaAlunosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -720,6 +731,58 @@ public class JFRMListarAlunos extends javax.swing.JFrame {
     private javax.swing.JLabel lblName21;
     private javax.swing.JLabel lblName22;
     private javax.swing.JLabel lblName24;
-    private javax.swing.JTable tabelaContas;
+    private javax.swing.JTable tabelaAlunos;
     // End of variables declaration//GEN-END:variables
+
+    private void preencheTabela() {
+        dTable = criaTabela();
+        //seta o nome das colunas da tabela
+        dTable.addColumn("Matrícula");
+        dTable.addColumn("Nome do Aluno");
+        dTable.addColumn("Curso");
+        dTable.addColumn("Período");
+        this.povoaTabela();
+    }
+
+    private DefaultTableModel criaTabela() {
+         //sempre que usar JTable é necessário ter um DefaulttableModel
+        DefaultTableModel dTable = new DefaultTableModel() {
+            //Define o tipo dos campos (coluna) na mesma ordem que as colunas foram criadas
+            Class[] types = new Class[]{
+                java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                java.lang.String.class
+            };
+            //define se os campos podem ser editados na propria tabela
+            boolean[] canEdit = new boolean[]{
+                false, false, false, false
+            };
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            }
+        ;
+
+        };
+        //retorna o DefaultTableModel
+    return dTable;
+    }
+
+    private void povoaTabela() {
+        this.limparTabela();
+        alunAL = aluC.povoaTabela();
+        //cada célula do arrayList vira uma linha(row) na tabela
+        for (AlunoBEAN dado : alunAL) {
+            dTable.addRow(new Object[]{dado.getMatricula(), dado.getNome(), dado.getCurso(), dado.getAno_Periodo()});
+        }
+        //set o modelo da tabela
+        tabelaAlunos.setModel(dTable);
+    }
+
+    private void limparTabela() {
+        while (tabelaAlunos.getRowCount() > 0) {
+    DefaultTableModel dm = (DefaultTableModel) tabelaAlunos.getModel();
+    dm.getDataVector().removeAllElements();
+    }
+    }
 }
