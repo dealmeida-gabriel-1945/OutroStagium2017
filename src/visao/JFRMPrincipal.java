@@ -29,7 +29,6 @@ public class JFRMPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jButton11 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -76,8 +75,6 @@ public class JFRMPrincipal extends javax.swing.JFrame {
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Visao/1.png"))); // NOI18N
-
         jButton11.setText("jButton11");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,8 +84,6 @@ public class JFRMPrincipal extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(204, 255, 204));
 
         jPanel4.setBackground(new java.awt.Color(0, 255, 102));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Visao/stagiumPqn.png"))); // NOI18N
 
         lblName16.setFont(new java.awt.Font("MV Boli", 1, 48)); // NOI18N
         lblName16.setText("S");
@@ -110,8 +105,6 @@ public class JFRMPrincipal extends javax.swing.JFrame {
 
         lblName22.setFont(new java.awt.Font("MV Boli", 1, 48)); // NOI18N
         lblName22.setText("M");
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Visao/1.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -158,7 +151,6 @@ public class JFRMPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel3))
         );
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/userPqn.png"))); // NOI18N
         jButton1.setText("Cadastrar Aluno");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,7 +158,6 @@ public class JFRMPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Add-businessmanPqn.png"))); // NOI18N
         jButton3.setText("Cadastrar Empresa");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,7 +165,6 @@ public class JFRMPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/add-contactsPqn.png"))); // NOI18N
         jButton5.setText("Cadastrar Orientador");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,7 +172,6 @@ public class JFRMPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search02Pqn.png"))); // NOI18N
         jButton8.setText("Listar Alunos");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,7 +179,6 @@ public class JFRMPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search01Pqn.png"))); // NOI18N
         jButton9.setText("Listar Orientadores");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,7 +186,6 @@ public class JFRMPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/SearchhousePqn.png"))); // NOI18N
         jButton10.setText("Listar Empresas");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,7 +201,6 @@ public class JFRMPrincipal extends javax.swing.JFrame {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/add-new-documentPqn.png"))); // NOI18N
         jButton2.setText("Cadastrar Estágio");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,19 +208,14 @@ public class JFRMPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search03Pqn.png"))); // NOI18N
         jButton4.setText("Listar Estágios");
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/book-with-add-buttonPqn.png"))); // NOI18N
         jButton6.setText("Cadastrar Cursos");
 
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/open-bookPqn.png"))); // NOI18N
         jButton12.setText("Listar Cursos");
 
-        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/addUserDualPqn.png"))); // NOI18N
         jButton13.setText("Cadastrar Representante");
 
-        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/searchUserPqn.png"))); // NOI18N
         jButton14.setText("Listar Representantes");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -311,7 +292,6 @@ public class JFRMPrincipal extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logoutPqn.png"))); // NOI18N
         jButton7.setText("Sair");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -340,71 +320,57 @@ public class JFRMPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/addPqn.png"))); // NOI18N
         jMenu1.setText("Cadastrar");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/userPqn.png"))); // NOI18N
         jMenuItem1.setText("Cadastrar Aluno");
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/add-contactsPqn.png"))); // NOI18N
         jMenuItem2.setText("Cadastrar Orientador");
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Add-businessmanPqn.png"))); // NOI18N
         jMenuItem3.setText("Cadastrar  Empresa");
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/add-new-documentPqn.png"))); // NOI18N
         jMenuItem4.setText("Cadastrar Estágio");
         jMenu1.add(jMenuItem4);
 
         jMenuItem11.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/book-with-add-buttonPqn.png"))); // NOI18N
         jMenuItem11.setText("Cadastrar Curso");
         jMenu1.add(jMenuItem11);
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/searchPqn.png"))); // NOI18N
         jMenu2.setText("Listar");
 
         jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search02Pqn.png"))); // NOI18N
         jMenuItem5.setText("Listar Alunos");
         jMenu2.add(jMenuItem5);
 
         jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search01Pqn.png"))); // NOI18N
         jMenuItem6.setText("Listar Orientadores");
         jMenu2.add(jMenuItem6);
 
         jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/SearchhousePqn.png"))); // NOI18N
         jMenuItem7.setText("Listar Empresas");
         jMenu2.add(jMenuItem7);
 
         jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search03Pqn.png"))); // NOI18N
         jMenuItem8.setText("Listar Estágios");
         jMenu2.add(jMenuItem8);
 
         jMenuItem12.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/open-bookPqn.png"))); // NOI18N
         jMenuItem12.setText("Listar Cursos");
         jMenu2.add(jMenuItem12);
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/settings-gearsPqn.png"))); // NOI18N
         jMenu3.setText("Outros");
 
         jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/likePqn.png"))); // NOI18N
         jMenuItem9.setText("Creditos dos Programadores");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -414,7 +380,6 @@ public class JFRMPrincipal extends javax.swing.JFrame {
         jMenu3.add(jMenuItem9);
 
         jMenuItem10.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logoutPqn.png"))); // NOI18N
         jMenuItem10.setText("Sair");
         jMenu3.add(jMenuItem10);
 
@@ -528,7 +493,6 @@ public class JFRMPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;

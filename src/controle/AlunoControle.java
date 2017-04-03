@@ -17,11 +17,17 @@ public class AlunoControle {
 
     ArrayList <AlunoBEAN> alunAL = new ArrayList <AlunoBEAN>();
     AlunoMySQLDAO alunMSQL = new AlunoMySQLDAO();
-    
+    AlunoBEAN aluB = new AlunoBEAN();
     
     public ArrayList<AlunoBEAN> povoaTabela() {
         
         alunAL = alunMSQL.listarAll();
+        return alunAL;
+    }
+
+    public ArrayList<AlunoBEAN> pegaAluno(int matricula) {
+        
+        alunAL = alunMSQL.pegaAluno(matricula);
         
         return alunAL;
     }
