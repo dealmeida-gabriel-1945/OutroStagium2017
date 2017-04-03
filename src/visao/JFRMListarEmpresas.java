@@ -5,11 +5,22 @@
  */
 package visao;
 
+import controle.EmpresaControle;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import modelo.CursoBEAN;
+import modelo.EmpresaBEAN;
+
 /**
  *
  * @author user
  */
 public class JFRMListarEmpresas extends javax.swing.JFrame {
+    
+    private DefaultTableModel dTable;
+    ArrayList<EmpresaBEAN> empAL = new ArrayList<EmpresaBEAN>();
+    EmpresaControle empC = new EmpresaControle();
 
     /**
      * Creates new form JFRMListarAlunos
@@ -17,6 +28,9 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
     public JFRMListarEmpresas() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
+        
+        this.preencheTabela();
+        
     }
 
     /**
@@ -30,7 +44,6 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         lblName16 = new javax.swing.JLabel();
         lblName17 = new javax.swing.JLabel();
         lblName18 = new javax.swing.JLabel();
@@ -38,7 +51,6 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
         lblName20 = new javax.swing.JLabel();
         lblName21 = new javax.swing.JLabel();
         lblName22 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblName24 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
@@ -70,22 +82,22 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         FTFCEP = new javax.swing.JFormattedTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaContas = new javax.swing.JTable();
+        tabelaEmpresas = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        TFMostraNomeFanrasia = new javax.swing.JTextField();
+        TFMostraNumRegistro = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        TFMostraEndereco = new javax.swing.JTextField();
+        TFMostraRazaoSocial = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        TFMostraTelefone = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
+        TFMostraEmail = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -103,8 +115,6 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
         jPanel4.setBackground(new java.awt.Color(0, 255, 102));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Visao/stagiumPqn.png"))); // NOI18N
 
         lblName16.setFont(new java.awt.Font("MV Boli", 1, 48)); // NOI18N
         lblName16.setText("S");
@@ -127,8 +137,6 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
         lblName22.setFont(new java.awt.Font("MV Boli", 1, 48)); // NOI18N
         lblName22.setText("M");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Visao/1.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -143,20 +151,16 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
                             .addComponent(lblName19, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblName18, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblName17, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblName16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
+                            .addComponent(lblName16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(57, 57, 57))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(lblName20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(76, 76, 76))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addGap(76, 76, 76))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(22, 22, 22)
                 .addComponent(lblName16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblName17)
@@ -170,8 +174,7 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
                 .addComponent(lblName21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblName22)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                .addComponent(jLabel3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         lblName24.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N
@@ -179,6 +182,11 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/reloadPqn.png"))); // NOI18N
         jButton4.setText("Recarregar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filtros", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 0, 255))); // NOI18N
 
@@ -385,8 +393,9 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tabelaContas.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 10, 10, 10, new java.awt.Color(0, 255, 102)));
-        tabelaContas.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaEmpresas.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 10, 10, 10, new java.awt.Color(0, 255, 102)));
+        tabelaEmpresas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tabelaEmpresas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {}
             },
@@ -394,12 +403,12 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
 
             }
         ));
-        tabelaContas.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabelaEmpresas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelaContasMouseClicked(evt);
+                tabelaEmpresasMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tabelaContas);
+        jScrollPane1.setViewportView(tabelaEmpresas);
 
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -413,25 +422,31 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
 
         jLabel1.setText("Nome Fantasia:");
 
-        jTextField1.setEditable(false);
+        TFMostraNomeFanrasia.setEditable(false);
+        TFMostraNomeFanrasia.setBackground(new java.awt.Color(153, 153, 153));
 
-        jTextField2.setEditable(false);
+        TFMostraNumRegistro.setEditable(false);
+        TFMostraNumRegistro.setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel4.setText("Núm. de Registro:");
 
         jLabel6.setText("Endereço:");
 
-        jTextField4.setEditable(false);
+        TFMostraEndereco.setEditable(false);
+        TFMostraEndereco.setBackground(new java.awt.Color(153, 153, 153));
 
-        jTextField3.setEditable(false);
+        TFMostraRazaoSocial.setEditable(false);
+        TFMostraRazaoSocial.setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel5.setText("Razão Social:");
 
-        jTextField10.setEditable(false);
+        TFMostraTelefone.setEditable(false);
+        TFMostraTelefone.setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel16.setText("Telefone:");
 
-        jTextField13.setEditable(false);
+        TFMostraEmail.setEditable(false);
+        TFMostraEmail.setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel17.setText("Email:");
 
@@ -447,24 +462,24 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                    .addComponent(jTextField1))
+                    .addComponent(TFMostraRazaoSocial)
+                    .addComponent(TFMostraNumRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                    .addComponent(TFMostraNomeFanrasia))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addComponent(jLabel6)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TFMostraEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                             .addComponent(jLabel16)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(TFMostraTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(TFMostraEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -490,26 +505,26 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel6)
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(TFMostraEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel5)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(TFMostraRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel16)
-                                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(TFMostraTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel1)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(TFMostraNomeFanrasia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel17)
-                                        .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(TFMostraEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel4)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(TFMostraNumRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap())
         );
 
@@ -529,10 +544,10 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)))
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -600,13 +615,20 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tabelaContasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaContasMouseClicked
-
-    }//GEN-LAST:event_tabelaContasMouseClicked
+    private void tabelaEmpresasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaEmpresasMouseClicked
+        
+        
+        
+    }//GEN-LAST:event_tabelaEmpresasMouseClicked
 
     private void FTFCaixaPostalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FTFCaixaPostalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FTFCaixaPostalActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, empAL.size());
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -650,6 +672,12 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField FTFCEP;
     private javax.swing.JFormattedTextField FTFCaixaPostal;
     private javax.swing.JFormattedTextField FTFTelefone;
+    private javax.swing.JTextField TFMostraEmail;
+    private javax.swing.JTextField TFMostraEndereco;
+    private javax.swing.JTextField TFMostraNomeFanrasia;
+    private javax.swing.JTextField TFMostraNumRegistro;
+    private javax.swing.JTextField TFMostraRazaoSocial;
+    private javax.swing.JTextField TFMostraTelefone;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -666,9 +694,7 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -693,14 +719,8 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
@@ -714,6 +734,57 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
     private javax.swing.JLabel lblName21;
     private javax.swing.JLabel lblName22;
     private javax.swing.JLabel lblName24;
-    private javax.swing.JTable tabelaContas;
+    private javax.swing.JTable tabelaEmpresas;
     // End of variables declaration//GEN-END:variables
+
+    private void preencheTabela() {
+        dTable = criaTabela();
+        //seta o nome das colunas da tabela
+        dTable.addColumn("Número de Registro");
+        dTable.addColumn("Razão Social");
+        dTable.addColumn("Nome Fantasia");
+        dTable.addColumn("Telefone");
+        dTable.addColumn("Email");
+        this.povoaTabela();
+    }
+
+    private DefaultTableModel criaTabela() {
+        //sempre que usar JTable é necessário ter um DefaulttableModel
+        DefaultTableModel dTable = new DefaultTableModel() {
+            //Define o tipo dos campos (coluna) na mesma ordem que as colunas foram criadas
+            Class[] types = new Class[]{
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            //define se os campos podem ser editados na propria tabela
+            boolean[] canEdit = new boolean[]{
+                false, false, false, false, false};
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            }
+        ;
+
+        };
+        //retorna o DefaultTableModel
+    return dTable;
+    }
+
+    private void povoaTabela() {
+        this.limparTabela();
+        empAL = empC.povoaTabela();
+        //cada célula do arrayList vira uma linha(row) na tabela
+        for (EmpresaBEAN dado : empAL) {
+            dTable.addRow(new Object[]{dado.getNumRegistro(), dado.getRazaoSocial_nome(),dado.getNomeFantasia(), dado.getFone(), dado.getEmail()});
+        }
+        //set o modelo da tabela
+        tabelaEmpresas.setModel(dTable);
+    }
+
+    private void limparTabela() {
+        while (tabelaEmpresas.getRowCount() > 0) {
+    DefaultTableModel dm = (DefaultTableModel) tabelaEmpresas.getModel();
+    dm.getDataVector().removeAllElements();
+    }
+    }
 }
