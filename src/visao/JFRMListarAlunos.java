@@ -652,23 +652,20 @@ public class JFRMListarAlunos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabelaAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaAlunosMouseClicked
-        if(evt.getClickCount()==2){ 
-            JOptionPane.showMessageDialog(null, "kk eae men");
+        if(evt.getClickCount()==2){
             JFRMCadastrarAluno ca = new JFRMCadastrarAluno();
             ca.setVisible(true);
             
         }else{
+            int x = tabelaAlunos.getSelectedRow();
+            //x = x - 1;
             
-            String a = (String) tabelaAlunos.getValueAt(tabelaAlunos.getSelectedRow(),0);
-            int x = Integer.parseInt(a);
-            alunAL = aluC.pegaAluno(x);
-            
-            TFMostraMatricula.setText(alunAL.get(0).getMatricula());
-            TFMostraCurso.setText(alunAL.get(0).getCurso());
-            TFMostraAluno.setText(alunAL.get(0).getNome());
-            TFMostraCPF.setText(alunAL.get(0).getCpf());
-            TFMostraRG.setText(alunAL.get(0).getRg());
-        } 
+            TFMostraAluno.setText(alunAL.get(x).getNome());
+            TFMostraCPF.setText(alunAL.get(x).getCpf());
+            TFMostraCurso.setText(alunAL.get(x).getCurso());
+            TFMostraMatricula.setText(alunAL.get(x).getMatricula());
+            TFMostraRG.setText(alunAL.get(x).getRg());
+        }
     }//GEN-LAST:event_tabelaAlunosMouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
