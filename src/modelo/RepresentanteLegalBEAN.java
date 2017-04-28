@@ -20,8 +20,20 @@ public class RepresentanteLegalBEAN {
     private String endereco;
     private String cep;
     private String fone_contato;
+    private String email;
+    private int codigo;
     
 //==============================================================================
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+    
+    
 
     public String getNome() {
         return nome;
@@ -94,6 +106,15 @@ public class RepresentanteLegalBEAN {
     public void setFone_contato(String fone_contato) {
         this.fone_contato = fone_contato;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
     
     
     

@@ -5,11 +5,20 @@
  */
 package visao;
 
+import controle.RepresentanteLegalControle;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import modelo.OrientadorDoEstagioBEAN;
+import modelo.RepresentanteLegalBEAN;
+
 /**
  *
  * @author user
  */
 public class JFRMListarRepresentantes extends javax.swing.JFrame {
+    private DefaultTableModel dTable;
+    private ArrayList<RepresentanteLegalBEAN> repAL = new ArrayList<RepresentanteLegalBEAN>();
+    private RepresentanteLegalControle repC = new RepresentanteLegalControle();
 
     /**
      * Creates new form JFRMListarAlunos
@@ -17,6 +26,7 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
     public JFRMListarRepresentantes() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
+        this.preencheTabela();
     }
 
     /**
@@ -30,7 +40,6 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         lblName16 = new javax.swing.JLabel();
         lblName17 = new javax.swing.JLabel();
         lblName18 = new javax.swing.JLabel();
@@ -38,7 +47,6 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
         lblName20 = new javax.swing.JLabel();
         lblName21 = new javax.swing.JLabel();
         lblName22 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblName24 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
@@ -68,21 +76,21 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaContas = new javax.swing.JTable();
+        tabelaRepresentantes = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        tfMostraCPF = new javax.swing.JTextField();
+        tfMostraOrgEmissor = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        tfMostraEndereco = new javax.swing.JTextField();
+        tfMostraNome = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        tfMostraTelefone = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -99,8 +107,6 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
         jPanel4.setBackground(new java.awt.Color(0, 255, 102));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Visao/stagiumPqn.png"))); // NOI18N
 
         lblName16.setFont(new java.awt.Font("MV Boli", 1, 48)); // NOI18N
         lblName16.setText("S");
@@ -123,8 +129,6 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
         lblName22.setFont(new java.awt.Font("MV Boli", 1, 48)); // NOI18N
         lblName22.setText("M");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Visao/1.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -139,20 +143,16 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
                             .addComponent(lblName19, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblName18, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblName17, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblName16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
+                            .addComponent(lblName16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(57, 57, 57))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(lblName20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(76, 76, 76))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addGap(76, 76, 76))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(22, 22, 22)
                 .addComponent(lblName16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblName17)
@@ -166,8 +166,7 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
                 .addComponent(lblName21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblName22)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                .addComponent(jLabel3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         lblName24.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N
@@ -363,8 +362,7 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tabelaContas.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 10, 10, 10, new java.awt.Color(0, 255, 102)));
-        tabelaContas.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaRepresentantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {}
             },
@@ -372,12 +370,12 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
 
             }
         ));
-        tabelaContas.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabelaRepresentantes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelaContasMouseClicked(evt);
+                tabelaRepresentantesMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tabelaContas);
+        jScrollPane1.setViewportView(tabelaRepresentantes);
 
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -391,23 +389,23 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
 
         jLabel1.setText("CPF:");
 
-        jTextField1.setEditable(false);
+        tfMostraCPF.setEditable(false);
 
-        jTextField2.setEditable(false);
+        tfMostraOrgEmissor.setEditable(false);
 
         jLabel4.setText("Org. Emissor:");
 
         jLabel6.setText("Endereço:");
 
-        jTextField4.setEditable(false);
+        tfMostraEndereco.setEditable(false);
 
-        jTextField3.setEditable(false);
+        tfMostraNome.setEditable(false);
 
         jLabel5.setText("Nome:");
 
         jLabel15.setText("Telefone:");
 
-        jTextField8.setEditable(false);
+        tfMostraTelefone.setEditable(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -421,19 +419,19 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                    .addComponent(jTextField1))
+                    .addComponent(tfMostraNome)
+                    .addComponent(tfMostraOrgEmissor, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                    .addComponent(tfMostraCPF))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tfMostraEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tfMostraTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(14, 14, 14)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -456,23 +454,25 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
                             .addComponent(jSeparator1)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                 .addGap(0, 6, Short.MAX_VALUE)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel6)
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(tfMostraEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel5)
+                                        .addComponent(tfMostraNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel15)
-                                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(tfMostraTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel1)
+                                        .addComponent(tfMostraCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel4)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(tfMostraOrgEmissor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap())
         );
 
@@ -513,6 +513,7 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/settings-gearsPqn.png"))); // NOI18N
         jMenu1.setText("Ações");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
@@ -563,9 +564,19 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tabelaContasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaContasMouseClicked
-
-    }//GEN-LAST:event_tabelaContasMouseClicked
+    private void tabelaRepresentantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaRepresentantesMouseClicked
+        int y = evt.getClickCount();
+        int x = tabelaRepresentantes.getSelectedRow();
+        if(y==2){
+            
+        }else{
+            tfMostraCPF.setText(repAL.get(x).getCpf());
+            tfMostraEndereco.setText(repAL.get(x).getEndereco());
+            tfMostraNome.setText(repAL.get(x).getNome());
+            tfMostraOrgEmissor.setText(repAL.get(x).getOrgEmissor());
+            tfMostraTelefone.setText(repAL.get(x).getFone_contato());
+        }
+    }//GEN-LAST:event_tabelaRepresentantesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -626,8 +637,6 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -652,15 +661,10 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel lblName16;
     private javax.swing.JLabel lblName17;
     private javax.swing.JLabel lblName18;
@@ -669,6 +673,67 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
     private javax.swing.JLabel lblName21;
     private javax.swing.JLabel lblName22;
     private javax.swing.JLabel lblName24;
-    private javax.swing.JTable tabelaContas;
+    private javax.swing.JTable tabelaRepresentantes;
+    private javax.swing.JTextField tfMostraCPF;
+    private javax.swing.JTextField tfMostraEndereco;
+    private javax.swing.JTextField tfMostraNome;
+    private javax.swing.JTextField tfMostraOrgEmissor;
+    private javax.swing.JTextField tfMostraTelefone;
     // End of variables declaration//GEN-END:variables
+
+    private void preencheTabela() {
+        dTable = criaTabela();
+        //seta o nome das colunas da tabela
+        dTable.addColumn("Nome");
+        dTable.addColumn("CPF");
+        dTable.addColumn("RG");
+        dTable.addColumn("Email");
+        dTable.addColumn("Órgão Emissor");
+        dTable.addColumn("Endereço");
+        dTable.addColumn("Estado Civil");
+        dTable.addColumn("Telefone");
+        this.povoaTabela();
+    }
+
+    private DefaultTableModel criaTabela() {
+        //sempre que usar JTable é necessário ter um DefaulttableModel
+        DefaultTableModel dTable = new DefaultTableModel() {
+            //Define o tipo dos campos (coluna) na mesma ordem que as colunas foram criadas
+            Class[] types = new Class[]{
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                java.lang.String.class,java.lang.String.class,java.lang.String.class,
+            };
+            //define se os campos podem ser editados na propria tabela
+            boolean[] canEdit = new boolean[]{
+                false, false, false, false, false, false, false, false};
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            }
+        ;
+
+        };
+        //retorna o DefaultTableModel
+    return dTable;
+    }
+
+    private void povoaTabela() {
+        this.limparTabela();
+        repAL = repC.povoaTabela();
+        //cada célula do arrayList vira uma linha(row) na tabela
+        for (RepresentanteLegalBEAN dado : repAL) {
+            dTable.addRow(new Object[]{dado.getNome(), dado.getCpf(),dado.getRg(), dado.getEmail(), dado.getOrgEmissor(), dado.getEndereco(), dado.getEstadoCivil(),
+            dado.getFone_contato()});
+        }
+        //set o modelo da tabela
+        tabelaRepresentantes.setModel(dTable);
+    }
+
+    private void limparTabela() {
+        while (tabelaRepresentantes.getRowCount() > 0) {
+    DefaultTableModel dm = (DefaultTableModel) tabelaRepresentantes.getModel();
+    dm.getDataVector().removeAllElements();
+    }
+    }
 }

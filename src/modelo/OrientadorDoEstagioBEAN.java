@@ -17,6 +17,7 @@ public class OrientadorDoEstagioBEAN {
     private String email;
     private String endereco;
     private String area;
+    private int cod;
     
 //==============================================================================
 
@@ -67,6 +68,15 @@ public class OrientadorDoEstagioBEAN {
     public void setArea(String area) {
         this.area = area;
     }
+
+    public int getCod() {
+        return cod;
+    }
+
+    public void setCod(int cod) {
+        this.cod = cod;
+    }
+    
     
     
     

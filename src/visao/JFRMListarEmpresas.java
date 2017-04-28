@@ -110,7 +110,7 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Stagium - Listar Orientadores");
+        setTitle("Stagium - Listar Empresas");
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
@@ -393,7 +393,7 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tabelaEmpresas.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 10, 10, 10, new java.awt.Color(0, 255, 102)));
+        tabelaEmpresas.setBackground(new java.awt.Color(204, 204, 204));
         tabelaEmpresas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tabelaEmpresas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -565,6 +565,7 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/settings-gearsPqn.png"))); // NOI18N
         jMenu1.setText("Ações");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
@@ -616,7 +617,17 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabelaEmpresasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaEmpresasMouseClicked
-        
+        if(evt.getClickCount()==2){
+            
+        }else{
+            int row = tabelaEmpresas.getSelectedRow();
+            TFMostraEmail.setText(empAL.get(row).getEmail());
+            TFMostraEndereco.setText(empAL.get(row).getEndereco());
+            TFMostraNomeFanrasia.setText(empAL.get(row).getNomeFantasia());
+            TFMostraNumRegistro.setText(empAL.get(row).getNumRegistro());
+            TFMostraRazaoSocial.setText(empAL.get(row).getRazaoSocial_nome());
+            TFMostraTelefone.setText(empAL.get(row).getFone());
+        }
         
         
     }//GEN-LAST:event_tabelaEmpresasMouseClicked
@@ -627,7 +638,7 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, empAL.size());
+        //JOptionPane.showMessageDialog(null, empAL.size());
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**

@@ -91,7 +91,7 @@ public class JFRMListarCursos extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Stagium - Listar Orientadores");
+        setTitle("Stagium - Listar Cursos");
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 

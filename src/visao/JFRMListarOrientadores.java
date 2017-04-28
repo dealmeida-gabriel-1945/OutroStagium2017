@@ -5,18 +5,29 @@
  */
 package visao;
 
+import controle.OrientadorControle;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import modelo.OrientadorDoEstagioBEAN;
+
 /**
  *
  * @author user
  */
 public class JFRMListarOrientadores extends javax.swing.JFrame {
+        
+    private DefaultTableModel dTable;
+    private ArrayList<OrientadorDoEstagioBEAN> oriAL = new ArrayList<OrientadorDoEstagioBEAN>();
+    private OrientadorControle oriC = new OrientadorControle();
+    
 
     /**
-     * Creates new form JFRMListarAlunos
+     * Creates new form JFRMNovo
      */
     public JFRMListarOrientadores() {
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH);
+         this.setExtendedState(MAXIMIZED_BOTH);
+        this.preencheTabela();
     }
 
     /**
@@ -28,9 +39,16 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         lblName16 = new javax.swing.JLabel();
         lblName17 = new javax.swing.JLabel();
         lblName18 = new javax.swing.JLabel();
@@ -38,7 +56,6 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
         lblName20 = new javax.swing.JLabel();
         lblName21 = new javax.swing.JLabel();
         lblName22 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblName24 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
@@ -47,7 +64,6 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel14 = new javax.swing.JLabel();
@@ -60,29 +76,64 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jTextField10 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaContas = new javax.swing.JTable();
+        tabelaOrientadores = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        tfMostraEmail = new javax.swing.JTextField();
+        tfMostraArea = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        tfMostraEndereco = new javax.swing.JTextField();
+        tfMostraNome = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
+
+        jMenu1.setText("Ações");
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/reloadPqn.png"))); // NOI18N
+        jMenuItem1.setText("Recarregar");
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/searchOneUserPqn.png"))); // NOI18N
+        jMenuItem4.setText("Pesquisar");
+        jMenu1.add(jMenuItem4);
+
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/eraserPqn.png"))); // NOI18N
+        jMenuItem5.setText("Limpar Filtros");
+        jMenu1.add(jMenuItem5);
+
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search01Pqn.png"))); // NOI18N
+        jMenuItem6.setText("Pesquisar Todos");
+        jMenu1.add(jMenuItem6);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/editPqn.png"))); // NOI18N
+        jMenuItem2.setText("Editar");
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/trash-bin-symbolPqn.png"))); // NOI18N
+        jMenuItem3.setText("Excluir");
+        jMenu1.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Stagium - Listar Orientadores");
@@ -90,8 +141,6 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
         jPanel4.setBackground(new java.awt.Color(0, 255, 102));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Visao/stagiumPqn.png"))); // NOI18N
 
         lblName16.setFont(new java.awt.Font("MV Boli", 1, 48)); // NOI18N
         lblName16.setText("S");
@@ -114,8 +163,6 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
         lblName22.setFont(new java.awt.Font("MV Boli", 1, 48)); // NOI18N
         lblName22.setText("M");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Visao/1.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -130,20 +177,16 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
                             .addComponent(lblName19, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblName18, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblName17, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblName16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
+                            .addComponent(lblName16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(57, 57, 57))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(lblName20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(76, 76, 76))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addGap(76, 76, 76))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(22, 22, 22)
                 .addComponent(lblName16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblName17)
@@ -157,8 +200,7 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
                 .addComponent(lblName21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblName22)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                .addComponent(jLabel3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         lblName24.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N
@@ -172,8 +214,6 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
         jLabel10.setText("Nome:");
 
         jLabel11.setText("Endereço:");
-
-        jLabel12.setText("Área:");
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -206,16 +246,18 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
 
         jLabel13.setText("Email:");
 
+        jLabel12.setText("Área:");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTextField9)
@@ -277,8 +319,8 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
                             .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
@@ -323,8 +365,9 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tabelaContas.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 10, 10, 10, new java.awt.Color(0, 255, 102)));
-        tabelaContas.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaOrientadores.setBackground(new java.awt.Color(204, 204, 204));
+        tabelaOrientadores.setForeground(new java.awt.Color(51, 51, 51));
+        tabelaOrientadores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {}
             },
@@ -332,12 +375,12 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
 
             }
         ));
-        tabelaContas.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabelaOrientadores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelaContasMouseClicked(evt);
+                tabelaOrientadoresMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tabelaContas);
+        jScrollPane1.setViewportView(tabelaOrientadores);
 
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -351,17 +394,17 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
 
         jLabel1.setText("Email:");
 
-        jTextField1.setEditable(false);
+        tfMostraEmail.setEditable(false);
 
-        jTextField2.setEditable(false);
+        tfMostraArea.setEditable(false);
 
         jLabel4.setText("Área:");
 
         jLabel6.setText("Endereço:");
 
-        jTextField4.setEditable(false);
+        tfMostraEndereco.setEditable(false);
 
-        jTextField3.setEditable(false);
+        tfMostraNome.setEditable(false);
 
         jLabel5.setText("Nome:");
 
@@ -377,13 +420,13 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                    .addComponent(jTextField1))
+                    .addComponent(tfMostraNome)
+                    .addComponent(tfMostraArea, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                    .addComponent(tfMostraEmail))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfMostraEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -408,19 +451,19 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
                                 .addGap(0, 6, Short.MAX_VALUE)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel5)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tfMostraNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel6)
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(tfMostraEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel1)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(tfMostraEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel4)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(tfMostraArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap())
         );
 
@@ -461,41 +504,42 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jMenu1.setText("Ações");
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/settings-gearsPqn.png"))); // NOI18N
+        jMenu2.setText("Ações");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/reloadPqn.png"))); // NOI18N
-        jMenuItem1.setText("Recarregar");
-        jMenu1.add(jMenuItem1);
+        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/reloadPqn.png"))); // NOI18N
+        jMenuItem8.setText("Recarregar");
+        jMenu2.add(jMenuItem8);
 
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/searchOneUserPqn.png"))); // NOI18N
-        jMenuItem4.setText("Pesquisar");
-        jMenu1.add(jMenuItem4);
+        jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/searchOneUserPqn.png"))); // NOI18N
+        jMenuItem9.setText("Pesquisar");
+        jMenu2.add(jMenuItem9);
 
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/eraserPqn.png"))); // NOI18N
-        jMenuItem5.setText("Limpar Filtros");
-        jMenu1.add(jMenuItem5);
+        jMenuItem10.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/eraserPqn.png"))); // NOI18N
+        jMenuItem10.setText("Limpar Filtros");
+        jMenu2.add(jMenuItem10);
 
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search01Pqn.png"))); // NOI18N
-        jMenuItem6.setText("Pesquisar Todos");
-        jMenu1.add(jMenuItem6);
+        jMenuItem11.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search01Pqn.png"))); // NOI18N
+        jMenuItem11.setText("Pesquisar Todos");
+        jMenu2.add(jMenuItem11);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/editPqn.png"))); // NOI18N
-        jMenuItem2.setText("Editar");
-        jMenu1.add(jMenuItem2);
+        jMenuItem12.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/editPqn.png"))); // NOI18N
+        jMenuItem12.setText("Editar");
+        jMenu2.add(jMenuItem12);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/trash-bin-symbolPqn.png"))); // NOI18N
-        jMenuItem3.setText("Excluir");
-        jMenu1.add(jMenuItem3);
+        jMenuItem13.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
+        jMenuItem13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/trash-bin-symbolPqn.png"))); // NOI18N
+        jMenuItem13.setText("Excluir");
+        jMenu2.add(jMenuItem13);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar2.add(jMenu2);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -511,9 +555,18 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tabelaContasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaContasMouseClicked
-
-    }//GEN-LAST:event_tabelaContasMouseClicked
+    private void tabelaOrientadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaOrientadoresMouseClicked
+        int y = evt.getClickCount();
+        int x = tabelaOrientadores.getSelectedRow();
+        if(y==2){
+            
+        }else{
+            tfMostraArea.setText(oriAL.get(x).getArea());
+            tfMostraEmail.setText(oriAL.get(x).getEmail());
+            tfMostraEndereco.setText(oriAL.get(x).getEndereco());
+            tfMostraNome.setText(oriAL.get(x).getNome());
+        }
+    }//GEN-LAST:event_tabelaOrientadoresMouseClicked
 
     /**
      * @param args the command line arguments
@@ -568,19 +621,25 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -590,11 +649,7 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
@@ -606,6 +661,59 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
     private javax.swing.JLabel lblName21;
     private javax.swing.JLabel lblName22;
     private javax.swing.JLabel lblName24;
-    private javax.swing.JTable tabelaContas;
+    private javax.swing.JTable tabelaOrientadores;
+    private javax.swing.JTextField tfMostraArea;
+    private javax.swing.JTextField tfMostraEmail;
+    private javax.swing.JTextField tfMostraEndereco;
+    private javax.swing.JTextField tfMostraNome;
     // End of variables declaration//GEN-END:variables
+    private void preencheTabela() {
+        dTable = criaTabela();
+        //seta o nome das colunas da tabela
+        dTable.addColumn("Nome");
+        dTable.addColumn("Email");
+        dTable.addColumn("Telefone");
+        dTable.addColumn("Celular");
+        dTable.addColumn("Área");
+        this.povoaTabela();
+    }
+     private DefaultTableModel criaTabela() {
+         //sempre que usar JTable é necessário ter um DefaulttableModel
+        DefaultTableModel dTable = new DefaultTableModel() {
+            //Define o tipo dos campos (coluna) na mesma ordem que as colunas foram criadas
+            Class[] types = new Class[]{
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            //define se os campos podem ser editados na propria tabela
+            boolean[] canEdit = new boolean[]{
+                false, false, false, false, false};
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            }
+        ;
+
+        };
+        //retorna o DefaultTableModel
+    return dTable;
+    }
+     private void povoaTabela() {
+         this.limparTabela();
+        oriAL = oriC.povoaTabela();
+        //cada célula do arrayList vira uma linha(row) na tabela
+        for (OrientadorDoEstagioBEAN dado : oriAL) {
+            dTable.addRow(new Object[]{dado.getNome(), dado.getEmail(),dado.getFone(), dado.getCelular(), dado.getArea()});
+        }
+        //set o modelo da tabela
+        tabelaOrientadores.setModel(dTable);
+    }
+
+    private void limparTabela() {
+        while (tabelaOrientadores.getRowCount() > 0) {
+    DefaultTableModel dm = (DefaultTableModel) tabelaOrientadores.getModel();
+    dm.getDataVector().removeAllElements();
+    }
+    }
+
 }
