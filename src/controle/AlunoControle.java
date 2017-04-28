@@ -8,7 +8,7 @@ package controle;
 import java.util.ArrayList;
 import modelo.AlunoBEAN;
 import modelo.AlunoMySQLDAO;
-
+                            
 /**
  *
  * @author user
@@ -30,6 +30,7 @@ public class AlunoControle {
         alunAL = alunMSQL.pegaAluno(matricula);
         
         return alunAL;
+        
     }
 
     
