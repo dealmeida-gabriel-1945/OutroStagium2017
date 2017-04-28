@@ -11,6 +11,7 @@ package modelo;
  */
 public class CursoBEAN {
     private String nome;
+    private int codigo;
     private String area;
     private String descricao;
     
@@ -23,13 +24,14 @@ public class CursoBEAN {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    
 
-    public String getArea() {
-        return area;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setArea(String area) {
-        this.area = area;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getDescricao() {
@@ -39,6 +41,15 @@ public class CursoBEAN {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+    
     
     
     

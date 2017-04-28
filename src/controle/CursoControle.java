@@ -5,6 +5,7 @@
  */
 package controle;
 
+import java.util.ArrayList;
 import modelo.CursoBEAN;
 import modelo.CursoMySqlDAO;
 
@@ -15,6 +16,7 @@ import modelo.CursoMySqlDAO;
 public class CursoControle {
     
     private CursoMySqlDAO curDAO = new CursoMySqlDAO();
+    ArrayList<CursoBEAN> curAL = new ArrayList<CursoBEAN>();
 
     public boolean cadastrar(CursoBEAN c) {
         
@@ -24,6 +26,20 @@ public class CursoControle {
             return curDAO.cadastrar(c);
         } 
         return false;
+    }
+
+    public ArrayList<CursoBEAN> povoaTabela() {
+        
+        curAL = curDAO.listarAll();
+        
+        return curAL;
+    }
+
+    public ArrayList<CursoBEAN> pegaCurso(int x) {
+        
+        curAL = curDAO.pegarCurso(x);
+        
+        return curAL;
     }
     
 }

@@ -122,5 +122,43 @@ public class EmpresaMySqlDAO {
             throw new RuntimeException(j);
         }
     }
+
+    public ArrayList<EmpresaBEAN> listarAll() {
+         String sql =" SELECT empRazaoSocial, empNomeFantasia, empNRegistro, empEndereco, empCaixaPostal, empFone, empCep, empEmail, empCidade, empEstado, repNome, repCodigo "
+                 + " FROM empresa JOIN representante "
+                 + " WHERE representante_repCodigo = repCodigo; ";
+         
+         ArrayList<EmpresaBEAN> empAL = new ArrayList<EmpresaBEAN>();
+         
+         try {
+             stmt = connection.prepareStatement(sql);            
+            ResultSet rs = stmt.executeQuery();
+             //joga resultado da consulta no ArrayList
+            while (rs.next()) {
+                EmpresaBEAN a = new EmpresaBEAN();
+                
+                a.setRazaoSocial_nome(rs.getString(1));
+                a.setNomeFantasia(rs.getString(2));
+                a.setNumRegistro(rs.getString(3));
+                a.setEndereco(rs.getString(4));
+                a.setCaixaPostal(rs.getString(5));
+                a.setFone(rs.getString(6));
+                a.setCep(rs.getString(7));
+                a.setEmail(rs.getString(8));
+                a.setCidade(rs.getString(9));
+                a.setEstado(rs.getString(10));
+                a.setRepresentanteLegalNome(rs.getString(11));
+                a.setRepresentanteLegalCodigo(rs.getInt(12));
+                
+                empAL.add(a);
+
+            }
+            stmt.close();//fecha conexão - OBRIGATORIO SEMPRE!
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        
+        return empAL;
+    }
     
 }

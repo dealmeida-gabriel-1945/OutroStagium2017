@@ -17,6 +17,7 @@ import modelo.RepresentanteLegalBEAN;
 public class EmpresaControle {
     
     private EmpresaMySqlDAO eDAO = new EmpresaMySqlDAO();
+    private ArrayList<EmpresaBEAN> empAL = new ArrayList<EmpresaBEAN>();
 
     public ArrayList<RepresentanteLegalBEAN> todosRep() {
         return eDAO.todosRepresentantes();
@@ -33,6 +34,13 @@ public class EmpresaControle {
             return eDAO.cadastrar(e);
         } 
         return false;
+    }
+
+    public ArrayList<EmpresaBEAN> povoaTabela() {
+        
+        empAL = eDAO.listarAll();
+        
+        return empAL;
     }
     
 }

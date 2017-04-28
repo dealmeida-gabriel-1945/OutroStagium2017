@@ -21,7 +21,8 @@ public class EmpresaBEAN {
     private String email;
     private String cidade;
     private String estado;
-    private int representanteLegal;
+    private int representanteLegalCodigo;
+    private String representanteLegalNome;
     
 //==============================================================================
 
@@ -106,13 +107,29 @@ public class EmpresaBEAN {
     }
 
     public int getRepresentanteLegal() {
-        return representanteLegal;
+        return representanteLegalCodigo;
     }
 
     public void setRepresentanteLegal(int representanteLegal) {
-        this.representanteLegal = representanteLegal;
+        this.representanteLegalCodigo = representanteLegal;
     }
 
+    public int getRepresentanteLegalCodigo() {
+        return representanteLegalCodigo;
+    }
+
+    public void setRepresentanteLegalCodigo(int representanteLegalCodigo) {
+        this.representanteLegalCodigo = representanteLegalCodigo;
+    }
+
+    public String getRepresentanteLegalNome() {
+        return representanteLegalNome;
+    }
+
+    public void setRepresentanteLegalNome(String representanteLegalNome) {
+        this.representanteLegalNome = representanteLegalNome;
+    }
+    
     
     
     
