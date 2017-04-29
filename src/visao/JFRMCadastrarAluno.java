@@ -163,10 +163,6 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
         lblName7.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N
         lblName7.setText("I");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/14793705_1034024470053927_1904994718_n.png"))); // NOI18N
-
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/1.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -340,7 +336,6 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
 
         jPanel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        BTNCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/addPqn.png"))); // NOI18N
         BTNCadastrar.setText("Cadastrar");
         BTNCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,7 +343,6 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
             }
         });
 
-        BTNLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/eraserPqn.png"))); // NOI18N
         BTNLimpar.setText("Limpar");
         BTNLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -389,14 +383,14 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(175, 175, 175)
                         .addComponent(lblName6, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(150, Short.MAX_VALUE))
+                        .addContainerGap(208, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel14)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(FTFDataDeNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 115, Short.MAX_VALUE))
+                                .addGap(0, 173, Short.MAX_VALUE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
@@ -560,7 +554,6 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
         TFRepresentanteLegal.getAccessibleContext().setAccessibleName("");
         TFRepresentanteLegal.getAccessibleContext().setAccessibleDescription("");
 
-        BTNVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/left-arrowPqn.png"))); // NOI18N
         BTNVoltar.setText("Voltar");
         BTNVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -595,11 +588,9 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jPanel1);
 
-        jMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/settings-gearsPqn.png"))); // NOI18N
         jMenu.setText("Ações");
 
         JMICadastrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        JMICadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/addPqn.png"))); // NOI18N
         JMICadastrar.setText("Cadastrar");
         JMICadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -609,7 +600,6 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
         jMenu.add(JMICadastrar);
 
         JMILimpar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        JMILimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/eraserPqn.png"))); // NOI18N
         JMILimpar.setText("Limpar");
         JMILimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -619,7 +609,6 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
         jMenu.add(JMILimpar);
 
         JMIVoltar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
-        JMIVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/left-arrowPqn.png"))); // NOI18N
         JMIVoltar.setText("Voltar");
         JMIVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

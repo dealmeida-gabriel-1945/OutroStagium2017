@@ -81,11 +81,11 @@ public class EstagioMySqlDAO {
         return orientadores;
     }
 
-    public boolean cadastrar(EstagioBEAN es) {
+    public boolean cadastrar1(EstagioBEAN es) {
         String sql = "insert into estagio ("
                 + "estDataInicio,"
                 + "estDataFinal,"
-                + "estTotalHora,"
+                + "estTotalHoras,"
                 + "estBeneficios,"
                 + "estBeneficiosValor,"
                 + "aluno_aluMatricula,"

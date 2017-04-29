@@ -148,7 +148,6 @@ public class JFRMCadastrarCursos extends javax.swing.JFrame {
 
         jPanel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        btCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/book-with-add-buttonPqn.png"))); // NOI18N
         btCadastrar.setText("Cadastrar");
         btCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,7 +155,6 @@ public class JFRMCadastrarCursos extends javax.swing.JFrame {
             }
         });
 
-        btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/trash-bin-symbolPqn.png"))); // NOI18N
         btLimpar.setText("Limpar");
         btLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,7 +183,6 @@ public class JFRMCadastrarCursos extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/left-arrowPqn.png"))); // NOI18N
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -274,11 +271,9 @@ public class JFRMCadastrarCursos extends javax.swing.JFrame {
                 .addGap(85, 85, 85))
         );
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/settings-gearsPqn.png"))); // NOI18N
         jMenu1.setText("Ações");
 
         miCadastrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        miCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/book-with-add-buttonPqn.png"))); // NOI18N
         miCadastrar.setText("Cadastrar");
         miCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -288,7 +283,6 @@ public class JFRMCadastrarCursos extends javax.swing.JFrame {
         jMenu1.add(miCadastrar);
 
         miLimar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        miLimar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/trash-bin-symbolPqn.png"))); // NOI18N
         miLimar.setText("Limpar");
         miLimar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -298,7 +292,6 @@ public class JFRMCadastrarCursos extends javax.swing.JFrame {
         jMenu1.add(miLimar);
 
         miVoltar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
-        miVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/left-arrowPqn.png"))); // NOI18N
         miVoltar.setText("Voltar");
         miVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -6,9 +6,6 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/settings-gearsPqn.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="A&#xe7;&#xf5;es"/>
           </Properties>
           <SubComponents>
@@ -16,9 +13,6 @@
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+S"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icon/Add-businessmanPqn.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
@@ -31,9 +25,6 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+L"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icon/trash-bin-symbolPqn.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Limpar"/>
               </Properties>
               <Events>
@@ -44,9 +35,6 @@
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+Q"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icon/left-arrowPqn.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Voltar"/>
               </Properties>
@@ -60,7 +48,8 @@
     </Menu>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="title" type="java.lang.String" value="Stagium - Cadastrar Orientador"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
@@ -371,9 +360,6 @@
                   <SubComponents>
                     <Component class="javax.swing.JButton" name="BTNCadastrar">
                       <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/icon/Add-businessmanPqn.png"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Cadastrar"/>
                       </Properties>
                       <Events>
@@ -382,9 +368,6 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="BTNLimpar">
                       <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/icon/trash-bin-symbolPqn.png"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Limpar"/>
                       </Properties>
                       <Events>
@@ -466,9 +449,6 @@
             </Container>
             <Component class="javax.swing.JButton" name="BTNVoltar">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icon/left-arrowPqn.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Voltar"/>
               </Properties>
             </Component>

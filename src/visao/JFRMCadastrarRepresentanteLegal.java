@@ -75,7 +75,8 @@ public class JFRMCadastrarRepresentanteLegal extends javax.swing.JFrame {
         JMILimpar = new javax.swing.JMenuItem();
         JMIVoltar = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Stagium - Cadastrar Representante");
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
@@ -143,7 +144,6 @@ public class JFRMCadastrarRepresentanteLegal extends javax.swing.JFrame {
 
         jPanel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        BTNCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Add-businessmanPqn.png"))); // NOI18N
         BTNCadastrar.setText("Cadastrar");
         BTNCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +151,6 @@ public class JFRMCadastrarRepresentanteLegal extends javax.swing.JFrame {
             }
         });
 
-        BTNLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/trash-bin-symbolPqn.png"))); // NOI18N
         BTNLimpar.setText("Limpar");
         BTNLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,7 +192,7 @@ public class JFRMCadastrarRepresentanteLegal extends javax.swing.JFrame {
         jLabel6.setText("Nacionalidade:");
 
         lblName6.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N
-        lblName6.setText("Cadastrar Orientador");
+        lblName6.setText("Cadastrar Representante");
 
         jLabel7.setText("Endereço:");
 
@@ -280,11 +279,6 @@ public class JFRMCadastrarRepresentanteLegal extends javax.swing.JFrame {
                                             .addComponent(FTFTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
                                         .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(TFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel7)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,7 +288,14 @@ public class JFRMCadastrarRepresentanteLegal extends javax.swing.JFrame {
                                             .addComponent(TFRG, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(FTFCPF, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(TFNome))))
+                                    .addComponent(TFNome)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(48, 48, 48)
+                                .addComponent(TFEmail)))
                         .addContainerGap())))
         );
         jPanel3Layout.setVerticalGroup(
@@ -347,7 +348,6 @@ public class JFRMCadastrarRepresentanteLegal extends javax.swing.JFrame {
                 .addGap(49, 49, 49))
         );
 
-        BTNVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/left-arrowPqn.png"))); // NOI18N
         BTNVoltar.setText("Voltar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -379,11 +379,9 @@ public class JFRMCadastrarRepresentanteLegal extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jPanel1);
 
-        jMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/settings-gearsPqn.png"))); // NOI18N
         jMenu.setText("Ações");
 
         JMICadastrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        JMICadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Add-businessmanPqn.png"))); // NOI18N
         JMICadastrar.setText("Cadastrar");
         JMICadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -393,7 +391,6 @@ public class JFRMCadastrarRepresentanteLegal extends javax.swing.JFrame {
         jMenu.add(JMICadastrar);
 
         JMILimpar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        JMILimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/trash-bin-symbolPqn.png"))); // NOI18N
         JMILimpar.setText("Limpar");
         JMILimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -403,7 +400,6 @@ public class JFRMCadastrarRepresentanteLegal extends javax.swing.JFrame {
         jMenu.add(JMILimpar);
 
         JMIVoltar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
-        JMIVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/left-arrowPqn.png"))); // NOI18N
         JMIVoltar.setText("Voltar");
         JMIVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -420,15 +416,11 @@ public class JFRMCadastrarRepresentanteLegal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 825, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 764, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 764, Short.MAX_VALUE)
         );
 
         pack();

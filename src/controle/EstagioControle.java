@@ -15,6 +15,7 @@ import modelo.EmpresaMySqlDAO;
 import modelo.EstagioBEAN;
 import modelo.EstagioMySqlDAO;
 import modelo.OrientadorDoEstagioBEAN;
+import modelo.OrientadorMySqlDAO;
 
 /**
  *
@@ -25,7 +26,8 @@ public class EstagioControle {
     EstagioMySqlDAO estDAO = new EstagioMySqlDAO();
     AlunoMySQLDAO aluDAO = new AlunoMySQLDAO();
     EmpresaMySqlDAO empDAO = new EmpresaMySqlDAO();
-    public ArrayList<OrientadorDoEstagioBEAN> pegaOrientadores;
+    OrientadorMySqlDAO oriDAO = new OrientadorMySqlDAO();
+    
     
     public ArrayList<AlunoBEAN> todosAlunos() {
         return estDAO.todosAlunos();
@@ -49,8 +51,12 @@ public class EstagioControle {
         return empDAO.listarAll();
     }
 
-    public boolean cadastrar(EstagioBEAN est) {
-        return estDAO.cadastrar(est);
+    public boolean cadastrar1(EstagioBEAN est) {
+        return estDAO.cadastrar1(est);
+    }
+
+    public ArrayList<OrientadorDoEstagioBEAN> pegaOrientadores() {
+        return oriDAO.listarAllOrientador();
     }
 
     
