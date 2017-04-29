@@ -9,6 +9,7 @@ package controle;
 import java.util.ArrayList;
 import modelo.AlunoBEAN;
 import modelo.AlunoMySQLDAO;
+import modelo.CursoBEAN;
                             
 /**
  *
@@ -32,6 +33,23 @@ public class AlunoControle {
         
         return alunAL;
         
+    }
+
+    public ArrayList<CursoBEAN> todosCursos() {
+        return alunMSQL.todosCursos();
+    }
+
+    public int codigoCurso(String string) {
+        return alunMSQL.codigoCurso1(string);
+    }
+
+    public boolean cadastrar(AlunoBEAN alu) {
+         boolean v = alunMSQL.verificarAluno(alu.getMatricula());
+         
+        if (v == true) {
+            return alunMSQL.cadastrar1(alu);
+        } 
+        return false;
     }
 
     

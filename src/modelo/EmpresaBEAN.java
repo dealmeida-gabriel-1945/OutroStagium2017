@@ -11,6 +11,7 @@ package modelo;
  */
 public class EmpresaBEAN {
     
+    private int cod;
     private String razaoSocial_nome;
     private String nomeFantasia;
     private String numRegistro; //CNPJ, INSC, ESTADUAL, NUM CONSELHO
@@ -25,6 +26,14 @@ public class EmpresaBEAN {
     private String representanteLegalNome;
     
 //==============================================================================
+
+    public void setCod(int cod) {
+        this.cod = cod;
+    }
+
+    public int getCod() {
+        return cod;
+    }
 
     public String getRazaoSocial_nome() {
         return razaoSocial_nome;

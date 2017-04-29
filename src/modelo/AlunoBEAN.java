@@ -13,6 +13,7 @@ public class AlunoBEAN {
     
     private String nome;
     private String curso;
+    private int curCodigo;
     private String ano_Periodo;
     private String turma;
     private String matricula;
@@ -38,6 +39,14 @@ public class AlunoBEAN {
     
 //==============================================================================
 //==============================================================================
+
+    public void setCurCodigo(int curCodigo) {
+        this.curCodigo = curCodigo;
+    }
+
+    public int getCurCodigo() {
+        return curCodigo;
+    }
 
     public String getNome() {
         return nome;

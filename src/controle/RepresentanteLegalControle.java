@@ -20,5 +20,9 @@ public class RepresentanteLegalControle {
     public ArrayList<RepresentanteLegalBEAN> povoaTabela() {
         return repMSQL.listaAll();
     }
+
+    public boolean cadastrar(RepresentanteLegalBEAN rep) {
+        return repMSQL.cadastrar(rep);
+    }
     
 }

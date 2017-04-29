@@ -129,5 +129,127 @@ public class AlunoMySQLDAO {
         
         return alunAL;
     }
+
+    public ArrayList<CursoBEAN> todosCursos() {
+        String sql = "select curNome from curso ;";
+        ArrayList<CursoBEAN> cursos = new ArrayList<CursoBEAN>();
+        try {
+            stmt = connection.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                CursoBEAN c = new CursoBEAN();
+                c.setNome(rs.getString(1));
+                cursos.add(c);
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return cursos;
+    }
+
+    public int codigoCurso1(String nome) {
+        String sql = "select curCod from curso where curNome = ?;";
+        int cod = 0;
+        try {
+            
+            stmt = connection.prepareStatement(sql);
+            stmt.setString(1, nome);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                cod = rs.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return cod;
+    }
+
+    public boolean verificarAluno(String matricula) {
+        String sql = "select count(aluMatricula) from aluno where aluMatricula = ?;";
+        int cod = 0;
+        try {
+            
+            stmt = connection.prepareStatement(sql);
+            stmt.setString(1, matricula);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                cod = rs.getInt(1);
+            }
+            if (cod > 0) {
+                return false;
+            }
+            return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean cadastrar1(AlunoBEAN a) {
+        String sql = "insert into aluno ("
+                + "aluNome,"
+                + "aluPeriodo,"
+                + "aluMatricula,"
+                + "aluCpf,"
+                + "alunRg,"
+                + "aluOrgEmissor,"
+                + "aluEstadoCivil,"
+                + "aluDataNascimento,"
+                + "aluRepresentanteLegal,"
+                + "aluEndereco,"
+                + "aluEstado,"
+                + "aluCidade,"
+                + "aluCep,"
+                + "aluFone,"
+                + "aluCelular,"
+                + "aluEmail,"
+                + "aluConhecimentoInformatica,"
+                + "aluCarteiraHabilitacao,"
+                + "aluInicioCurso,"
+                + "aluFormatura,"
+                + "curso_curCod,"
+                + "aluTurma)"
+                + "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+        try {
+            
+            
+            
+            stmt = connection.prepareStatement(sql);
+            
+            stmt.setString(1, a.getNome());
+            stmt.setString(2, a.getAno_Periodo());
+            stmt.setString(3, a.getMatricula());
+            stmt.setString(4, a.getCpf());
+            stmt.setString(5, a.getRg());
+            stmt.setString(6, a.getOrgEmissor());
+            stmt.setString(7, a.getEstadoCivil());
+            stmt.setString(8, a.getDataNascimento());
+            stmt.setString(9, a.getRepresentanteLegal());
+            stmt.setString(10, a.getEndereco());
+            stmt.setString(11, a.getEstado());
+            stmt.setString(12, a.getCidade());
+            stmt.setString(13, a.getCep());
+            stmt.setString(14, a.getFone());
+            stmt.setString(15, a.getCelular());
+            stmt.setString(16, a.getEmail());
+            stmt.setString(17, a.getConhecimento_informatica());
+            stmt.setString(18, a.getCarteira_habilitacao());
+            stmt.setString(19, a.getInicioDoCurso());
+            stmt.setString(20, a.getFormatura());
+            stmt.setInt(21, a.getCurCodigo());
+            stmt.setString(22, a.getTurma());
+            
+            
+            stmt.execute();
+            stmt.close();
+            
+            return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    
     
 }

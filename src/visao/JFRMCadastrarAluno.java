@@ -5,7 +5,14 @@
  */
 package visao;
 
+import controle.AlunoControle;
 import java.awt.Toolkit;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import modelo.AlunoBEAN;
+import modelo.CursoBEAN;
 
 /**
  *
@@ -13,6 +20,7 @@ import java.awt.Toolkit;
  */
 public class JFRMCadastrarAluno extends javax.swing.JFrame {
 
+    AlunoControle aluControl = new AlunoControle();
     /**
      * Creates new form JFRMCadastrarCursos
      */
@@ -22,6 +30,7 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
         //this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         RBTNNao01.setSelected(true);
         RBTNNao02.setSelected(true);
+        preencherCombo();
     }
 
     /**
@@ -232,7 +241,7 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
         jLabel14.setText("Data de Nascimento");
 
         try {
-            FTFDataDeNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
+            FTFDataDeNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####/##/##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -318,13 +327,13 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
         jLabel29.setText("Formatura:");
 
         try {
-            FTFInicioDoCurso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
+            FTFInicioDoCurso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####/##/##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
         try {
-            FTFTerminoDoCurso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
+            FTFTerminoDoCurso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####/##/##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -333,9 +342,19 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
 
         BTNCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/addPqn.png"))); // NOI18N
         BTNCadastrar.setText("Cadastrar");
+        BTNCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNCadastrarActionPerformed(evt);
+            }
+        });
 
         BTNLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/eraserPqn.png"))); // NOI18N
         BTNLimpar.setText("Limpar");
+        BTNLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNLimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -582,11 +601,21 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
         JMICadastrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         JMICadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/addPqn.png"))); // NOI18N
         JMICadastrar.setText("Cadastrar");
+        JMICadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMICadastrarActionPerformed(evt);
+            }
+        });
         jMenu.add(JMICadastrar);
 
         JMILimpar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         JMILimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/eraserPqn.png"))); // NOI18N
         JMILimpar.setText("Limpar");
+        JMILimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMILimparActionPerformed(evt);
+            }
+        });
         jMenu.add(JMILimpar);
 
         JMIVoltar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
@@ -637,6 +666,136 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_BTNVoltarActionPerformed
+
+    private void BTNCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNCadastrarActionPerformed
+        
+                
+        AlunoBEAN alu = new AlunoBEAN();
+        
+        String conhInfo = this.buttonGroupSelect();
+        String cartHab = this.buttonGroup2Select();
+        
+        int codCurso = aluControl.codigoCurso((String) CBCurso.getSelectedItem());
+        
+        alu.setNome(TFNome.getText());
+        alu.setCurCodigo(codCurso);
+        alu.setAno_Periodo(TFAnoPeriodo.getText());
+        alu.setTurma(TFTurma.getText());
+        alu.setMatricula(TFMatricula.getText());
+        alu.setCpf(FTFCPF.getText());
+        alu.setRg(TFRG.getText());
+        alu.setOrgEmissor(TFOrgaoEmissor.getText());
+        alu.setEstadoCivil((String) CBEstadoCivil.getSelectedItem());
+        alu.setDataNascimento(FTFDataDeNascimento.getText());
+        alu.setRepresentanteLegal(TFRepresentanteLegal.getText());
+        alu.setEndereco(TFEndereco.getText());
+        alu.setEstado(TFEstado.getText());
+        alu.setCidade(TFCidade.getText());
+        alu.setCep(FTFCEP.getText());
+        alu.setFone(FTFTelefone.getText());
+        alu.setCelular(FTFCelular.getText());
+        alu.setEmail(TFEmail.getText());
+        alu.setConhecimento_informatica(conhInfo);
+        alu.setCarteira_habilitacao(cartHab);
+        alu.setInicioDoCurso(FTFInicioDoCurso.getText());
+        alu.setFormatura(FTFTerminoDoCurso.getText());
+        
+        boolean r = aluControl.cadastrar(alu);
+
+            if (r == true) {
+                JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso!!!");
+            } else if (r == false) {
+                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Aluno já cadastrado");
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
+            }
+    }//GEN-LAST:event_BTNCadastrarActionPerformed
+
+    private void JMICadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMICadastrarActionPerformed
+        AlunoBEAN alu = new AlunoBEAN();
+        
+        String conhInfo = this.buttonGroupSelect();
+        String cartHab = this.buttonGroup2Select();
+        
+        int codCurso = aluControl.codigoCurso((String) CBCurso.getSelectedItem());
+        
+        alu.setNome(TFNome.getText());
+        alu.setCurCodigo(codCurso);
+        alu.setAno_Periodo(TFAnoPeriodo.getText());
+        alu.setTurma(TFTurma.getText());
+        alu.setMatricula(TFMatricula.getText());
+        alu.setCpf(FTFCPF.getText());
+        alu.setRg(TFRG.getText());
+        alu.setOrgEmissor(TFOrgaoEmissor.getText());
+        alu.setEstadoCivil((String) CBEstadoCivil.getSelectedItem());
+        alu.setDataNascimento(FTFDataDeNascimento.getText());
+        alu.setRepresentanteLegal(TFRepresentanteLegal.getText());
+        alu.setEndereco(TFEndereco.getText());
+        alu.setEstado(TFEstado.getText());
+        alu.setCidade(TFCidade.getText());
+        alu.setCep(FTFCEP.getText());
+        alu.setFone(FTFTelefone.getText());
+        alu.setCelular(FTFCelular.getText());
+        alu.setEmail(TFEmail.getText());
+        alu.setConhecimento_informatica(conhInfo);
+        alu.setCarteira_habilitacao(cartHab);
+        alu.setInicioDoCurso(FTFInicioDoCurso.getText());
+        alu.setFormatura(FTFTerminoDoCurso.getText());
+        
+        boolean r = aluControl.cadastrar(alu);
+
+            if (r == true) {
+                JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso!!!");
+            } else if (r == false) {
+                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Aluno já cadastrado");
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
+            }
+    }//GEN-LAST:event_JMICadastrarActionPerformed
+
+    private void BTNLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNLimparActionPerformed
+        TFNome.setText("");
+        TFAnoPeriodo.setText("");
+        TFTurma.setText("");
+        TFMatricula.setText("");
+        FTFCPF.setText("");
+        TFRG.setText("");
+        TFOrgaoEmissor.setText("");
+        CBEstadoCivil.setSelectedIndex(0);
+        FTFDataDeNascimento.setText("");
+        TFRepresentanteLegal.setText("");
+        TFEndereco.setText("");
+        TFEstado.setText("");
+        TFCidade.setText("");
+        FTFCEP.setText("");
+        FTFTelefone.setText("");
+        FTFCelular.setText("");
+        TFEmail.setText("");
+        FTFInicioDoCurso.setText("");
+        FTFTerminoDoCurso.setText("");
+    }//GEN-LAST:event_BTNLimparActionPerformed
+
+    private void JMILimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMILimparActionPerformed
+        TFNome.setText("");
+        TFAnoPeriodo.setText("");
+        TFTurma.setText("");
+        TFMatricula.setText("");
+        FTFCPF.setText("");
+        TFRG.setText("");
+        TFOrgaoEmissor.setText("");
+        CBEstadoCivil.setSelectedIndex(0);
+        FTFDataDeNascimento.setText("");
+        TFRepresentanteLegal.setText("");
+        TFEndereco.setText("");
+        TFEstado.setText("");
+        TFCidade.setText("");
+        FTFCEP.setText("");
+        FTFTelefone.setText("");
+        FTFCelular.setText("");
+        TFEmail.setText("");
+        FTFInicioDoCurso.setText("");
+        FTFTerminoDoCurso.setText("");
+    }//GEN-LAST:event_JMILimparActionPerformed
 
     /**
      * @param args the command line arguments
@@ -757,4 +916,30 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
     private javax.swing.JLabel lblName6;
     private javax.swing.JLabel lblName7;
     // End of variables declaration//GEN-END:variables
+
+    private void preencherCombo() {
+        ArrayList<CursoBEAN> cursos = aluControl.todosCursos();
+
+        for (CursoBEAN curso : cursos) {
+            CBCurso.addItem(curso.getNome());
+        }
+    }
+
+    private String buttonGroupSelect() {
+        RBTNSim01.setActionCommand("Sim");
+        RBTNNao01.setActionCommand("Não");
+        
+        String select = BGConhecinmentoEmInformatica.getSelection().getActionCommand();
+        
+        return select;
+    }
+
+    private String buttonGroup2Select() {
+        RBTNSim02.setActionCommand("Sim");
+        RBTNNao02.setActionCommand("Não");
+        
+        String select = BGPossuiCarteiraDeHabilitacao.getSelection().getActionCommand();
+        
+        return select;
+    }
 }

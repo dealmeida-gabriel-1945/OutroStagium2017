@@ -15,7 +15,7 @@ import modelo.RepresentanteLegalBEAN;
  * @author Darkfocus
  */
 public class EmpresaControle {
-    
+
     private EmpresaMySqlDAO eDAO = new EmpresaMySqlDAO();
     private ArrayList<EmpresaBEAN> empAL = new ArrayList<EmpresaBEAN>();
 

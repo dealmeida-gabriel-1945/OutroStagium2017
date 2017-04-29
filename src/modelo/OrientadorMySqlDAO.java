@@ -57,5 +57,39 @@ public class OrientadorMySqlDAO {
         
         return oriAL;
     }
+
+    public boolean cadastrar(OrientadorDoEstagioBEAN o) {
+        String sql = "insert into orientador ("
+                + "oriNome,"
+                + "oriFone,"
+                + "oriCelular,"
+                + "oriEmail,"
+                + "oriEndereco,"
+                + "oriArea)"
+                + "values (?,?,?,?,?,?);";
+        try {
+            
+            
+            
+            stmt = connection.prepareStatement(sql);
+            
+            stmt.setString(1, o.getNome());
+            stmt.setString(2, o.getFone());
+            stmt.setString(3, o.getCelular());
+            stmt.setString(4, o.getEmail());
+            stmt.setString(5, o.getEndereco());
+            stmt.setString(6, o.getArea());
+          
+           
+            
+            
+            stmt.execute();
+            stmt.close();
+            
+            return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     
 }

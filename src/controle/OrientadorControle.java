@@ -21,5 +21,11 @@ public class OrientadorControle {
     public ArrayList<OrientadorDoEstagioBEAN> povoaTabela() {
         return oriMSQL.listarAllOrientador();
     }
+
+    public boolean cadastrar(OrientadorDoEstagioBEAN ori) {
+        
+            return oriMSQL.cadastrar(ori);
+       
+    }
     
 }

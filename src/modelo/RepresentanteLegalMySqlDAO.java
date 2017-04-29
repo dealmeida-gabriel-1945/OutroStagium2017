@@ -60,5 +60,46 @@ public class RepresentanteLegalMySqlDAO {
         
         return repAL;
     }
+
+    public boolean cadastrar(RepresentanteLegalBEAN rep) {
+        String sql = "insert into representante ("
+                + "repNome,"
+                + "repCpf,"
+                + "repRg,"
+                + "repOrgEmissor,"
+                + "repEstadoCivil,"
+                + "repNacionalidade,"
+                + "repEndereco,"
+                + "repCep,"
+                + "repFone,"
+                + "repEmail)"
+                + "values (?,?,?,?,?,?,?,?,?,?);";
+        try {
+            
+            
+            
+            stmt = connection.prepareStatement(sql);
+            
+            stmt.setString(1, rep.getNome());
+            stmt.setString(2, rep.getCpf());
+            stmt.setString(3, rep.getRg());
+            stmt.setString(4, rep.getOrgEmissor());
+            stmt.setString(5, rep.getEstadoCivil());
+            stmt.setString(6, rep.getNacionalidade());
+            stmt.setString(7, rep.getEndereco());
+            stmt.setString(8, rep.getCep());
+            stmt.setString(9, rep.getFone_contato());
+            stmt.setString(10, rep.getEmail());
+            
+            
+            
+            stmt.execute();
+            stmt.close();
+            
+            return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     
 }

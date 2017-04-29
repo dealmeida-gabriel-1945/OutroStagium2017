@@ -124,7 +124,7 @@ public class EmpresaMySqlDAO {
     }
 
     public ArrayList<EmpresaBEAN> listarAll() {
-         String sql =" SELECT empRazaoSocial, empNomeFantasia, empNRegistro, empEndereco, empCaixaPostal, empFone, empCep, empEmail, empCidade, empEstado, repNome, repCodigo "
+         String sql =" SELECT empRazaoSocial, empNomeFantasia, empNRegistro, empEndereco, empCaixaPostal, empFone, empCep, empEmail, empCidade, empEstado, repNome, repCodigo, empCodigo "
                  + " FROM empresa JOIN representante "
                  + " WHERE representante_repCodigo = repCodigo; ";
          
@@ -149,6 +149,7 @@ public class EmpresaMySqlDAO {
                 a.setEstado(rs.getString(10));
                 a.setRepresentanteLegalNome(rs.getString(11));
                 a.setRepresentanteLegalCodigo(rs.getInt(12));
+                a.setCod(rs.getInt(13));
                 
                 empAL.add(a);
 
@@ -160,5 +161,7 @@ public class EmpresaMySqlDAO {
         
         return empAL;
     }
+
+    
     
 }
