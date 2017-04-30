@@ -186,7 +186,7 @@ public class JFRMCadastrarEstagio extends javax.swing.JFrame {
                 .addComponent(lblName4)
                 .addGap(18, 18, 18)
                 .addComponent(lblName5)
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         lblName6.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N

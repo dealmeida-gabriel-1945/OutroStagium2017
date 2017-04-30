@@ -82,19 +82,19 @@ public class EstagioMySqlDAO {
     }
 
     public boolean cadastrar1(EstagioBEAN es) {
-        String sql = "insert into estagio ("
-                + "estDataInicio,"
-                + "estDataFinal,"
-                + "estTotalHoras,"
-                + "estBeneficios,"
-                + "estBeneficiosValor,"
-                + "aluno_aluMatricula,"
-                + "empresa_empCodigo,"
-                + "orientador_oriCodigo,"
-                + "estSupervisor,"
-                + "estHorasMensais,"
-                + "estHorarioInicio,"
-                + "estHorarioFinal)"
+        String sql = "insert into estagio ( "
+                + "estDataInicio, "
+                + "estDataFinal, "
+                + "estTotalHoras, "
+                + "estBeneficios, "
+                + "estBeneficiosValor, "
+                + "aluno_aluMatricula, "
+                + "empresa_empCodigo, "
+                + "orientador_oriCodigo, "
+                + "estSupervisor, "
+                + "estHoraMensais, "
+                + "estHorarioInicio, "
+                + "estHorarioFinal) "
                 + "values (?,?,?,?,?,?,?,?,?,?,?,?);";
         try {
             
@@ -124,6 +124,64 @@ public class EstagioMySqlDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public ArrayList<EstagioBEAN> listarAll() {
+          String sql = " SELECT estCodigo, estAreaAtuacao, estDataInicio, estDataFinal, estTotalHoras, estBeneficios, estBeneficiosValor, estSupervisor, estHoraMensais, estHorarioInicio, estHorarioFinal, estTipo, "+
+                       "        estDataRelatorio1, estDataRelatorio2, estDataRelatorio3, estDataRelatorio4, " +
+                       "	aluMatricula, aluNome, aluCpf, alunRg, aluEmail, " +
+                       "        empCodigo, empNomeFantasia, empRazaoSocial,empFone, empEmail, oriCodigo, oriNome, oriEmail " +
+                       " FROM estagio JOIN aluno " +
+                       "             JOIN empresa " +
+                       "             JOIN orientador " +
+                       " WHERE aluMatricula = aluno_aluMatricula AND empCodigo = empresa_empCodigo AND oriCodigo = orientador_oriCodigo; ";
+        ArrayList <EstagioBEAN> estAL = new ArrayList <EstagioBEAN>();
+        
+        try {
+             stmt = connection.prepareStatement(sql);            
+            ResultSet rs = stmt.executeQuery();
+            //joga resultado da consulta no ArrayList
+            while (rs.next()) {
+                //joga os dados do rs dentro de um objeto c do tipo ContatoBEAN
+                EstagioBEAN a = new EstagioBEAN();
+                a.setCod(rs.getInt(1));
+                a.setAreAtuacao(rs.getString(2));
+                a.setDataInicio(rs.getString(3));
+                a.setDataFinal(rs.getString(4));
+                a.setTotalHoras(rs.getFloat(5));
+                a.setBeneficios(rs.getString(6));
+                a.setBeneficiosValor(rs.getString(7));
+                a.setSupervisor(rs.getString(8));
+                a.setHorasMens(rs.getFloat(9));
+                a.setHorarioInicio(rs.getString(10));
+                a.setHorarioFinal(rs.getString(11));
+                a.setTipo(rs.getString(12));
+                a.setDataPrimeiroRelatorio(rs.getString(13));
+                a.setDataSegundoRelatorio(rs.getString(14));
+                a.setDataTerceiroRelatorio(rs.getString(15));
+                a.setDataQuartoRelatorio(rs.getString(16));
+                a.setAluMatricula(rs.getString(17));
+                a.setAluNome(rs.getString(18));
+                a.setAluCPF(rs.getString(19));
+                a.setAluRG(rs.getString(20));
+                a.setAluEmail(rs.getString(21));
+                a.setEmpCod(rs.getInt(22));
+                a.setEmpNomeFantasia(rs.getString(23));
+                a.setEmpRazaoSocial(rs.getString(24));
+                a.setEmpTelefone(rs.getString(25));
+                a.setEmpEmail(rs.getString(26));
+                a.setOriCod(rs.getInt(27));
+                a.setOriNome(rs.getString(28));
+                a.setOriEmail(rs.getString(29));
+                
+                estAL.add(a);
+                }
+            stmt.close();//fecha conexão - OBRIGATORIO SEMPRE!
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        
+        return estAL;
     }
 
    

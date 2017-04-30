@@ -27,6 +27,7 @@ public class EstagioControle {
     AlunoMySQLDAO aluDAO = new AlunoMySQLDAO();
     EmpresaMySqlDAO empDAO = new EmpresaMySqlDAO();
     OrientadorMySqlDAO oriDAO = new OrientadorMySqlDAO();
+    ArrayList<EstagioBEAN> estAL = new ArrayList<EstagioBEAN>();
     
     
     public ArrayList<AlunoBEAN> todosAlunos() {
@@ -57,6 +58,11 @@ public class EstagioControle {
 
     public ArrayList<OrientadorDoEstagioBEAN> pegaOrientadores() {
         return oriDAO.listarAllOrientador();
+    }
+
+    public ArrayList<EstagioBEAN> povoaTabela() {
+        estAL=estDAO.listarAll();
+        return estAL;
     }
 
     
