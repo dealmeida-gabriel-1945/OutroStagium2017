@@ -42,35 +42,35 @@ public class JFRMPrincipal extends javax.swing.JFrame {
         lblName22 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        btnCadAluno = new javax.swing.JButton();
+        btnCadEmpresa = new javax.swing.JButton();
+        btnCadOrientador = new javax.swing.JButton();
+        btnListAlunos = new javax.swing.JButton();
+        btnListOrientadores = new javax.swing.JButton();
+        btnListEmpresas = new javax.swing.JButton();
         lblName23 = new javax.swing.JLabel();
         lblName24 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        btnCadEstagio = new javax.swing.JButton();
+        btnListEstagios = new javax.swing.JButton();
+        btnCadCursos = new javax.swing.JButton();
+        btnListCursos = new javax.swing.JButton();
+        btnCadRepresentante = new javax.swing.JButton();
+        btnListRepresentantes = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
+        miCadAluno = new javax.swing.JMenuItem();
+        miCadOrientador = new javax.swing.JMenuItem();
+        miCadEmpresa = new javax.swing.JMenuItem();
+        miCadEstagio = new javax.swing.JMenuItem();
+        miCadCurso = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
+        miListAlunos = new javax.swing.JMenuItem();
+        miListOrientadores = new javax.swing.JMenuItem();
+        miListEmpresas = new javax.swing.JMenuItem();
+        miListEstagios = new javax.swing.JMenuItem();
+        miListCursos = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
@@ -151,45 +151,45 @@ public class JFRMPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel3))
         );
 
-        jButton1.setText("Cadastrar Aluno");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCadAluno.setText("Cadastrar Aluno");
+        btnCadAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCadAlunoActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Cadastrar Empresa");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnCadEmpresa.setText("Cadastrar Empresa");
+        btnCadEmpresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnCadEmpresaActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Cadastrar Orientador");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnCadOrientador.setText("Cadastrar Orientador");
+        btnCadOrientador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnCadOrientadorActionPerformed(evt);
             }
         });
 
-        jButton8.setText("Listar Alunos");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btnListAlunos.setText("Listar Alunos");
+        btnListAlunos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btnListAlunosActionPerformed(evt);
             }
         });
 
-        jButton9.setText("Listar Orientadores");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        btnListOrientadores.setText("Listar Orientadores");
+        btnListOrientadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                btnListOrientadoresActionPerformed(evt);
             }
         });
 
-        jButton10.setText("Listar Empresas");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        btnListEmpresas.setText("Listar Empresas");
+        btnListEmpresas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                btnListEmpresasActionPerformed(evt);
             }
         });
 
@@ -201,22 +201,47 @@ public class JFRMPrincipal extends javax.swing.JFrame {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jButton2.setText("Cadastrar Estágio");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnCadEstagio.setText("Cadastrar Estágio");
+        btnCadEstagio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnCadEstagioActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Listar Estágios");
+        btnListEstagios.setText("Listar Estágios");
+        btnListEstagios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListEstagiosActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Cadastrar Cursos");
+        btnCadCursos.setText("Cadastrar Cursos");
+        btnCadCursos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadCursosActionPerformed(evt);
+            }
+        });
 
-        jButton12.setText("Listar Cursos");
+        btnListCursos.setText("Listar Cursos");
+        btnListCursos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListCursosActionPerformed(evt);
+            }
+        });
 
-        jButton13.setText("Cadastrar Representante");
+        btnCadRepresentante.setText("Cadastrar Representante");
+        btnCadRepresentante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadRepresentanteActionPerformed(evt);
+            }
+        });
 
-        jButton14.setText("Listar Representantes");
+        btnListRepresentantes.setText("Listar Representantes");
+        btnListRepresentantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListRepresentantesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -225,27 +250,27 @@ public class JFRMPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCadRepresentante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCadCursos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCadOrientador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(lblName24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCadAluno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCadEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCadEstagio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(215, 215, 215)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnListEmpresas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnListAlunos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnListOrientadores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(lblName23, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnListEstagios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnListCursos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnListRepresentantes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(45, 45, 45))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -262,28 +287,28 @@ public class JFRMPrincipal extends javax.swing.JFrame {
                     .addComponent(lblName24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton8)
-                    .addComponent(jButton1))
+                    .addComponent(btnListAlunos)
+                    .addComponent(btnCadAluno))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCadOrientador)
+                    .addComponent(btnListOrientadores, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(btnListEmpresas, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCadEmpresa))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton4))
+                    .addComponent(btnCadEstagio)
+                    .addComponent(btnListEstagios))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton12)
-                    .addComponent(jButton6))
+                    .addComponent(btnListCursos)
+                    .addComponent(btnCadCursos))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton13)
-                    .addComponent(jButton14))
+                    .addComponent(btnCadRepresentante)
+                    .addComponent(btnListRepresentantes))
                 .addGap(23, 23, 23))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -292,7 +317,7 @@ public class JFRMPrincipal extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jButton7.setText("Sair");
+        btnSair.setText("Sair");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -302,7 +327,7 @@ public class JFRMPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton7))
+                        .addComponent(btnSair))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -316,55 +341,80 @@ public class JFRMPrincipal extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(51, 51, 51)
-                .addComponent(jButton7)
+                .addComponent(btnSair)
                 .addContainerGap())
         );
 
         jMenu1.setText("Cadastrar");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Cadastrar Aluno");
-        jMenu1.add(jMenuItem1);
+        miCadAluno.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
+        miCadAluno.setText("Cadastrar Aluno");
+        miCadAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadAlunoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miCadAluno);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setText("Cadastrar Orientador");
-        jMenu1.add(jMenuItem2);
+        miCadOrientador.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        miCadOrientador.setText("Cadastrar Orientador");
+        miCadOrientador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadOrientadorActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miCadOrientador);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setText("Cadastrar  Empresa");
-        jMenu1.add(jMenuItem3);
+        miCadEmpresa.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
+        miCadEmpresa.setText("Cadastrar  Empresa");
+        miCadEmpresa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadEmpresaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miCadEmpresa);
 
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem4.setText("Cadastrar Estágio");
-        jMenu1.add(jMenuItem4);
+        miCadEstagio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
+        miCadEstagio.setText("Cadastrar Estágio");
+        miCadEstagio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadEstagioActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miCadEstagio);
 
-        jMenuItem11.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem11.setText("Cadastrar Curso");
-        jMenu1.add(jMenuItem11);
+        miCadCurso.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_MASK));
+        miCadCurso.setText("Cadastrar Curso");
+        miCadCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadCursoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miCadCurso);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Listar");
 
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem5.setText("Listar Alunos");
-        jMenu2.add(jMenuItem5);
+        miListAlunos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        miListAlunos.setText("Listar Alunos");
+        jMenu2.add(miListAlunos);
 
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem6.setText("Listar Orientadores");
-        jMenu2.add(jMenuItem6);
+        miListOrientadores.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        miListOrientadores.setText("Listar Orientadores");
+        jMenu2.add(miListOrientadores);
 
-        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem7.setText("Listar Empresas");
-        jMenu2.add(jMenuItem7);
+        miListEmpresas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        miListEmpresas.setText("Listar Empresas");
+        jMenu2.add(miListEmpresas);
 
-        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem8.setText("Listar Estágios");
-        jMenu2.add(jMenuItem8);
+        miListEstagios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
+        miListEstagios.setText("Listar Estágios");
+        jMenu2.add(miListEstagios);
 
-        jMenuItem12.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem12.setText("Listar Cursos");
-        jMenu2.add(jMenuItem12);
+        miListCursos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        miListCursos.setText("Listar Cursos");
+        jMenu2.add(miListCursos);
 
         jMenuBar1.add(jMenu2);
 
@@ -401,29 +451,32 @@ public class JFRMPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCadAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadAlunoActionPerformed
         // TODO add your handling code here:
         JFRMCadastrarAluno cAluno = new JFRMCadastrarAluno();
         cAluno.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCadAlunoActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnCadOrientadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadOrientadorActionPerformed
         // TODO add your handling code here:
         JFRMCadastrarOrientador cOri = new JFRMCadastrarOrientador();
         cOri.setVisible(true);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnCadOrientadorActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void btnListAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListAlunosActionPerformed
+        JFRMListarAlunos lAlu = new JFRMListarAlunos();
+        lAlu.setVisible(true);
+    }//GEN-LAST:event_btnListAlunosActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    private void btnListOrientadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListOrientadoresActionPerformed
+        JFRMListarOrientadores lOri = new JFRMListarOrientadores();
+        lOri.setVisible(true);
+    }//GEN-LAST:event_btnListOrientadoresActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    private void btnListEmpresasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListEmpresasActionPerformed
+        JFRMListarEmpresas lEmp = new JFRMListarEmpresas();
+        lEmp.setVisible(true);
+    }//GEN-LAST:event_btnListEmpresasActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
@@ -431,17 +484,67 @@ public class JFRMPrincipal extends javax.swing.JFrame {
         cred.setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnCadEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadEmpresaActionPerformed
         // TODO add your handling code here:
         JFRMCadastrarEmpresa cEmp = new JFRMCadastrarEmpresa();
         cEmp.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnCadEmpresaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnCadEstagioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadEstagioActionPerformed
         // TODO add your handling code here:
         JFRMCadastrarEstagio cadaEst = new JFRMCadastrarEstagio();
         cadaEst.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnCadEstagioActionPerformed
+
+    private void btnCadCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadCursosActionPerformed
+        JFRMCadastrarCursos cCur = new JFRMCadastrarCursos();
+        cCur.setVisible(true);
+    }//GEN-LAST:event_btnCadCursosActionPerformed
+
+    private void btnCadRepresentanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadRepresentanteActionPerformed
+        JFRMCadastrarRepresentanteLegal cRep = new JFRMCadastrarRepresentanteLegal();
+        cRep.setVisible(true);
+    }//GEN-LAST:event_btnCadRepresentanteActionPerformed
+
+    private void btnListEstagiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListEstagiosActionPerformed
+        JFRMListarEstagios lEst = new JFRMListarEstagios();
+        lEst.setVisible(true);
+    }//GEN-LAST:event_btnListEstagiosActionPerformed
+
+    private void btnListCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListCursosActionPerformed
+        JFRMListarCursos lCur = new JFRMListarCursos();
+        lCur.setVisible(true);
+    }//GEN-LAST:event_btnListCursosActionPerformed
+
+    private void btnListRepresentantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListRepresentantesActionPerformed
+        JFRMListarRepresentantes lRep = new JFRMListarRepresentantes();
+        lRep.setVisible(true);
+    }//GEN-LAST:event_btnListRepresentantesActionPerformed
+
+    private void miCadAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadAlunoActionPerformed
+        JFRMCadastrarAluno cAluno = new JFRMCadastrarAluno();
+        cAluno.setVisible(true);
+    }//GEN-LAST:event_miCadAlunoActionPerformed
+
+    private void miCadOrientadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadOrientadorActionPerformed
+        JFRMCadastrarOrientador cOri = new JFRMCadastrarOrientador();
+        cOri.setVisible(true);
+    }//GEN-LAST:event_miCadOrientadorActionPerformed
+
+    private void miCadEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadEmpresaActionPerformed
+        JFRMCadastrarEmpresa cEmp = new JFRMCadastrarEmpresa();
+        cEmp.setVisible(true);
+    }//GEN-LAST:event_miCadEmpresaActionPerformed
+
+    private void miCadEstagioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadEstagioActionPerformed
+        JFRMCadastrarEstagio cadaEst = new JFRMCadastrarEstagio();
+        cadaEst.setVisible(true);
+    }//GEN-LAST:event_miCadEstagioActionPerformed
+
+    private void miCadCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadCursoActionPerformed
+       JFRMCadastrarCursos cCur = new JFRMCadastrarCursos();
+        cCur.setVisible(true);
+    }//GEN-LAST:event_miCadCursoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -479,37 +582,27 @@ public class JFRMPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
+    private javax.swing.JButton btnCadAluno;
+    private javax.swing.JButton btnCadCursos;
+    private javax.swing.JButton btnCadEmpresa;
+    private javax.swing.JButton btnCadEstagio;
+    private javax.swing.JButton btnCadOrientador;
+    private javax.swing.JButton btnCadRepresentante;
+    private javax.swing.JButton btnListAlunos;
+    private javax.swing.JButton btnListCursos;
+    private javax.swing.JButton btnListEmpresas;
+    private javax.swing.JButton btnListEstagios;
+    private javax.swing.JButton btnListOrientadores;
+    private javax.swing.JButton btnListRepresentantes;
+    private javax.swing.JButton btnSair;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
@@ -524,5 +617,15 @@ public class JFRMPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblName22;
     private javax.swing.JLabel lblName23;
     private javax.swing.JLabel lblName24;
+    private javax.swing.JMenuItem miCadAluno;
+    private javax.swing.JMenuItem miCadCurso;
+    private javax.swing.JMenuItem miCadEmpresa;
+    private javax.swing.JMenuItem miCadEstagio;
+    private javax.swing.JMenuItem miCadOrientador;
+    private javax.swing.JMenuItem miListAlunos;
+    private javax.swing.JMenuItem miListCursos;
+    private javax.swing.JMenuItem miListEmpresas;
+    private javax.swing.JMenuItem miListEstagios;
+    private javax.swing.JMenuItem miListOrientadores;
     // End of variables declaration//GEN-END:variables
 }

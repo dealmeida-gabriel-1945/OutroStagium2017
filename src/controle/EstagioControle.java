@@ -53,7 +53,7 @@ public class EstagioControle {
     }
 
     public boolean cadastrar1(EstagioBEAN est) {
-        return estDAO.cadastrar1(est);
+        return estDAO.cadastrar(est);
     }
 
     public ArrayList<OrientadorDoEstagioBEAN> pegaOrientadores() {

@@ -19,8 +19,9 @@ import modelo.CursoBEAN;
  * @author user
  */
 public class JFRMCadastrarAluno extends javax.swing.JFrame {
-
+    
     AlunoControle aluControl = new AlunoControle();
+
     /**
      * Creates new form JFRMCadastrarCursos
      */
@@ -327,6 +328,11 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        FTFInicioDoCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FTFInicioDoCursoActionPerformed(evt);
+            }
+        });
 
         try {
             FTFTerminoDoCurso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####/##/##")));
@@ -625,7 +631,7 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 923, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -658,39 +664,41 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
 
     private void BTNCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNCadastrarActionPerformed
         
-                
-        AlunoBEAN alu = new AlunoBEAN();
+        boolean campos = this.verificaCampos();
         
-        String conhInfo = this.buttonGroupSelect();
-        String cartHab = this.buttonGroup2Select();
-        
-        int codCurso = aluControl.codigoCurso((String) CBCurso.getSelectedItem());
-        
-        alu.setNome(TFNome.getText());
-        alu.setCurCodigo(codCurso);
-        alu.setAno_Periodo(TFAnoPeriodo.getText());
-        alu.setTurma(TFTurma.getText());
-        alu.setMatricula(TFMatricula.getText());
-        alu.setCpf(FTFCPF.getText());
-        alu.setRg(TFRG.getText());
-        alu.setOrgEmissor(TFOrgaoEmissor.getText());
-        alu.setEstadoCivil((String) CBEstadoCivil.getSelectedItem());
-        alu.setDataNascimento(FTFDataDeNascimento.getText());
-        alu.setRepresentanteLegal(TFRepresentanteLegal.getText());
-        alu.setEndereco(TFEndereco.getText());
-        alu.setEstado(TFEstado.getText());
-        alu.setCidade(TFCidade.getText());
-        alu.setCep(FTFCEP.getText());
-        alu.setFone(FTFTelefone.getText());
-        alu.setCelular(FTFCelular.getText());
-        alu.setEmail(TFEmail.getText());
-        alu.setConhecimento_informatica(conhInfo);
-        alu.setCarteira_habilitacao(cartHab);
-        alu.setInicioDoCurso(FTFInicioDoCurso.getText());
-        alu.setFormatura(FTFTerminoDoCurso.getText());
-        
-        boolean r = aluControl.cadastrar(alu);
-
+        if (campos == true) {
+            AlunoBEAN alu = new AlunoBEAN();
+            
+            String conhInfo = this.buttonGroupSelect();
+            String cartHab = this.buttonGroup2Select();
+            
+            int codCurso = aluControl.codigoCurso((String) CBCurso.getSelectedItem());
+            
+            alu.setNome(TFNome.getText());
+            alu.setCurCodigo(codCurso);
+            alu.setAno_Periodo(TFAnoPeriodo.getText());
+            alu.setTurma(TFTurma.getText());
+            alu.setMatricula(TFMatricula.getText());
+            alu.setCpf(FTFCPF.getText());
+            alu.setRg(TFRG.getText());
+            alu.setOrgEmissor(TFOrgaoEmissor.getText());
+            alu.setEstadoCivil((String) CBEstadoCivil.getSelectedItem());
+            alu.setDataNascimento(FTFDataDeNascimento.getText());
+            alu.setRepresentanteLegal(TFRepresentanteLegal.getText());
+            alu.setEndereco(TFEndereco.getText());
+            alu.setEstado(TFEstado.getText());
+            alu.setCidade(TFCidade.getText());
+            alu.setCep(FTFCEP.getText());
+            alu.setFone(FTFTelefone.getText());
+            alu.setCelular(FTFCelular.getText());
+            alu.setEmail(TFEmail.getText());
+            alu.setConhecimento_informatica(conhInfo);
+            alu.setCarteira_habilitacao(cartHab);
+            alu.setInicioDoCurso(FTFInicioDoCurso.getText());
+            alu.setFormatura(FTFTerminoDoCurso.getText());
+            
+            boolean r = aluControl.cadastrar(alu);
+            
             if (r == true) {
                 JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso!!!");
             } else if (r == false) {
@@ -698,41 +706,50 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
             }
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Campos vazios!!!");
+        }
+        
+
     }//GEN-LAST:event_BTNCadastrarActionPerformed
 
     private void JMICadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMICadastrarActionPerformed
-        AlunoBEAN alu = new AlunoBEAN();
+       boolean campos = this.verificaCampos();
         
-        String conhInfo = this.buttonGroupSelect();
-        String cartHab = this.buttonGroup2Select();
-        
-        int codCurso = aluControl.codigoCurso((String) CBCurso.getSelectedItem());
-        
-        alu.setNome(TFNome.getText());
-        alu.setCurCodigo(codCurso);
-        alu.setAno_Periodo(TFAnoPeriodo.getText());
-        alu.setTurma(TFTurma.getText());
-        alu.setMatricula(TFMatricula.getText());
-        alu.setCpf(FTFCPF.getText());
-        alu.setRg(TFRG.getText());
-        alu.setOrgEmissor(TFOrgaoEmissor.getText());
-        alu.setEstadoCivil((String) CBEstadoCivil.getSelectedItem());
-        alu.setDataNascimento(FTFDataDeNascimento.getText());
-        alu.setRepresentanteLegal(TFRepresentanteLegal.getText());
-        alu.setEndereco(TFEndereco.getText());
-        alu.setEstado(TFEstado.getText());
-        alu.setCidade(TFCidade.getText());
-        alu.setCep(FTFCEP.getText());
-        alu.setFone(FTFTelefone.getText());
-        alu.setCelular(FTFCelular.getText());
-        alu.setEmail(TFEmail.getText());
-        alu.setConhecimento_informatica(conhInfo);
-        alu.setCarteira_habilitacao(cartHab);
-        alu.setInicioDoCurso(FTFInicioDoCurso.getText());
-        alu.setFormatura(FTFTerminoDoCurso.getText());
-        
-        boolean r = aluControl.cadastrar(alu);
-
+        if (campos == true) {
+            AlunoBEAN alu = new AlunoBEAN();
+            
+            String conhInfo = this.buttonGroupSelect();
+            String cartHab = this.buttonGroup2Select();
+            
+            int codCurso = aluControl.codigoCurso((String) CBCurso.getSelectedItem());
+            
+            alu.setNome(TFNome.getText());
+            alu.setCurCodigo(codCurso);
+            alu.setAno_Periodo(TFAnoPeriodo.getText());
+            alu.setTurma(TFTurma.getText());
+            alu.setMatricula(TFMatricula.getText());
+            alu.setCpf(FTFCPF.getText());
+            alu.setRg(TFRG.getText());
+            alu.setOrgEmissor(TFOrgaoEmissor.getText());
+            alu.setEstadoCivil((String) CBEstadoCivil.getSelectedItem());
+            alu.setDataNascimento(FTFDataDeNascimento.getText());
+            alu.setRepresentanteLegal(TFRepresentanteLegal.getText());
+            alu.setEndereco(TFEndereco.getText());
+            alu.setEstado(TFEstado.getText());
+            alu.setCidade(TFCidade.getText());
+            alu.setCep(FTFCEP.getText());
+            alu.setFone(FTFTelefone.getText());
+            alu.setCelular(FTFCelular.getText());
+            alu.setEmail(TFEmail.getText());
+            alu.setConhecimento_informatica(conhInfo);
+            alu.setCarteira_habilitacao(cartHab);
+            alu.setInicioDoCurso(FTFInicioDoCurso.getText());
+            alu.setFormatura(FTFTerminoDoCurso.getText());
+            
+            boolean r = aluControl.cadastrar(alu);
+            
             if (r == true) {
                 JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso!!!");
             } else if (r == false) {
@@ -740,6 +757,11 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
             }
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Campos vazios!!!");
+        }
+        
     }//GEN-LAST:event_JMICadastrarActionPerformed
 
     private void BTNLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNLimparActionPerformed
@@ -785,6 +807,10 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
         FTFInicioDoCurso.setText("");
         FTFTerminoDoCurso.setText("");
     }//GEN-LAST:event_JMILimparActionPerformed
+
+    private void FTFInicioDoCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FTFInicioDoCursoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FTFInicioDoCursoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -908,12 +934,12 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
 
     private void preencherCombo() {
         ArrayList<CursoBEAN> cursos = aluControl.todosCursos();
-
+        
         for (CursoBEAN curso : cursos) {
             CBCurso.addItem(curso.getNome());
         }
     }
-
+    
     private String buttonGroupSelect() {
         RBTNSim01.setActionCommand("Sim");
         RBTNNao01.setActionCommand("Não");
@@ -922,7 +948,7 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
         
         return select;
     }
-
+    
     private String buttonGroup2Select() {
         RBTNSim02.setActionCommand("Sim");
         RBTNNao02.setActionCommand("Não");
@@ -930,5 +956,21 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
         String select = BGPossuiCarteiraDeHabilitacao.getSelection().getActionCommand();
         
         return select;
+    }
+    
+    private boolean verificaCampos() {
+        if (("".equals(TFNome.getText())) || ("".equals(TFAnoPeriodo.getText())) || ("".equals(TFTurma.getText()))
+                || ("".equals(TFMatricula.getText())) || ("".equals(TFRG.getText())) || ("".equals(TFOrgaoEmissor.getText())) || ("".equals(TFRepresentanteLegal.getText()))
+                || ("".equals(TFEndereco.getText())) || ("".equals(TFEstado.getText())) || ("".equals(TFCidade.getText())) || ("".equals(TFEmail.getText()))
+                || ("    /  /  ".equals(FTFDataDeNascimento.getText())) || ("    /  /  ".equals(FTFInicioDoCurso.getText()))
+                || ("    /  /  ".equals(FTFTerminoDoCurso.getText())) || ("   .   .   -  ".equals(FTFCPF.getText())) || ("  .   -   ".equals(FTFCEP.getText()))
+                || ("(  )    -    ".equals(FTFTelefone.getText())) || ("(00)0.0000-0000".equals(FTFCelular.getText()))) {
+            
+            return false;
+            
+        } else {
+          return true;  
+        }
+        
     }
 }

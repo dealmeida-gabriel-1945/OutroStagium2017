@@ -364,22 +364,30 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JMICadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMICadastrarActionPerformed
-        OrientadorDoEstagioBEAN ori = new OrientadorDoEstagioBEAN();
+        boolean campos = this.verificaCampos();
 
-        ori.setNome(TFNome.getText());
-        ori.setFone(FTFTelefone.getText());
-        ori.setCelular(FTFCelular.getText());
-        ori.setEmail(TFEmail.getText());
-        ori.setEndereco(TFEndereco.getText());
-        ori.setArea(TFArea.getText());
+        if (campos == true) {
+            OrientadorDoEstagioBEAN ori = new OrientadorDoEstagioBEAN();
 
-        boolean r = oriControl.cadastrar(ori);
+            ori.setNome(TFNome.getText());
+            ori.setFone(FTFTelefone.getText());
+            ori.setCelular(FTFCelular.getText());
+            ori.setEmail(TFEmail.getText());
+            ori.setEndereco(TFEndereco.getText());
+            ori.setArea(TFArea.getText());
 
-        if (r == true) {
-            JOptionPane.showMessageDialog(null, "Orientador cadastrado com sucesso!!!");
+            boolean r = oriControl.cadastrar(ori);
+
+            if (r == true) {
+                JOptionPane.showMessageDialog(null, "Orientador cadastrado com sucesso!!!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
+            }
         } else {
-            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
+            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Campos vazios!!!");
         }
+
+
     }//GEN-LAST:event_JMICadastrarActionPerformed
 
     private void JMILimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMILimparActionPerformed
@@ -396,21 +404,27 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
     }//GEN-LAST:event_JMIVoltarActionPerformed
 
     private void BTNCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNCadastrarActionPerformed
-        OrientadorDoEstagioBEAN ori = new OrientadorDoEstagioBEAN();
+        boolean campos = this.verificaCampos();
 
-        ori.setNome(TFNome.getText());
-        ori.setFone(FTFTelefone.getText());
-        ori.setCelular(FTFCelular.getText());
-        ori.setEmail(TFEmail.getText());
-        ori.setEndereco(TFEndereco.getText());
-        ori.setArea(TFArea.getText());
+        if (campos == true) {
+            OrientadorDoEstagioBEAN ori = new OrientadorDoEstagioBEAN();
 
-        boolean r = oriControl.cadastrar(ori);
+            ori.setNome(TFNome.getText());
+            ori.setFone(FTFTelefone.getText());
+            ori.setCelular(FTFCelular.getText());
+            ori.setEmail(TFEmail.getText());
+            ori.setEndereco(TFEndereco.getText());
+            ori.setArea(TFArea.getText());
 
-        if (r == true) {
-            JOptionPane.showMessageDialog(null, "Orientador cadastrado com sucesso!!!");
+            boolean r = oriControl.cadastrar(ori);
+
+            if (r == true) {
+                JOptionPane.showMessageDialog(null, "Orientador cadastrado com sucesso!!!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
+            }
         } else {
-            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
+            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Campos vazios!!!");
         }
     }//GEN-LAST:event_BTNCadastrarActionPerformed
 
@@ -506,4 +520,13 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
     private javax.swing.JLabel lblName6;
     private javax.swing.JLabel lblName7;
     // End of variables declaration//GEN-END:variables
+
+    private boolean verificaCampos() {
+        if (("".equals(TFNome.getText())) || ("".equals(TFEmail.getText())) || ("".equals(TFEndereco.getText())) || ("".equals(TFArea.getText()))
+                || ("(  ) .    -    ".equals(FTFCelular.getText())) || ("(  )    -    ".equals(FTFCelular.getText()))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

@@ -16,7 +16,7 @@ import modelo.RepresentanteLegalBEAN;
 public class JFRMCadastrarRepresentanteLegal extends javax.swing.JFrame {
 
     RepresentanteLegalControle repControl = new RepresentanteLegalControle();
-    
+
     /**
      * Creates new form JFRMCadastrarRepresentanteLegal1
      */
@@ -428,10 +428,45 @@ public class JFRMCadastrarRepresentanteLegal extends javax.swing.JFrame {
 
     private void JMICadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMICadastrarActionPerformed
 
+        boolean campos = this.verificaCampos();
+
+        if (campos == true) {
+            RepresentanteLegalBEAN rep = new RepresentanteLegalBEAN();
+
+            rep.setNome(TFNome.getText());
+            rep.setCpf(FTFCPF.getText());
+            rep.setRg(TFRG.getText());
+            rep.setOrgEmissor(TFOrgaoEmissor.getText());
+            rep.setEstadoCivil((String) CBEstadoCivil.getSelectedItem());
+            rep.setNacionalidade(TFNacionalidade.getText());
+            rep.setEndereco(TFEndereco.getText());
+            rep.setCep(FTFCEP.getText());
+            rep.setFone_contato(FTFTelefone.getText());
+            rep.setEmail(TFEmail.getText());
+
+            boolean r = repControl.cadastrar(rep);
+
+            if (r == true) {
+                JOptionPane.showMessageDialog(null, "Representante cadastrado com sucesso!!!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Campos vazios!!!");
+        }
     }//GEN-LAST:event_JMICadastrarActionPerformed
 
     private void JMILimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMILimparActionPerformed
-
+        TFNome.setText("");
+        TFEmail.setText("");
+        TFEndereco.setText("");
+        TFNacionalidade.setText("");
+        TFOrgaoEmissor.setText("");
+        TFRG.setText("");
+        FTFCEP.setText("");
+        FTFCPF.setText("");
+        FTFTelefone.setText("");
+        CBEstadoCivil.setSelectedIndex(0);
     }//GEN-LAST:event_JMILimparActionPerformed
 
     private void JMIVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIVoltarActionPerformed
@@ -439,30 +474,48 @@ public class JFRMCadastrarRepresentanteLegal extends javax.swing.JFrame {
     }//GEN-LAST:event_JMIVoltarActionPerformed
 
     private void BTNCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNCadastrarActionPerformed
-        RepresentanteLegalBEAN rep = new RepresentanteLegalBEAN();
-        
-        rep.setNome(TFNome.getText());
-        rep.setCpf(FTFCPF.getText());
-        rep.setRg(TFRG.getText());
-        rep.setOrgEmissor(TFOrgaoEmissor.getText());
-        rep.setEstadoCivil((String) CBEstadoCivil.getSelectedItem());
-        rep.setNacionalidade(TFNacionalidade.getText());
-        rep.setEndereco(TFEndereco.getText());
-        rep.setCep(FTFCEP.getText());
-        rep.setFone_contato(FTFTelefone.getText());
-        rep.setEmail(TFEmail.getText());
-        
-        boolean r = repControl.cadastrar(rep);
+
+        boolean campos = this.verificaCampos();
+
+        if (campos == true) {
+            RepresentanteLegalBEAN rep = new RepresentanteLegalBEAN();
+
+            rep.setNome(TFNome.getText());
+            rep.setCpf(FTFCPF.getText());
+            rep.setRg(TFRG.getText());
+            rep.setOrgEmissor(TFOrgaoEmissor.getText());
+            rep.setEstadoCivil((String) CBEstadoCivil.getSelectedItem());
+            rep.setNacionalidade(TFNacionalidade.getText());
+            rep.setEndereco(TFEndereco.getText());
+            rep.setCep(FTFCEP.getText());
+            rep.setFone_contato(FTFTelefone.getText());
+            rep.setEmail(TFEmail.getText());
+
+            boolean r = repControl.cadastrar(rep);
 
             if (r == true) {
                 JOptionPane.showMessageDialog(null, "Representante cadastrado com sucesso!!!");
             } else {
                 JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
             }
-        
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Campos vazios!!!");
+        }
+
+
     }//GEN-LAST:event_BTNCadastrarActionPerformed
 
     private void BTNLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNLimparActionPerformed
+        TFNome.setText("");
+        TFEmail.setText("");
+        TFEndereco.setText("");
+        TFNacionalidade.setText("");
+        TFOrgaoEmissor.setText("");
+        TFRG.setText("");
+        FTFCEP.setText("");
+        FTFCPF.setText("");
+        FTFTelefone.setText("");
+        CBEstadoCivil.setSelectedIndex(0);
 
     }//GEN-LAST:event_BTNLimparActionPerformed
 
@@ -553,4 +606,15 @@ public class JFRMCadastrarRepresentanteLegal extends javax.swing.JFrame {
     private javax.swing.JLabel lblName6;
     private javax.swing.JLabel lblName7;
     // End of variables declaration//GEN-END:variables
+
+    private boolean verificaCampos() {
+        if (("".equals(TFNome.getText())) || ("".equals(TFRG.getText())) || ("".equals(TFOrgaoEmissor.getText())) || ("   .   .   -  ".equals(FTFCPF.getText()))
+                || ("(  )    -    ".equals(FTFTelefone.getText())) || ("  .   -   ".equals(FTFCEP.getText())) || ("".equals(TFEmail.getText()))
+                || ("".equals(TFEndereco.getText())) || ("".equals(TFNacionalidade.getText()))) {
+
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

@@ -81,7 +81,7 @@ public class EstagioMySqlDAO {
         return orientadores;
     }
 
-    public boolean cadastrar1(EstagioBEAN es) {
+    public boolean cadastrar(EstagioBEAN es) {
         String sql = "insert into estagio ( "
                 + "estDataInicio, "
                 + "estDataFinal, "
@@ -94,8 +94,14 @@ public class EstagioMySqlDAO {
                 + "estSupervisor, "
                 + "estHoraMensais, "
                 + "estHorarioInicio, "
-                + "estHorarioFinal) "
-                + "values (?,?,?,?,?,?,?,?,?,?,?,?);";
+                + "estHorarioFinal,"
+                + "estDataRelatorio1,"
+                + "estDataRelatorio2,"
+                + "estDataRelatorio3,"
+                + "estDataRelatorio4,"
+                + "estTipo,"
+                + "estAreaAtuacao) "
+                + "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
         try {
             
             
@@ -114,6 +120,12 @@ public class EstagioMySqlDAO {
             stmt.setFloat(10, es.getHorasMens());
             stmt.setString(11, es.getHorarioInicio());
             stmt.setString(12, es.getHorarioFinal());
+            stmt.setString(13, es.getDataPrimeiroRelatorio());
+            stmt.setString(14, es.getDataSegundoRelatorio());
+            stmt.setString(15, es.getDataTerceiroRelatorio());
+            stmt.setString(16, es.getDataQuartoRelatorio());
+            stmt.setString(17, es.getTipo());
+            stmt.setString(18, es.getAreAtuacao());
            
             
             
