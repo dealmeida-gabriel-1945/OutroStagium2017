@@ -20,6 +20,7 @@ public class JFRMListarCursos extends javax.swing.JFrame {
     private DefaultTableModel dTable;
     ArrayList<CursoBEAN> curAL = new ArrayList<CursoBEAN>();
     CursoControle curC = new CursoControle();
+    CursoBEAN curObjEdit = new CursoBEAN();
 
     /**
      * Creates new form JFRMListarAlunos
@@ -161,7 +162,6 @@ public class JFRMListarCursos extends javax.swing.JFrame {
         lblName24.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N
         lblName24.setText("Listar Cursos");
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/reloadPqn.png"))); // NOI18N
         jButton4.setText("Recarregar");
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filtros", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 0, 255))); // NOI18N
@@ -174,13 +174,10 @@ public class JFRMListarCursos extends javax.swing.JFrame {
 
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/searchPqn.png"))); // NOI18N
         jButton5.setText("Pesquisar");
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search03Pqn.png"))); // NOI18N
         jButton6.setText("Pesquisar Todos");
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/eraserPqn.png"))); // NOI18N
         jButton7.setText("Limpar Filtros");
 
         jLabel7.setText("Descrição:");
@@ -297,10 +294,13 @@ public class JFRMListarCursos extends javax.swing.JFrame {
 
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/editPqn.png"))); // NOI18N
         jButton2.setText("Editar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/trash-bin-symbolPqn.png"))); // NOI18N
         jButton3.setText("Excluir");
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -374,7 +374,6 @@ public class JFRMListarCursos extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/left-arrowPqn.png"))); // NOI18N
         jButton1.setText("Sair");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -411,32 +410,26 @@ public class JFRMListarCursos extends javax.swing.JFrame {
         jMenu1.setText("Ações");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/reloadPqn.png"))); // NOI18N
         jMenuItem1.setText("Recarregar");
         jMenu1.add(jMenuItem1);
 
         jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/searchPqn.png"))); // NOI18N
         jMenuItem4.setText("Pesquisar");
         jMenu1.add(jMenuItem4);
 
         jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/eraserPqn.png"))); // NOI18N
         jMenuItem5.setText("Limpar Filtros");
         jMenu1.add(jMenuItem5);
 
         jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search03Pqn.png"))); // NOI18N
         jMenuItem6.setText("Pesquisar Todos");
         jMenu1.add(jMenuItem6);
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/editPqn.png"))); // NOI18N
         jMenuItem2.setText("Editar");
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/trash-bin-symbolPqn.png"))); // NOI18N
         jMenuItem3.setText("Excluir");
         jMenu1.add(jMenuItem3);
 
@@ -459,20 +452,27 @@ public class JFRMListarCursos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabelaCursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaCursosMouseClicked
-         if( evt.getClickCount()== 1){
-             
+  
             int x = tabelaCursos.getSelectedRow();
+            
+            curObjEdit = curAL.get(x);
+            
              TFMostraArea.setText(curAL.get(x).getArea());
              TFMostraNome.setText(curAL.get(x).getNome());
              TAMostraDescricao.setText(curAL.get(x).getDescricao());
-             
-             
-        }else{
-            
-             JFRMCadastrarCursos cc = new JFRMCadastrarCursos();
-             cc.setVisible(true);
-        } 
     }//GEN-LAST:event_tabelaCursosMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        if(curObjEdit.getNome().equals("")){
+            JOptionPane.showMessageDialog(null, "Selecione algum curso.");
+        }else{
+            JFRMEditarCursos frmEditarCurso = new JFRMEditarCursos();
+            frmEditarCurso.setVisible(true);
+            frmEditarCurso.setaCursoParaEdit(curObjEdit);
+            this.dispose();
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -50,33 +50,31 @@ public class JFRMListarEstagios extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         tfMostraMatricula = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        tfMostraAlunoNome = new javax.swing.JTextField();
+        tfMostraAlunoRG = new javax.swing.JTextField();
+        tfMostraAlunoCPF = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        tfMostraEmpresaNomeFantasia = new javax.swing.JTextField();
+        tfMostraEmpresaRazaoSocial = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        tfMostraEmpresaEmail = new javax.swing.JTextField();
+        tfMostraEmpresaTelefone = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
+        tfMostraOrintadorEmail = new javax.swing.JTextField();
+        tfMostraOrientadorNome = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
-        jTextField9 = new javax.swing.JTextField();
+        tfMostraRelatorio1 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
+        tfMostraRelatorio2 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
+        tfMostraRelatorio3 = new javax.swing.JTextField();
+        tfMostraRelatorio4 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -126,41 +124,41 @@ public class JFRMListarEstagios extends javax.swing.JFrame {
 
         jLabel2.setText("Aluno:");
 
-        jLabel3.setText("Curso:");
+        jLabel3.setText("RG:");
 
         jLabel4.setText("CPF:");
 
         tfMostraMatricula.setEditable(false);
         tfMostraMatricula.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTextField2.setEditable(false);
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
+        tfMostraAlunoNome.setEditable(false);
+        tfMostraAlunoNome.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTextField3.setEditable(false);
-        jTextField3.setBackground(new java.awt.Color(204, 204, 204));
+        tfMostraAlunoRG.setEditable(false);
+        tfMostraAlunoRG.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTextField4.setEditable(false);
-        jTextField4.setBackground(new java.awt.Color(204, 204, 204));
+        tfMostraAlunoCPF.setEditable(false);
+        tfMostraAlunoCPF.setBackground(new java.awt.Color(204, 204, 204));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         jLabel5.setText("Empresa:");
 
-        jTextField5.setEditable(false);
-        jTextField5.setBackground(new java.awt.Color(204, 204, 204));
+        tfMostraEmpresaNomeFantasia.setEditable(false);
+        tfMostraEmpresaNomeFantasia.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTextField6.setEditable(false);
-        jTextField6.setBackground(new java.awt.Color(204, 204, 204));
+        tfMostraEmpresaRazaoSocial.setEditable(false);
+        tfMostraEmpresaRazaoSocial.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel6.setText("Razão Social:");
 
-        jLabel7.setText("Num. Registro:");
+        jLabel7.setText("Email:");
 
-        jTextField7.setEditable(false);
-        jTextField7.setBackground(new java.awt.Color(204, 204, 204));
+        tfMostraEmpresaEmail.setEditable(false);
+        tfMostraEmpresaEmail.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTextField8.setEditable(false);
-        jTextField8.setBackground(new java.awt.Color(204, 204, 204));
+        tfMostraEmpresaTelefone.setEditable(false);
+        tfMostraEmpresaTelefone.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel8.setText("Telefone:");
 
@@ -168,38 +166,33 @@ public class JFRMListarEstagios extends javax.swing.JFrame {
 
         jLabel9.setText("Orientador:");
 
-        jLabel10.setText("Área:");
-
         jLabel11.setText("Email:");
 
-        jTextField10.setEditable(false);
-        jTextField10.setBackground(new java.awt.Color(204, 204, 204));
+        tfMostraOrintadorEmail.setEditable(false);
+        tfMostraOrintadorEmail.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTextField11.setEditable(false);
-        jTextField11.setBackground(new java.awt.Color(204, 204, 204));
-
-        jTextField12.setEditable(false);
-        jTextField12.setBackground(new java.awt.Color(204, 204, 204));
+        tfMostraOrientadorNome.setEditable(false);
+        tfMostraOrientadorNome.setBackground(new java.awt.Color(204, 204, 204));
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jTextField9.setEditable(false);
-        jTextField9.setBackground(new java.awt.Color(204, 204, 204));
+        tfMostraRelatorio1.setEditable(false);
+        tfMostraRelatorio1.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel12.setText("Relatório 1:");
 
         jLabel13.setText("Relatório 2:");
 
-        jTextField13.setEditable(false);
-        jTextField13.setBackground(new java.awt.Color(204, 204, 204));
+        tfMostraRelatorio2.setEditable(false);
+        tfMostraRelatorio2.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel14.setText("Relatório 3:");
 
-        jTextField14.setEditable(false);
-        jTextField14.setBackground(new java.awt.Color(204, 204, 204));
+        tfMostraRelatorio3.setEditable(false);
+        tfMostraRelatorio3.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTextField15.setEditable(false);
-        jTextField15.setBackground(new java.awt.Color(204, 204, 204));
+        tfMostraRelatorio4.setEditable(false);
+        tfMostraRelatorio4.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel15.setText("Relatório 4:");
 
@@ -217,9 +210,9 @@ public class JFRMListarEstagios extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(tfMostraMatricula, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField4))
+                    .addComponent(tfMostraAlunoNome)
+                    .addComponent(tfMostraAlunoRG)
+                    .addComponent(tfMostraAlunoCPF))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -230,10 +223,10 @@ public class JFRMListarEstagios extends javax.swing.JFrame {
                     .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField9)
-                    .addComponent(jTextField13)
-                    .addComponent(jTextField14)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfMostraRelatorio1)
+                    .addComponent(tfMostraRelatorio2)
+                    .addComponent(tfMostraRelatorio3)
+                    .addComponent(tfMostraRelatorio4, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -244,23 +237,24 @@ public class JFRMListarEstagios extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField5)
-                    .addComponent(jTextField6)
-                    .addComponent(jTextField7)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfMostraEmpresaNomeFantasia)
+                    .addComponent(tfMostraEmpresaRazaoSocial)
+                    .addComponent(tfMostraEmpresaEmail)
+                    .addComponent(tfMostraEmpresaTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField12)
-                    .addComponent(jTextField11)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfMostraOrintadorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfMostraOrientadorNome, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,66 +269,62 @@ public class JFRMListarEstagios extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel9)
-                                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10))
+                                    .addComponent(tfMostraOrientadorNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel11)
-                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tfMostraOrintadorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(26, 26, 26))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel5)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tfMostraEmpresaNomeFantasia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfMostraEmpresaRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel7)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tfMostraEmpresaEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel8)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(tfMostraEmpresaTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel12)
-                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tfMostraRelatorio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfMostraRelatorio2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel13))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel14)
-                                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tfMostraRelatorio3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel15)
-                                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(tfMostraRelatorio4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel1)
                                     .addComponent(tfMostraMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfMostraAlunoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel3)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tfMostraAlunoRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel4)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(tfMostraAlunoCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jSeparator3))
                         .addGap(0, 4, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -397,7 +387,23 @@ public class JFRMListarEstagios extends javax.swing.JFrame {
 
     private void tabelaEstagiosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaEstagiosMouseClicked
         
-      tfMostraMatricula.setText(estAL.get(tabelaEstagios.getSelectedRow()).getAluCPF());
+    int x = tabelaEstagios.getSelectedRow();
+      EstagioBEAN obj = new EstagioBEAN();
+      obj = estAL.get(x);
+      tfMostraAlunoCPF.setText(estAL.get(x).getAluCPF());
+      tfMostraAlunoRG.setText(estAL.get(x).getAluRG());
+      tfMostraAlunoNome.setText(estAL.get(x).getAluNome());
+      tfMostraEmpresaNomeFantasia.setText(estAL.get(x).getEmpNomeFantasia());
+      tfMostraEmpresaEmail.setText(estAL.get(x).getEmpEmail());
+      tfMostraEmpresaRazaoSocial.setText(estAL.get(x).getEmpRazaoSocial());
+      tfMostraEmpresaTelefone.setText(estAL.get(x).getEmpTelefone());
+      tfMostraMatricula.setText(estAL.get(x).getAluMatricula());
+      tfMostraOrientadorNome.setText(estAL.get(x).getOriNome());
+      tfMostraOrintadorEmail.setText(estAL.get(x).getOriEmail());
+      tfMostraRelatorio1.setText(estAL.get(x).getDataPrimeiroRelatorio());
+      tfMostraRelatorio2.setText(estAL.get(x).getDataSegundoRelatorio());
+      tfMostraRelatorio3.setText(estAL.get(x).getDataTerceiroRelatorio());
+      tfMostraRelatorio4.setText(estAL.get(x).getDataQuartoRelatorio());
         
     }//GEN-LAST:event_tabelaEstagiosMouseClicked
 
@@ -439,7 +445,6 @@ public class JFRMListarEstagios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -462,23 +467,22 @@ public class JFRMListarEstagios extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblName24;
     private javax.swing.JTable tabelaEstagios;
+    private javax.swing.JTextField tfMostraAlunoCPF;
+    private javax.swing.JTextField tfMostraAlunoNome;
+    private javax.swing.JTextField tfMostraAlunoRG;
+    private javax.swing.JTextField tfMostraEmpresaEmail;
+    private javax.swing.JTextField tfMostraEmpresaNomeFantasia;
+    private javax.swing.JTextField tfMostraEmpresaRazaoSocial;
+    private javax.swing.JTextField tfMostraEmpresaTelefone;
     private javax.swing.JTextField tfMostraMatricula;
+    private javax.swing.JTextField tfMostraOrientadorNome;
+    private javax.swing.JTextField tfMostraOrintadorEmail;
+    private javax.swing.JTextField tfMostraRelatorio1;
+    private javax.swing.JTextField tfMostraRelatorio2;
+    private javax.swing.JTextField tfMostraRelatorio3;
+    private javax.swing.JTextField tfMostraRelatorio4;
     // End of variables declaration//GEN-END:variables
 
     private void preencheTabela() {

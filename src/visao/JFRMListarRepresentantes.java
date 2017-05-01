@@ -19,6 +19,7 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
     private DefaultTableModel dTable;
     private ArrayList<RepresentanteLegalBEAN> repAL = new ArrayList<RepresentanteLegalBEAN>();
     private RepresentanteLegalControle repC = new RepresentanteLegalControle();
+    
 
     /**
      * Creates new form JFRMListarAlunos
@@ -172,7 +173,6 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
         lblName24.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N
         lblName24.setText("Listar Representantes Legais");
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/reloadPqn.png"))); // NOI18N
         jButton4.setText("Recarregar");
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filtros", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 0, 255))); // NOI18N
@@ -195,13 +195,10 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
 
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/searchOneUserPqn.png"))); // NOI18N
         jButton5.setText("Pesquisar");
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search01Pqn.png"))); // NOI18N
         jButton6.setText("Pesquisar Todos");
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/eraserPqn.png"))); // NOI18N
         jButton7.setText("Limpar Filtros");
 
         jLabel13.setText("CEP:");
@@ -324,7 +321,7 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jSeparator5)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 22, Short.MAX_VALUE)
+                        .addGap(0, 28, Short.MAX_VALUE)
                         .addComponent(jButton5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton7)
@@ -379,10 +376,8 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
 
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/editPqn.png"))); // NOI18N
         jButton2.setText("Editar");
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/trash-bin-symbolPqn.png"))); // NOI18N
         jButton3.setText("Excluir");
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -476,7 +471,6 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/left-arrowPqn.png"))); // NOI18N
         jButton1.setText("Sair");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -513,36 +507,29 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/settings-gearsPqn.png"))); // NOI18N
         jMenu1.setText("Ações");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/reloadPqn.png"))); // NOI18N
         jMenuItem1.setText("Recarregar");
         jMenu1.add(jMenuItem1);
 
         jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/searchOneUserPqn.png"))); // NOI18N
         jMenuItem4.setText("Pesquisar");
         jMenu1.add(jMenuItem4);
 
         jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/eraserPqn.png"))); // NOI18N
         jMenuItem5.setText("Limpar Filtros");
         jMenu1.add(jMenuItem5);
 
         jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search01Pqn.png"))); // NOI18N
         jMenuItem6.setText("Pesquisar Todos");
         jMenu1.add(jMenuItem6);
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/editPqn.png"))); // NOI18N
         jMenuItem2.setText("Editar");
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/trash-bin-symbolPqn.png"))); // NOI18N
         jMenuItem3.setText("Excluir");
         jMenu1.add(jMenuItem3);
 

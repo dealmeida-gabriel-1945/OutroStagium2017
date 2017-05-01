@@ -39,14 +39,6 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         lblName16 = new javax.swing.JLabel();
@@ -100,40 +92,6 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
-
-        jMenu1.setText("Ações");
-
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/reloadPqn.png"))); // NOI18N
-        jMenuItem1.setText("Recarregar");
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/searchOneUserPqn.png"))); // NOI18N
-        jMenuItem4.setText("Pesquisar");
-        jMenu1.add(jMenuItem4);
-
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/eraserPqn.png"))); // NOI18N
-        jMenuItem5.setText("Limpar Filtros");
-        jMenu1.add(jMenuItem5);
-
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search01Pqn.png"))); // NOI18N
-        jMenuItem6.setText("Pesquisar Todos");
-        jMenu1.add(jMenuItem6);
-
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/editPqn.png"))); // NOI18N
-        jMenuItem2.setText("Editar");
-        jMenu1.add(jMenuItem2);
-
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/trash-bin-symbolPqn.png"))); // NOI18N
-        jMenuItem3.setText("Excluir");
-        jMenu1.add(jMenuItem3);
-
-        jMenuBar1.add(jMenu1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Stagium - Listar Orientadores");
@@ -206,7 +164,6 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
         lblName24.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N
         lblName24.setText("Listar Orientadores");
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/reloadPqn.png"))); // NOI18N
         jButton4.setText("Recarregar");
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filtros", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 0, 255))); // NOI18N
@@ -235,13 +192,10 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
 
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/searchOneUserPqn.png"))); // NOI18N
         jButton5.setText("Pesquisar");
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search01Pqn.png"))); // NOI18N
         jButton6.setText("Pesquisar Todos");
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/eraserPqn.png"))); // NOI18N
         jButton7.setText("Limpar Filtros");
 
         jLabel13.setText("Email:");
@@ -384,10 +338,8 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
 
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/editPqn.png"))); // NOI18N
         jButton2.setText("Editar");
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/trash-bin-symbolPqn.png"))); // NOI18N
         jButton3.setText("Excluir");
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -467,7 +419,6 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/left-arrowPqn.png"))); // NOI18N
         jButton1.setText("Sair");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -504,36 +455,29 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/settings-gearsPqn.png"))); // NOI18N
         jMenu2.setText("Ações");
 
         jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/reloadPqn.png"))); // NOI18N
         jMenuItem8.setText("Recarregar");
         jMenu2.add(jMenuItem8);
 
         jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/searchOneUserPqn.png"))); // NOI18N
         jMenuItem9.setText("Pesquisar");
         jMenu2.add(jMenuItem9);
 
         jMenuItem10.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/eraserPqn.png"))); // NOI18N
         jMenuItem10.setText("Limpar Filtros");
         jMenu2.add(jMenuItem10);
 
         jMenuItem11.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search01Pqn.png"))); // NOI18N
         jMenuItem11.setText("Pesquisar Todos");
         jMenu2.add(jMenuItem11);
 
         jMenuItem12.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/editPqn.png"))); // NOI18N
         jMenuItem12.setText("Editar");
         jMenu2.add(jMenuItem12);
 
         jMenuItem13.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
-        jMenuItem13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/trash-bin-symbolPqn.png"))); // NOI18N
         jMenuItem13.setText("Excluir");
         jMenu2.add(jMenuItem13);
 
@@ -624,20 +568,12 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;

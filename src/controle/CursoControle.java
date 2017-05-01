@@ -41,5 +41,10 @@ public class CursoControle {
         
         return curAL;
     }
+
+    public boolean Editar(CursoBEAN curso) {
+        curDAO.editarCurso(curso);
+        return true;
+    }
     
 }

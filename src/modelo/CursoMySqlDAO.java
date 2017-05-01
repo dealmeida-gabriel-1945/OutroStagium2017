@@ -129,6 +129,25 @@ public class CursoMySqlDAO {
         
         return curAL;
     }
+
+    public void editarCurso(CursoBEAN curso) {
+        String sql=" UPDATE curso SET curNome=?, curDescricao=?, curArea=? WHERE curCod=?; ";
+         try {
+             stmt = connection.prepareStatement(sql); 
+             stmt.setString(1, curso.getNome());
+             stmt.setString(2, curso.getDescricao());
+             stmt.setString(3, curso.getArea());
+             stmt.setInt(4, curso.getCodigo());
+             
+             stmt.executeUpdate();
+            stmt.close();
+             
+           
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        
+    }
     
     
 }
