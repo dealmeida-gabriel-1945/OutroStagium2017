@@ -692,10 +692,10 @@ public class JFRMEditarAluno extends javax.swing.JFrame {
             alu.setInicioDoCurso(FTFInicioDoCurso.getText());
             alu.setFormatura(FTFTerminoDoCurso.getText());
             
-            boolean r = aluControl.cadastrar(alu);
+            boolean r = aluControl.editar(alu);
             
             if (r == true) {
-                JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso!!!");
+                JOptionPane.showMessageDialog(null, "Aluno Editado com sucesso!!!");
             } else if (r == false) {
                 JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Aluno já cadastrado");
             } else {

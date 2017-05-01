@@ -52,6 +52,10 @@ public class AlunoControle {
         return false;
     }
 
+    public boolean editar(AlunoBEAN alu) {
+        return alunMSQL.editar1(alu);
+    }
+
     
     
 }
