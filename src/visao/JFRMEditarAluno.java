@@ -213,7 +213,7 @@ public class JFRMEditarAluno extends javax.swing.JFrame {
         );
 
         lblName6.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N
-        lblName6.setText("Cadastrar Aluno");
+        lblName6.setText("Editar Aluno");
 
         jLabel2.setText("Nome do Aluno:");
 
@@ -651,7 +651,10 @@ public class JFRMEditarAluno extends javax.swing.JFrame {
 
     private void BTNVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNVoltarActionPerformed
         // TODO add your handling code here:
+        JFRMListarAlunos alunos = new JFRMListarAlunos();
         this.dispose();
+        alunos.setVisible(true);
+        
     }//GEN-LAST:event_BTNVoltarActionPerformed
 
     private void BTNCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNCadastrarActionPerformed

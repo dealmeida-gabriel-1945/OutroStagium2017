@@ -7,6 +7,7 @@ package visao;
 
 import controle.OrientadorControle;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.OrientadorDoEstagioBEAN;
 
@@ -19,7 +20,7 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
     private DefaultTableModel dTable;
     private ArrayList<OrientadorDoEstagioBEAN> oriAL = new ArrayList<OrientadorDoEstagioBEAN>();
     private OrientadorControle oriC = new OrientadorControle();
-    
+    OrientadorDoEstagioBEAN oriObj = new OrientadorDoEstagioBEAN();
 
     /**
      * Creates new form JFRMNovo
@@ -28,6 +29,7 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
         initComponents();
          this.setExtendedState(MAXIMIZED_BOTH);
         this.preencheTabela();
+        oriObj.setNome("");
     }
 
     /**
@@ -339,6 +341,11 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButton2.setText("Editar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Excluir");
 
@@ -420,6 +427,11 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
         );
 
         jButton1.setText("Sair");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -500,17 +512,34 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabelaOrientadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaOrientadoresMouseClicked
-        int y = evt.getClickCount();
         int x = tabelaOrientadores.getSelectedRow();
-        if(y==2){
-            
-        }else{
             tfMostraArea.setText(oriAL.get(x).getArea());
             tfMostraEmail.setText(oriAL.get(x).getEmail());
             tfMostraEndereco.setText(oriAL.get(x).getEndereco());
             tfMostraNome.setText(oriAL.get(x).getNome());
-        }
+            
+        oriObj = oriAL.get(x);
+        
     }//GEN-LAST:event_tabelaOrientadoresMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        if(oriObj.getNome().equals("")){
+            JOptionPane.showMessageDialog(null, "Escolha um Orientador para editar!");
+        }else{
+        JFRMEditarOrientador editar = new JFRMEditarOrientador();
+        editar.setVisible(true);
+        editar.setarValores(oriObj);
+        this.dispose();
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JFRMPrincipal prin = new JFRMPrincipal();
+        prin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

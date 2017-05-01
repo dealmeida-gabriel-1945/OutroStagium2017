@@ -13,14 +13,15 @@ import modelo.OrientadorDoEstagioBEAN;
  *
  * @author Darkfocus
  */
-public class JFRMCadastrarOrientador extends javax.swing.JFrame {
+public class JFRMEditarOrientador extends javax.swing.JFrame {
 
     OrientadorControle oriControl = new OrientadorControle();
+    OrientadorDoEstagioBEAN oriObj = new OrientadorDoEstagioBEAN();
 
     /**
      * Creates new form JFRMCadastrarOrientador1
      */
-    public JFRMCadastrarOrientador() {
+    public JFRMEditarOrientador() {
         initComponents();
     }
 
@@ -46,7 +47,6 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         BTNCadastrar = new javax.swing.JButton();
-        BTNLimpar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -136,17 +136,10 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
 
         jPanel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        BTNCadastrar.setText("Cadastrar");
+        BTNCadastrar.setText("Editar");
         BTNCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTNCadastrarActionPerformed(evt);
-            }
-        });
-
-        BTNLimpar.setText("Limpar");
-        BTNLimpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTNLimparActionPerformed(evt);
             }
         });
 
@@ -156,19 +149,15 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BTNCadastrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                    .addComponent(BTNLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(BTNCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(37, 37, 37)
                 .addComponent(BTNCadastrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(BTNLimpar)
-                .addContainerGap())
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jLabel1.setText("Nome do Orientador:");
@@ -184,7 +173,7 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
         jLabel6.setText("Área:");
 
         lblName6.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N
-        lblName6.setText("Cadastrar Orientador");
+        lblName6.setText("Editar Orientador");
 
         try {
             FTFTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
@@ -243,7 +232,7 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(113, 113, 113)
                 .addComponent(lblName6)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(192, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -322,7 +311,7 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
         jMenu.setText("Ações");
 
         JMICadastrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        JMICadastrar.setText("Cadastrar");
+        JMICadastrar.setText("Editar");
         JMICadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JMICadastrarActionPerformed(evt);
@@ -433,15 +422,6 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BTNCadastrarActionPerformed
 
-    private void BTNLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNLimparActionPerformed
-        TFNome.setText("");
-        TFArea.setText("");
-        TFEmail.setText("");
-        TFEndereco.setText("");
-        FTFCelular.setText("");
-        FTFTelefone.setText("");
-    }//GEN-LAST:event_BTNLimparActionPerformed
-
     private void TFEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TFEmailActionPerformed
@@ -456,8 +436,8 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
 
     private void BTNVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNVoltarActionPerformed
         // TODO add your handling code here:
-        JFRMPrincipal prin = new JFRMPrincipal();
-        prin.setVisible(true);
+        JFRMListarOrientadores ori = new JFRMListarOrientadores();
+        ori.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTNVoltarActionPerformed
 
@@ -478,28 +458,29 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFRMCadastrarOrientador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFRMEditarOrientador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFRMCadastrarOrientador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFRMEditarOrientador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFRMCadastrarOrientador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFRMEditarOrientador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFRMCadastrarOrientador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFRMEditarOrientador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFRMCadastrarOrientador().setVisible(true);
+                new JFRMEditarOrientador().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNCadastrar;
-    private javax.swing.JButton BTNLimpar;
     private javax.swing.JButton BTNVoltar;
     private javax.swing.JFormattedTextField FTFCelular;
     private javax.swing.JFormattedTextField FTFTelefone;
@@ -540,5 +521,15 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
         } else {
             return true;
         }
+    }
+
+    void setarValores(OrientadorDoEstagioBEAN orientador) {
+        this.oriObj = orientador;
+        TFArea.setText(oriObj.getArea());
+        TFEmail.setText(oriObj.getEmail());
+        TFEndereco.setText(oriObj.getEndereco());
+        TFNome.setText(oriObj.getNome());
+        FTFCelular.setText(oriObj.getCelular());
+        FTFTelefone.setText(oriObj.getFone());
     }
 }

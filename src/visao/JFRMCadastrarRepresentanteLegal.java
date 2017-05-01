@@ -349,6 +349,11 @@ public class JFRMCadastrarRepresentanteLegal extends javax.swing.JFrame {
         );
 
         BTNVoltar.setText("Voltar");
+        BTNVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNVoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -526,6 +531,13 @@ public class JFRMCadastrarRepresentanteLegal extends javax.swing.JFrame {
     private void TFEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TFEmailActionPerformed
+
+    private void BTNVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNVoltarActionPerformed
+        // TODO add your handling code here:
+        JFRMPrincipal prin = new JFRMPrincipal();
+        prin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BTNVoltarActionPerformed
 
     /**
      * @param args the command line arguments

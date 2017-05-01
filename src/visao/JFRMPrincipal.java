@@ -455,95 +455,113 @@ public class JFRMPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         JFRMCadastrarAluno cAluno = new JFRMCadastrarAluno();
         cAluno.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCadAlunoActionPerformed
 
     private void btnCadOrientadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadOrientadorActionPerformed
         // TODO add your handling code here:
         JFRMCadastrarOrientador cOri = new JFRMCadastrarOrientador();
         cOri.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCadOrientadorActionPerformed
 
     private void btnListAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListAlunosActionPerformed
         JFRMListarAlunos lAlu = new JFRMListarAlunos();
         lAlu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnListAlunosActionPerformed
 
     private void btnListOrientadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListOrientadoresActionPerformed
         JFRMListarOrientadores lOri = new JFRMListarOrientadores();
         lOri.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnListOrientadoresActionPerformed
 
     private void btnListEmpresasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListEmpresasActionPerformed
         JFRMListarEmpresas lEmp = new JFRMListarEmpresas();
         lEmp.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnListEmpresasActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
         JFRMCreditos cred = new JFRMCreditos();
         cred.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void btnCadEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadEmpresaActionPerformed
         // TODO add your handling code here:
         JFRMCadastrarEmpresa cEmp = new JFRMCadastrarEmpresa();
         cEmp.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCadEmpresaActionPerformed
 
     private void btnCadEstagioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadEstagioActionPerformed
         // TODO add your handling code here:
         JFRMCadastrarEstagio cadaEst = new JFRMCadastrarEstagio();
         cadaEst.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCadEstagioActionPerformed
 
     private void btnCadCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadCursosActionPerformed
         JFRMCadastrarCursos cCur = new JFRMCadastrarCursos();
         cCur.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCadCursosActionPerformed
 
     private void btnCadRepresentanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadRepresentanteActionPerformed
         JFRMCadastrarRepresentanteLegal cRep = new JFRMCadastrarRepresentanteLegal();
         cRep.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCadRepresentanteActionPerformed
 
     private void btnListEstagiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListEstagiosActionPerformed
         JFRMListarEstagios lEst = new JFRMListarEstagios();
         lEst.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnListEstagiosActionPerformed
 
     private void btnListCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListCursosActionPerformed
         JFRMListarCursos lCur = new JFRMListarCursos();
         lCur.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnListCursosActionPerformed
 
     private void btnListRepresentantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListRepresentantesActionPerformed
         JFRMListarRepresentantes lRep = new JFRMListarRepresentantes();
         lRep.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnListRepresentantesActionPerformed
 
     private void miCadAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadAlunoActionPerformed
         JFRMCadastrarAluno cAluno = new JFRMCadastrarAluno();
         cAluno.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_miCadAlunoActionPerformed
 
     private void miCadOrientadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadOrientadorActionPerformed
         JFRMCadastrarOrientador cOri = new JFRMCadastrarOrientador();
         cOri.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_miCadOrientadorActionPerformed
 
     private void miCadEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadEmpresaActionPerformed
         JFRMCadastrarEmpresa cEmp = new JFRMCadastrarEmpresa();
         cEmp.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_miCadEmpresaActionPerformed
 
     private void miCadEstagioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadEstagioActionPerformed
         JFRMCadastrarEstagio cadaEst = new JFRMCadastrarEstagio();
         cadaEst.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_miCadEstagioActionPerformed
 
     private void miCadCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadCursoActionPerformed
        JFRMCadastrarCursos cCur = new JFRMCadastrarCursos();
         cCur.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_miCadCursoActionPerformed
 
     /**

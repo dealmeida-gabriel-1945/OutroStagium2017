@@ -7,6 +7,7 @@ package visao;
 
 import controle.RepresentanteLegalControle;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.OrientadorDoEstagioBEAN;
 import modelo.RepresentanteLegalBEAN;
@@ -19,6 +20,7 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
     private DefaultTableModel dTable;
     private ArrayList<RepresentanteLegalBEAN> repAL = new ArrayList<RepresentanteLegalBEAN>();
     private RepresentanteLegalControle repC = new RepresentanteLegalControle();
+    RepresentanteLegalBEAN repObj = new RepresentanteLegalBEAN();
     
 
     /**
@@ -28,6 +30,7 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.preencheTabela();
+        repObj.setNome("");
     }
 
     /**
@@ -377,6 +380,11 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButton2.setText("Editar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Excluir");
 
@@ -472,6 +480,11 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
         );
 
         jButton1.setText("Sair");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -552,18 +565,34 @@ public class JFRMListarRepresentantes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabelaRepresentantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaRepresentantesMouseClicked
-        int y = evt.getClickCount();
-        int x = tabelaRepresentantes.getSelectedRow();
-        if(y==2){
-            
-        }else{
+     int x = tabelaRepresentantes.getSelectedRow();
             tfMostraCPF.setText(repAL.get(x).getCpf());
             tfMostraEndereco.setText(repAL.get(x).getEndereco());
             tfMostraNome.setText(repAL.get(x).getNome());
             tfMostraOrgEmissor.setText(repAL.get(x).getOrgEmissor());
             tfMostraTelefone.setText(repAL.get(x).getFone_contato());
-        }
+        
+            repObj = repAL.get(x);
     }//GEN-LAST:event_tabelaRepresentantesMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        if(repObj.getNome().equals("")){
+            JOptionPane.showMessageDialog(null, "Escolha algum representante para editar!");
+        }else{
+            JFRMEditarRepresentanteLegal editar = new JFRMEditarRepresentanteLegal();
+            editar.setVisible(true);
+            editar.SetarValores(repObj);
+            this.dispose();
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JFRMPrincipal prin = new JFRMPrincipal();
+        prin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -5,23 +5,27 @@
  */
 package visao;
 
-import controle.OrientadorControle;
+import controle.EmpresaControle;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import modelo.OrientadorDoEstagioBEAN;
+import modelo.EmpresaBEAN;
+import modelo.RepresentanteLegalBEAN;
 
 /**
  *
  * @author Darkfocus
  */
-public class JFRMCadastrarOrientador extends javax.swing.JFrame {
+public class JFRMEditarEmpresa extends javax.swing.JFrame {
 
-    OrientadorControle oriControl = new OrientadorControle();
+    private EmpresaControle empControle = new EmpresaControle();
+    EmpresaBEAN empObj = new EmpresaBEAN();
 
     /**
-     * Creates new form JFRMCadastrarOrientador1
+     * Creates new form JFRMCadastrarEmpresa1
      */
-    public JFRMCadastrarOrientador() {
+    public JFRMEditarEmpresa() {
         initComponents();
+        preencherCombo();
     }
 
     /**
@@ -44,22 +48,32 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
         lblName4 = new javax.swing.JLabel();
         lblName5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        lblName6 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         BTNCadastrar = new javax.swing.JButton();
         BTNLimpar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        TFRazaoSocial = new javax.swing.JTextField();
+        TFNomeFantasia = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        TFNumDeRegistro = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        lblName6 = new javax.swing.JLabel();
-        TFNome = new javax.swing.JTextField();
-        FTFTelefone = new javax.swing.JFormattedTextField();
-        FTFCelular = new javax.swing.JFormattedTextField();
-        TFEmail = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         TFEndereco = new javax.swing.JTextField();
-        TFArea = new javax.swing.JTextField();
+        TFEmail = new javax.swing.JTextField();
+        TFCidade = new javax.swing.JTextField();
+        TFEstado = new javax.swing.JTextField();
+        FTFCaixaPostal = new javax.swing.JFormattedTextField();
+        FTFTelefone = new javax.swing.JFormattedTextField();
+        FTFCEP = new javax.swing.JFormattedTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         BTNVoltar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu = new javax.swing.JMenu();
@@ -68,7 +82,7 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
         JMIVoltar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Stagium - Cadastrar Orientador");
+        setTitle("Stagium - Cadastrar Empresa");
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
@@ -134,6 +148,9 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        lblName6.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N
+        lblName6.setText("Editar Empresa");
+
         jPanel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         BTNCadastrar.setText("Cadastrar");
@@ -171,116 +188,168 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel1.setText("Nome do Orientador:");
+        jLabel1.setText("Razão Social:");
 
-        jLabel2.setText("Telefone:");
+        jLabel2.setText("Nome Fantasia:");
 
-        jLabel3.setText("Celular:");
+        jLabel3.setText("Núm. de Registro:");
 
-        jLabel4.setText("E-mail:");
+        TFNumDeRegistro.setToolTipText("CNPJ, INSC, ESTADUAL, Nº CONSELHO");
 
-        jLabel5.setText("Endereço:");
+        jLabel4.setText("Endereço:");
 
-        jLabel6.setText("Área:");
+        jLabel5.setText("Email:");
 
-        lblName6.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N
-        lblName6.setText("Cadastrar Orientador");
+        jLabel6.setText("Cidade:");
+
+        jLabel7.setText("Estado:");
+
+        jLabel8.setText("Caixa Postal:");
+
+        jLabel9.setText("Telefone:");
+
+        jLabel10.setText("CEP:");
+
+        try {
+            FTFCaixaPostal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        FTFCaixaPostal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FTFCaixaPostalActionPerformed(evt);
+            }
+        });
 
         try {
             FTFTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        FTFTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FTFTelefoneActionPerformed(evt);
+            }
+        });
 
         try {
-            FTFCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#.####-####")));
+            FTFCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
-        TFEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TFEmailActionPerformed(evt);
-            }
-        });
+        jLabel11.setText("Representante Legal:");
 
-        TFEndereco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TFEnderecoActionPerformed(evt);
-            }
-        });
-
-        TFArea.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TFAreaActionPerformed(evt);
-            }
-        });
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(TFArea)
-                        .addGap(1, 1, 1))
-                    .addComponent(TFEndereco)
-                    .addComponent(TFEmail)
-                    .addComponent(FTFCelular)
-                    .addComponent(FTFTelefone)
-                    .addComponent(TFNome))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(lblName6))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel10)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(TFCidade)
+                                    .addComponent(TFEmail)
+                                    .addComponent(TFEndereco)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(FTFCaixaPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(34, 34, 34)
+                                        .addComponent(jLabel11)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jComboBox1, 0, 184, Short.MAX_VALUE))
+                                    .addComponent(TFNumDeRegistro)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(FTFCEP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(FTFTelefone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(TFEstado)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(29, 29, 29)
+                                .addComponent(TFRazaoSocial))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(TFNomeFantasia)))))
                 .addContainerGap())
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addComponent(lblName6)
-                .addContainerGap(132, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(197, 197, 197))
+                .addGap(118, 118, 118))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
                 .addComponent(lblName6)
-                .addGap(18, 18, 18)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(TFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TFRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(FTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TFNomeFantasia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(FTFCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TFNumDeRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(TFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TFEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(TFEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(TFArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(74, 74, 74)
+                    .addComponent(TFCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(TFEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(FTFCaixaPostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(FTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(FTFCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
 
         BTNVoltar.setText("Voltar");
@@ -356,75 +425,40 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JMICadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMICadastrarActionPerformed
-        boolean campos = this.verificaCampos();
-
-        if (campos == true) {
-            OrientadorDoEstagioBEAN ori = new OrientadorDoEstagioBEAN();
-
-            ori.setNome(TFNome.getText());
-            ori.setFone(FTFTelefone.getText());
-            ori.setCelular(FTFCelular.getText());
-            ori.setEmail(TFEmail.getText());
-            ori.setEndereco(TFEndereco.getText());
-            ori.setArea(TFArea.getText());
-
-            boolean r = oriControl.cadastrar(ori);
-
-            if (r == true) {
-                JOptionPane.showMessageDialog(null, "Orientador cadastrado com sucesso!!!");
-            } else {
-                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Campos vazios!!!");
-        }
-
-
-    }//GEN-LAST:event_JMICadastrarActionPerformed
-
-    private void JMILimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMILimparActionPerformed
-        TFNome.setText("");
-        TFArea.setText("");
-        TFEmail.setText("");
-        TFEndereco.setText("");
-        FTFCelular.setText("");
-        FTFTelefone.setText("");
-    }//GEN-LAST:event_JMILimparActionPerformed
-
-    private void JMIVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIVoltarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JMIVoltarActionPerformed
-
     private void BTNCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNCadastrarActionPerformed
         boolean campos = this.verificaCampos();
 
         if (campos == true) {
-            OrientadorDoEstagioBEAN ori = new OrientadorDoEstagioBEAN();
+            EmpresaBEAN emp = new EmpresaBEAN();
+            int codRep = empControle.codigoRepresentante((String) jComboBox1.getSelectedItem());
+            emp.setRazaoSocial_nome(TFRazaoSocial.getText());
+            emp.setNomeFantasia(TFNomeFantasia.getText());
+            emp.setNumRegistro(TFNumDeRegistro.getText());
+            emp.setEndereco(TFEndereco.getText());
+            emp.setEmail(TFEmail.getText());
+            emp.setCidade(TFCidade.getText());
+            emp.setEstado(TFEstado.getText());
+            emp.setCaixaPostal(FTFCaixaPostal.getText());
+            emp.setFone(FTFTelefone.getText());
+            emp.setCep(FTFCEP.getText());
+            emp.setRepresentanteLegal(codRep);
 
-            ori.setNome(TFNome.getText());
-            ori.setFone(FTFTelefone.getText());
-            ori.setCelular(FTFCelular.getText());
-            ori.setEmail(TFEmail.getText());
-            ori.setEndereco(TFEndereco.getText());
-            ori.setArea(TFArea.getText());
-
-            boolean r = oriControl.cadastrar(ori);
+            boolean r = empControle.cadastrar(emp);
 
             if (r == true) {
-                JOptionPane.showMessageDialog(null, "Orientador cadastrado com sucesso!!!");
+                JOptionPane.showMessageDialog(null, "Empresa cadastrado com sucesso!!!");
+            } else if (r == false) {
+                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Empresa já cadastrado");
             } else {
                 JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
             }
@@ -434,30 +468,81 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
     }//GEN-LAST:event_BTNCadastrarActionPerformed
 
     private void BTNLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNLimparActionPerformed
-        TFNome.setText("");
-        TFArea.setText("");
-        TFEmail.setText("");
+        TFRazaoSocial.setText("");
+        TFNomeFantasia.setText("");
+        TFNumDeRegistro.setText("");
         TFEndereco.setText("");
-        FTFCelular.setText("");
+        TFEmail.setText("");
+        TFCidade.setText("");
+        TFEstado.setText("");
+        FTFCaixaPostal.setText("");
         FTFTelefone.setText("");
+        FTFCEP.setText("");
+        jComboBox1.setSelectedIndex(0);
     }//GEN-LAST:event_BTNLimparActionPerformed
 
-    private void TFEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFEmailActionPerformed
+    private void FTFCaixaPostalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FTFCaixaPostalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TFEmailActionPerformed
+    }//GEN-LAST:event_FTFCaixaPostalActionPerformed
 
-    private void TFEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFEnderecoActionPerformed
+    private void FTFTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FTFTelefoneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TFEnderecoActionPerformed
+    }//GEN-LAST:event_FTFTelefoneActionPerformed
 
-    private void TFAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFAreaActionPerformed
+    private void JMICadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMICadastrarActionPerformed
+        boolean campos = this.verificaCampos();
+
+        if (campos == true) {
+            EmpresaBEAN emp = new EmpresaBEAN();
+            int codRep = empControle.codigoRepresentante((String) jComboBox1.getSelectedItem());
+            emp.setRazaoSocial_nome(TFRazaoSocial.getText());
+            emp.setNomeFantasia(TFNomeFantasia.getText());
+            emp.setNumRegistro(TFNumDeRegistro.getText());
+            emp.setEndereco(TFEndereco.getText());
+            emp.setEmail(TFEmail.getText());
+            emp.setCidade(TFCidade.getText());
+            emp.setEstado(TFEstado.getText());
+            emp.setCaixaPostal(FTFCaixaPostal.getText());
+            emp.setFone(FTFTelefone.getText());
+            emp.setCep(FTFCEP.getText());
+            emp.setRepresentanteLegal(codRep);
+
+            boolean r = empControle.cadastrar(emp);
+
+            if (r == true) {
+                JOptionPane.showMessageDialog(null, "Empresa cadastrado com sucesso!!!");
+            } else if (r == false) {
+                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Empresa já cadastrado");
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Campos vazios!!!");
+        }
+    }//GEN-LAST:event_JMICadastrarActionPerformed
+
+    private void JMILimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMILimparActionPerformed
+        TFRazaoSocial.setText("");
+        TFNomeFantasia.setText("");
+        TFNumDeRegistro.setText("");
+        TFEndereco.setText("");
+        TFEmail.setText("");
+        TFCidade.setText("");
+        TFEstado.setText("");
+        FTFCaixaPostal.setText("");
+        FTFTelefone.setText("");
+        FTFCEP.setText("");
+        jComboBox1.setSelectedIndex(0);
+    }//GEN-LAST:event_JMILimparActionPerformed
+
+    private void JMIVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIVoltarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TFAreaActionPerformed
+    }//GEN-LAST:event_JMIVoltarActionPerformed
 
     private void BTNVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNVoltarActionPerformed
         // TODO add your handling code here:
-        JFRMPrincipal prin = new JFRMPrincipal();
-        prin.setVisible(true);
+        JFRMListarEmpresas emp = new  JFRMListarEmpresas();
+        emp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTNVoltarActionPerformed
 
@@ -478,21 +563,23 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFRMCadastrarOrientador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFRMEditarEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFRMCadastrarOrientador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFRMEditarEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFRMCadastrarOrientador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFRMEditarEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFRMCadastrarOrientador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFRMEditarEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFRMCadastrarOrientador().setVisible(true);
+                new JFRMEditarEmpresa().setVisible(true);
             }
         });
     }
@@ -501,21 +588,31 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
     private javax.swing.JButton BTNCadastrar;
     private javax.swing.JButton BTNLimpar;
     private javax.swing.JButton BTNVoltar;
-    private javax.swing.JFormattedTextField FTFCelular;
+    private javax.swing.JFormattedTextField FTFCEP;
+    private javax.swing.JFormattedTextField FTFCaixaPostal;
     private javax.swing.JFormattedTextField FTFTelefone;
     private javax.swing.JMenuItem JMICadastrar;
     private javax.swing.JMenuItem JMILimpar;
     private javax.swing.JMenuItem JMIVoltar;
-    private javax.swing.JTextField TFArea;
+    private javax.swing.JTextField TFCidade;
     private javax.swing.JTextField TFEmail;
     private javax.swing.JTextField TFEndereco;
-    private javax.swing.JTextField TFNome;
+    private javax.swing.JTextField TFEstado;
+    private javax.swing.JTextField TFNomeFantasia;
+    private javax.swing.JTextField TFNumDeRegistro;
+    private javax.swing.JTextField TFRazaoSocial;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
@@ -534,11 +631,46 @@ public class JFRMCadastrarOrientador extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private boolean verificaCampos() {
-        if (("".equals(TFNome.getText())) || ("".equals(TFEmail.getText())) || ("".equals(TFEndereco.getText())) || ("".equals(TFArea.getText()))
-                || ("(  ) .    -    ".equals(FTFCelular.getText())) || ("(  )    -    ".equals(FTFCelular.getText()))) {
+        if (("".equals(TFRazaoSocial.getText())) || ("".equals(TFNomeFantasia.getText())) || ("".equals(TFNumDeRegistro.getText()))
+                || ("".equals(TFEndereco.getText())) || ("".equals(TFEmail.getText())) || ("".equals(TFCidade.getText()))
+                || ("".equals(TFEstado.getText())) || ("".equals(FTFCaixaPostal.getText())) || ("".equals(FTFTelefone.getText()))
+                || ("".equals(FTFCEP.getText())) || (jComboBox1.getSelectedIndex() == 0)) {
             return false;
-        } else {
-            return true;
+        }
+        return true;
+    }
+
+    private void preencherCombo() {
+        ArrayList<RepresentanteLegalBEAN> reps = empControle.todosRep();
+
+        for (RepresentanteLegalBEAN rep : reps) {
+            jComboBox1.addItem(rep.getNome());
+        }
+    }
+
+    void setaValores(EmpresaBEAN empresa) {
+        empObj = empresa;
+        
+        TFCidade.setText(empObj.getCidade());
+        TFEmail.setText(empObj.getEmail());
+        TFEndereco.setText(empObj.getEndereco());
+        TFEstado.setText(empObj.getEstado());
+        TFNomeFantasia.setText(empObj.getNomeFantasia());
+        TFNumDeRegistro.setText(empObj.getNumRegistro());
+        TFRazaoSocial.setText(empObj.getRazaoSocial_nome());
+        FTFCEP.setText(empObj.getCep());
+        FTFCaixaPostal.setText(empObj.getCaixaPostal());
+        FTFTelefone.setText(empObj.getFone());
+        
+        this.setaValorNoCB(empresa);
+    }
+
+    private void setaValorNoCB(EmpresaBEAN empresa) {
+        ArrayList<RepresentanteLegalBEAN> reps = empControle.todosRep();
+        for (int i = 0; i<=reps.size(); i++) {
+            if(empresa.getRepresentanteLegalNome().equals(jComboBox1.getItemAt(i))){
+                jComboBox1.setSelectedIndex(i);
+            }
         }
     }
 }

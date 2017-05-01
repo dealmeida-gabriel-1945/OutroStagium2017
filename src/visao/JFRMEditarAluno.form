@@ -520,7 +520,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="MV Boli" size="36" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Cadastrar Aluno"/>
+                    <Property name="text" type="java.lang.String" value="Editar Aluno"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel2">

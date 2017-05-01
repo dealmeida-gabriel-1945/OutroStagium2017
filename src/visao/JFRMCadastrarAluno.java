@@ -659,6 +659,8 @@ public class JFRMCadastrarAluno extends javax.swing.JFrame {
 
     private void BTNVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNVoltarActionPerformed
         // TODO add your handling code here:
+        JFRMPrincipal prin = new JFRMPrincipal();
+        prin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTNVoltarActionPerformed
 

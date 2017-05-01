@@ -18,9 +18,10 @@ import modelo.RepresentanteLegalBEAN;
  *
  * @author Darkfocus
  */
-public class JFRMCadastrarEstagio extends javax.swing.JFrame {
+public class JFRMEditarEstagio extends javax.swing.JFrame {
 
     EstagioControle estControle = new EstagioControle();
+    EstagioBEAN estObj = new EstagioBEAN();
 
     int codOrientador = 0;
     int codEmpresa = 0;
@@ -28,7 +29,7 @@ public class JFRMCadastrarEstagio extends javax.swing.JFrame {
     /**
      * Creates new form JFRMCadastrarEstagio1
      */
-    public JFRMCadastrarEstagio() {
+    public JFRMEditarEstagio() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.preencherCombo1();
@@ -111,7 +112,6 @@ public class JFRMCadastrarEstagio extends javax.swing.JFrame {
         RADBTNNaoObrigatorio = new javax.swing.JRadioButton();
         jPanel8 = new javax.swing.JPanel();
         jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         chbAlimentacao = new javax.swing.JCheckBox();
         chbAlojamento = new javax.swing.JCheckBox();
@@ -199,7 +199,7 @@ public class JFRMCadastrarEstagio extends javax.swing.JFrame {
         );
 
         lblName6.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N
-        lblName6.setText("Cadastrar Estágio");
+        lblName6.setText("Editar Estágio");
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Aluno", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 0, 255))); // NOI18N
 
@@ -289,24 +289,23 @@ public class JFRMCadastrarEstagio extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(147, Short.MAX_VALUE)
                 .addComponent(cbEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
             .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel2))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(28, 28, 28)
                         .addComponent(jLabel3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(tfNomeFan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(tfNomeFan, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tfNumReg, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfRazao))
+                    .addComponent(tfRazao, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -353,20 +352,18 @@ public class JFRMCadastrarEstagio extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfNomeO)
-                    .addComponent(tfArea)
-                    .addComponent(tfEmail)))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cbOrientador, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(tfNomeO)
+                    .addComponent(tfArea, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbOrientador, javax.swing.GroupLayout.Alignment.LEADING, 0, 158, Short.MAX_VALUE))
                 .addGap(33, 33, 33))
         );
         jPanel7Layout.setVerticalGroup(
@@ -376,9 +373,9 @@ public class JFRMCadastrarEstagio extends javax.swing.JFrame {
                     .addComponent(jLabel14)
                     .addComponent(tfNomeO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addComponent(tfArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
@@ -476,17 +473,10 @@ public class JFRMCadastrarEstagio extends javax.swing.JFrame {
 
         jPanel8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButton7.setText("Cadastrar");
+        jButton7.setText("Editar");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
-            }
-        });
-
-        jButton8.setText("Limpar");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
             }
         });
 
@@ -496,19 +486,15 @@ public class JFRMCadastrarEstagio extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(24, 24, 24)
                 .addComponent(jButton7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton8)
-                .addContainerGap())
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Benefícios Oferecidos", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 0, 255))); // NOI18N
@@ -760,8 +746,8 @@ public class JFRMCadastrarEstagio extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 38, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -828,7 +814,7 @@ public class JFRMCadastrarEstagio extends javax.swing.JFrame {
         jMenu.setText("Ações");
 
         JMICadastrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        JMICadastrar.setText("Cadastrar");
+        JMICadastrar.setText("Editar");
         JMICadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JMICadastrarActionPerformed(evt);
@@ -1036,39 +1022,10 @@ public class JFRMCadastrarEstagio extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        cbAluno.setSelectedIndex(0);
-        cbEmpresa.setSelectedIndex(0);
-        cbOrientador.setSelectedIndex(0);
-        tfSupervisor.setText("");
-        tfTotalHoras.setText("");
-        tfAluno.setText("");
-        tfArea.setText("");
-        tfCurso.setText("");
-        tfEmail.setText("");
-        tfMatricula.setText("");
-        tfNomeFan.setText("");
-        tfNomeO.setText("");
-        tfNumReg.setText("");
-        tfRazao.setText("");
-        ftfDadaFinal.setText("");
-        ftfDataInicio.setText("");
-        ftfDataR1.setText("");
-        ftfDataR2.setText("");
-        ftfDataR3.setText("");
-        ftfDataR4.setText("");
-        ftfHorarioF.setText("");
-        ftfHorarioI.setText("");
-        ftfHorasM.setText("");
-        ftfValorBeneficios.setText("");
-        taArea.setText("");
-
-    }//GEN-LAST:event_jButton8ActionPerformed
-
     private void BTNVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNVoltarActionPerformed
         // TODO add your handling code here:
-        JFRMPrincipal prin = new JFRMPrincipal();
-        prin.setVisible(true);
+        JFRMListarEstagios est = new JFRMListarEstagios();
+        est.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTNVoltarActionPerformed
 
@@ -1089,21 +1046,23 @@ public class JFRMCadastrarEstagio extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFRMCadastrarEstagio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFRMEditarEstagio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFRMCadastrarEstagio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFRMEditarEstagio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFRMCadastrarEstagio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFRMEditarEstagio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFRMCadastrarEstagio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFRMEditarEstagio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFRMCadastrarEstagio().setVisible(true);
+                new JFRMEditarEstagio().setVisible(true);
             }
         });
     }
@@ -1133,7 +1092,6 @@ public class JFRMCadastrarEstagio extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField ftfHorasM;
     private javax.swing.JFormattedTextField ftfValorBeneficios;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1261,5 +1219,140 @@ public class JFRMCadastrarEstagio extends javax.swing.JFrame {
         }
         return true;
     }
+
+    void setaValores(EstagioBEAN estagio) {
+        ftfDadaFinal.setText(estagio.getDataFinal());
+        ftfDataInicio.setText(estagio.getDataInicio());
+        ftfHorarioI.setText(estagio.getHorarioInicio());
+        ftfHorarioF.setText(estagio.getHorarioFinal());
+        ftfHorasM.setText(estagio.getHorasMens()+"");
+        ftfValorBeneficios.setText(estagio.getBeneficiosValor());
+        tfSupervisor.setText(estagio.getSupervisor());
+        taArea.setText(estagio.getAreAtuacao());
+        tfTotalHoras.setText(estagio.getTotalHoras()+"");
+        
+        this.setaDatas(estagio);
+        this.setaBeneficios(estagio);
+        this.setaTipo(estagio);
+        this.setaAluno(estagio);
+        this.setaEmpresa(estagio);
+        this.setaOrientador(estagio);
+    }
+
+    private void setaBeneficios(EstagioBEAN estagio) {
+        String beneficios = estagio.getBeneficios();
+        
+        if(beneficios.equals(" Alimentação;")){
+            chbAlimentacao.setSelected(true);
+            chbAlojamento.setSelected(false);
+            chbBolsaAux.setSelected(false);
+            
+        }else if (beneficios.equals(" Alojamento;")){
+            chbAlimentacao.setSelected(false);
+            chbAlojamento.setSelected(true);
+            chbBolsaAux.setSelected(false);
+            
+        }else if (beneficios.equals(" BolsaAuxilio;")){
+            chbAlimentacao.setSelected(false);
+            chbAlojamento.setSelected(false);
+            chbBolsaAux.setSelected(true);
+            
+        }else if (beneficios.equals(" Alimentação; Alojamento;")){
+            chbAlimentacao.setSelected(true);
+            chbAlojamento.setSelected(true);
+            chbBolsaAux.setSelected(false);
+            
+        }else if (beneficios.equals(" Alimentação; BolsaAuxilio;")){
+            chbAlimentacao.setSelected(true);
+            chbAlojamento.setSelected(false);
+            chbBolsaAux.setSelected(true);
+            
+        }else if(beneficios.equals(" Alojamento; BolsaAuxilio;")){
+            chbAlimentacao.setSelected(false);
+            chbAlojamento.setSelected(true);
+            chbBolsaAux.setSelected(true);
+            
+        }else if (beneficios.equals(" Alimentação; Alojamento; BolsaAuxilio;")){
+            chbAlimentacao.setSelected(true);
+            chbAlojamento.setSelected(true);
+            chbBolsaAux.setSelected(true);
+            
+        }else{
+            chbAlimentacao.setSelected(false);
+            chbAlojamento.setSelected(false);
+            chbBolsaAux.setSelected(false);
+        }
+        
+    }
+
+    private void setaTipo(EstagioBEAN estagio) {
+        if(estagio.getTipo().equals("Obrigatório")){
+            RADBTNObrigatorio.setSelected(true);
+        }else{
+            RADBTNNaoObrigatorio.setSelected(true);
+        }
+    }
+
+    private void setaDatas(EstagioBEAN estagio) {
+        String dataRela1 = estagio.getDataPrimeiroRelatorio();
+        ftfDataR1.setText(dataRela1.charAt(0)+"" + dataRela1.charAt(1)+""  + dataRela1.charAt(2)+""  + dataRela1.charAt(3)+""  + dataRela1.charAt(5)+""  + dataRela1.charAt(6)+""  + dataRela1.charAt(8) +""   + dataRela1.charAt(9));
+        
+        String dataRela2 = estagio.getDataSegundoRelatorio();
+        ftfDataR2.setText(dataRela2.charAt(0)+"" + dataRela2.charAt(1)+""  + dataRela2.charAt(2)+""  + dataRela2.charAt(3)+""  + dataRela2.charAt(5)+""  + dataRela2.charAt(6)+""  + dataRela2.charAt(8) +""   + dataRela2.charAt(9));
+        
+        String dataRela3 = estagio.getDataTerceiroRelatorio();
+        ftfDataR3.setText(dataRela3.charAt(0)+"" + dataRela3.charAt(1)+""  + dataRela3.charAt(2)+""  + dataRela3.charAt(3)+""  + dataRela3.charAt(5)+""  + dataRela3.charAt(6)+""  + dataRela3.charAt(8) +""   + dataRela3.charAt(9));
+        
+        String dataRela4 = estagio.getDataQuartoRelatorio();
+        ftfDataR4.setText(dataRela4.charAt(0)+"" + dataRela4.charAt(1)+""  + dataRela4.charAt(2)+""  + dataRela4.charAt(3)+""  + dataRela4.charAt(5)+""  + dataRela4.charAt(6)+""  + dataRela4.charAt(8) +""   + dataRela4.charAt(9));
+        
+        String dataI = estagio.getDataInicio();
+        ftfDataInicio.setText(dataI.charAt(0)+"" + dataI.charAt(1)+""  + dataI.charAt(2)+""  + dataI.charAt(3)+""  + dataI.charAt(5)+""  + dataI.charAt(6)+""  + dataI.charAt(8) +""   + dataI.charAt(9));
+        
+        String dataF = estagio.getDataFinal();
+        ftfDadaFinal.setText(dataF.charAt(0)+"" + dataF.charAt(1)+""  + dataF.charAt(2)+""  + dataF.charAt(3)+""  + dataF.charAt(5)+""  + dataF.charAt(6)+""  + dataF.charAt(8) +""   + dataF.charAt(9));
+        
+    }   
+
+    private void setaAluno(EstagioBEAN estagio) {
+        ArrayList<AlunoBEAN> alunos = estControle.todosAlunos();
+        int xX = 0;
+        for(int i = 0; i <= alunos.size() ; i++){
+            cbAluno.setSelectedIndex(i);
+            if(estagio.getAluMatricula().equals(tfMatricula.getText())){
+                xX = i;
+            }
+            
+        }
+        cbAluno.setSelectedIndex(xX);
+    }
+
+    private void setaEmpresa(EstagioBEAN estagio) {
+        ArrayList<EmpresaBEAN> empresas = estControle.todasEmpresas();
+        int xX = 0;
+        for(int i = 0; i <= empresas.size() ; i++){
+            cbEmpresa.setSelectedIndex(i);
+            if(estagio.getEmpNomeFantasia().equals(tfNomeFan.getText())){
+                xX = i;
+            }
+            
+        }
+        cbEmpresa.setSelectedIndex(xX);
+    }
+
+    private void setaOrientador(EstagioBEAN estagio) {
+         ArrayList<OrientadorDoEstagioBEAN> oris = estControle.todosOri();
+        int xX = 0;
+        for(int i = 0; i <= oris.size() ; i++){
+            cbOrientador.setSelectedIndex(i);
+            if(estagio.getOriEmail().equals(tfEmail.getText())){
+                xX = i;
+            }
+            
+        }
+        cbOrientador.setSelectedIndex(xX);
+    }
+    
+    
 
 }

@@ -128,7 +128,7 @@ public class JFRMEditarCursos extends javax.swing.JFrame {
         );
 
         lblName6.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N
-        lblName6.setText("Cadastrar Curso");
+        lblName6.setText("Editar Curso");
         lblName6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblName6MouseClicked(evt);
@@ -334,6 +334,9 @@ public class JFRMEditarCursos extends javax.swing.JFrame {
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         // TODO add your handling code here:
+        JFRMListarCursos cursos = new JFRMListarCursos();
+        cursos.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void miCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastrarActionPerformed

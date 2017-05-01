@@ -21,6 +21,7 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
     private DefaultTableModel dTable;
     ArrayList<EmpresaBEAN> empAL = new ArrayList<EmpresaBEAN>();
     EmpresaControle empC = new EmpresaControle();
+    EmpresaBEAN empObj = new EmpresaBEAN();
 
     /**
      * Creates new form JFRMListarAlunos
@@ -28,7 +29,7 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
     public JFRMListarEmpresas() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
-        
+        empObj.setRazaoSocial_nome("");
         this.preencheTabela();
         
     }
@@ -409,6 +410,11 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButton2.setText("Editar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Excluir");
 
@@ -523,6 +529,11 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
         );
 
         jButton1.setText("Sair");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -603,17 +614,14 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabelaEmpresasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaEmpresasMouseClicked
-        if(evt.getClickCount()==2){
-            
-        }else{
-            int row = tabelaEmpresas.getSelectedRow();
+           int row = tabelaEmpresas.getSelectedRow();
             TFMostraEmail.setText(empAL.get(row).getEmail());
             TFMostraEndereco.setText(empAL.get(row).getEndereco());
             TFMostraNomeFanrasia.setText(empAL.get(row).getNomeFantasia());
             TFMostraNumRegistro.setText(empAL.get(row).getNumRegistro());
             TFMostraRazaoSocial.setText(empAL.get(row).getRazaoSocial_nome());
             TFMostraTelefone.setText(empAL.get(row).getFone());
-        }
+        empObj = empAL.get(row);
         
         
     }//GEN-LAST:event_tabelaEmpresasMouseClicked
@@ -626,6 +634,25 @@ public class JFRMListarEmpresas extends javax.swing.JFrame {
         // TODO add your handling code here:
         //JOptionPane.showMessageDialog(null, empAL.size());
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        if(empObj.getRazaoSocial_nome().equals("")){
+            JOptionPane.showMessageDialog(null, "Escolha uma empresa para editar!");
+        }else{
+            JFRMEditarEmpresa editar = new JFRMEditarEmpresa();
+            editar.setVisible(true);
+            editar.setaValores(empObj);
+            this.dispose();
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JFRMPrincipal prin = new JFRMPrincipal();
+        prin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
