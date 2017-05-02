@@ -17,16 +17,16 @@ import java.util.ArrayList;
  */
 public class EstagioMySqlDAO {
 
-     private Connection connection;
-    
+    private Connection connection;
+
     private PreparedStatement stmt;
-    
-     public EstagioMySqlDAO() {
-         
+
+    public EstagioMySqlDAO() {
+
         this.connection = ConnectionFactory.getConnection();
-        
+
     }
-    
+
     public ArrayList<AlunoBEAN> todosAlunos() {
         String sql = "select aluNome from aluno ;";
         ArrayList<AlunoBEAN> alunos = new ArrayList<AlunoBEAN>();
@@ -103,11 +103,9 @@ public class EstagioMySqlDAO {
                 + "estAreaAtuacao) "
                 + "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
         try {
-            
-            
-            
+
             stmt = connection.prepareStatement(sql);
-            
+
             stmt.setString(1, es.getDataInicio());
             stmt.setString(2, es.getDataFinal());
             stmt.setFloat(3, es.getTotalHoras());
@@ -126,12 +124,10 @@ public class EstagioMySqlDAO {
             stmt.setString(16, es.getDataQuartoRelatorio());
             stmt.setString(17, es.getTipo());
             stmt.setString(18, es.getAreAtuacao());
-           
-            
-            
+
             stmt.execute();
             stmt.close();
-            
+
             return true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -139,18 +135,18 @@ public class EstagioMySqlDAO {
     }
 
     public ArrayList<EstagioBEAN> listarAll() {
-          String sql = " SELECT estCodigo, estAreaAtuacao, estDataInicio, estDataFinal, estTotalHoras, estBeneficios, estBeneficiosValor, estSupervisor, estHoraMensais, estHorarioInicio, estHorarioFinal, estTipo, "+
-                       "        estDataRelatorio1, estDataRelatorio2, estDataRelatorio3, estDataRelatorio4, " +
-                       "	aluMatricula, aluNome, aluCpf, alunRg, aluEmail, " +
-                       "        empCodigo, empNomeFantasia, empRazaoSocial,empFone, empEmail, oriCodigo, oriNome, oriEmail " +
-                       " FROM estagio JOIN aluno " +
-                       "             JOIN empresa " +
-                       "             JOIN orientador " +
-                       " WHERE aluMatricula = aluno_aluMatricula AND empCodigo = empresa_empCodigo AND oriCodigo = orientador_oriCodigo; ";
-        ArrayList <EstagioBEAN> estAL = new ArrayList <EstagioBEAN>();
-        
+        String sql = " SELECT estCodigo, estAreaAtuacao, estDataInicio, estDataFinal, estTotalHoras, estBeneficios, estBeneficiosValor, estSupervisor, estHoraMensais, estHorarioInicio, estHorarioFinal, estTipo, "
+                + "        estDataRelatorio1, estDataRelatorio2, estDataRelatorio3, estDataRelatorio4, "
+                + "	aluMatricula, aluNome, aluCpf, alunRg, aluEmail, "
+                + "        empCodigo, empNomeFantasia, empRazaoSocial,empFone, empEmail, oriCodigo, oriNome, oriEmail "
+                + " FROM estagio JOIN aluno "
+                + "             JOIN empresa "
+                + "             JOIN orientador "
+                + " WHERE aluMatricula = aluno_aluMatricula AND empCodigo = empresa_empCodigo AND oriCodigo = orientador_oriCodigo; ";
+        ArrayList<EstagioBEAN> estAL = new ArrayList<EstagioBEAN>();
+
         try {
-             stmt = connection.prepareStatement(sql);            
+            stmt = connection.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             //joga resultado da consulta no ArrayList
             while (rs.next()) {
@@ -185,17 +181,85 @@ public class EstagioMySqlDAO {
                 a.setOriCod(rs.getInt(27));
                 a.setOriNome(rs.getString(28));
                 a.setOriEmail(rs.getString(29));
-                
+
                 estAL.add(a);
-                }
+            }
             stmt.close();//fecha conexão - OBRIGATORIO SEMPRE!
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        
+
         return estAL;
     }
 
-   
-    
+    public void editar(EstagioBEAN es) {
+        String sql = "UPDATE estagio SET  "
+                + " estDataInicio = ?, "
+                + " estDataFinal = ?, "
+                + " estTotalHoras = ?, "
+                + " estBeneficios = ?, "
+                + " estBeneficiosValor = ?, "
+                + " aluno_aluMatricula = ?, "
+                + " empresa_empCodigo = ?, "
+                + " orientador_oriCodigo = ?, "
+                + " estSupervisor = ?, "
+                + " estHoraMensais = ?, "
+                + " estHorarioInicio = ?, "
+                + " estHorarioFinal = ?,"
+                + " estDataRelatorio1 = ?,"
+                + " estDataRelatorio2 = ?,"
+                + " estDataRelatorio3 = ?,"
+                + " estDataRelatorio4 = ?,"
+                + " estTipo = ?,"
+                + " estAreaAtuacao = ?"
+                + " WHERE estCodigo = ?;";
+        try {
+
+            stmt = connection.prepareStatement(sql);
+
+            stmt.setString(1, es.getDataInicio());
+            stmt.setString(2, es.getDataFinal());
+            stmt.setFloat(3, es.getTotalHoras());
+            stmt.setString(4, es.getBeneficios());
+            stmt.setString(5, es.getBeneficiosValor());
+            stmt.setString(6, es.getAluMatricula());
+            stmt.setInt(7, es.getEmpCod());
+            stmt.setInt(8, es.getOriCod());
+            stmt.setString(9, es.getSupervisor());
+            stmt.setFloat(10, es.getHorasMens());
+            stmt.setString(11, es.getHorarioInicio());
+            stmt.setString(12, es.getHorarioFinal());
+            stmt.setString(13, es.getDataPrimeiroRelatorio());
+            stmt.setString(14, es.getDataSegundoRelatorio());
+            stmt.setString(15, es.getDataTerceiroRelatorio());
+            stmt.setString(16, es.getDataQuartoRelatorio());
+            stmt.setString(17, es.getTipo());
+            stmt.setString(18, es.getAreAtuacao());
+            stmt.setInt(19, es.getCod());
+
+            stmt.execute();
+            stmt.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean excluir(EstagioBEAN estObj) {
+        String sql = "DELETE FROM estagio WHERE estCodigo = ?;";
+        try {
+
+            stmt = connection.prepareStatement(sql);
+
+            stmt.setInt(1, estObj.getCod());
+
+            stmt.execute();
+            stmt.close();
+
+            return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

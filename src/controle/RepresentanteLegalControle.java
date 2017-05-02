@@ -24,5 +24,10 @@ public class RepresentanteLegalControle {
     public boolean cadastrar(RepresentanteLegalBEAN rep) {
         return repMSQL.cadastrar(rep);
     }
+
+    public boolean editar(RepresentanteLegalBEAN rep) {
+        repMSQL.editar(rep);
+        return true;
+    }
     
 }

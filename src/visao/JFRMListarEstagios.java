@@ -211,6 +211,11 @@ public class JFRMListarEstagios extends javax.swing.JFrame {
         });
 
         BTNExcluir.setText("Excluir");
+        BTNExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNExcluirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -440,7 +445,7 @@ public class JFRMListarEstagios extends javax.swing.JFrame {
 
     private void BTNEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNEditarActionPerformed
         // TODO add your handling code here:
-        if(estObj.getDataInicio().equals("")){
+        if(estObj.getAluMatricula().equals("")){
             JOptionPane.showMessageDialog(null, "Escolha um estágio para editar!");
         }else{
             JFRMEditarEstagio editar = new JFRMEditarEstagio();
@@ -456,6 +461,24 @@ public class JFRMListarEstagios extends javax.swing.JFrame {
         prin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BTNExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNExcluirActionPerformed
+        
+        
+        if (estObj.getAluMatricula().equals("")) {
+            JOptionPane.showMessageDialog(null, "Escolha um estágio para excluir!");
+        } else {
+            
+            boolean r = estC.excluir(estObj);
+            
+            if (r == true) {
+                JOptionPane.showMessageDialog(null, "Estágio Excluido com Sucesso!!!");
+                this.preencheTabela();
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao Excluir!!!");
+            }
+        }
+    }//GEN-LAST:event_BTNExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -541,6 +564,7 @@ public class JFRMListarEstagios extends javax.swing.JFrame {
     private void preencheTabela() {
         dTable = criaTabela();
         //seta o nome das colunas da tabela
+        dTable.addColumn("Est Codigo;");
         dTable.addColumn("Área de Atuação");
         dTable.addColumn("Tipo de Estágio");
         dTable.addColumn("Início");
@@ -571,11 +595,11 @@ public class JFRMListarEstagios extends javax.swing.JFrame {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class,
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class,
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class,
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class};
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class};
             //define se os campos podem ser editados na propria tabela
             boolean[] canEdit = new boolean[]{
                 false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
-                false, false, false, false};
+                false, false, false, false, false};
 
             @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -593,7 +617,7 @@ public class JFRMListarEstagios extends javax.swing.JFrame {
         estAL = estC.povoaTabela();
         //cada célula do arrayList vira uma linha(row) na tabela
         for (EstagioBEAN dado : estAL) {
-            dTable.addRow(new Object[]{dado.getAreAtuacao(), dado.getTipo(),dado.getDataInicio(), dado.getDataFinal(), dado.getDataPrimeiroRelatorio(),
+            dTable.addRow(new Object[]{dado.getCod(), dado.getAreAtuacao(), dado.getTipo(),dado.getDataInicio(), dado.getDataFinal(), dado.getDataPrimeiroRelatorio(),
             dado.getDataSegundoRelatorio(), dado.getDataTerceiroRelatorio(), dado.getDataQuartoRelatorio(), dado.getAluMatricula(), dado.getAluNome(),dado.getAluCPF(),
             dado.getAluRG(), dado.getAluEmail(),dado.getEmpNomeFantasia(), dado.getEmpRazaoSocial(), dado.getEmpTelefone(), dado.getEmpEmail(),
             dado.getOriNome(), dado.getOriEmail()});

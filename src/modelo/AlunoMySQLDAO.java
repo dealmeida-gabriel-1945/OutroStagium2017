@@ -251,57 +251,57 @@ public class AlunoMySQLDAO {
     }
 
     public boolean editar1(AlunoBEAN a) {
-        String sql = "Update aluno set "
-                + "aluNome = ?,"
-                + "aluPeriodo = ?,"
-                + "aluCpf = ?,"
-                + "alunRg = ?,"
-                + "aluOrgEmissor = ?,"
-                + "aluEstadoCivil = ?,"
-                + "aluDataNascimento = ?,"
-                + "aluRepresentanteLegal = ?,"
-                + "aluEndereco = ?,"
-                + "aluEstado = ?,"
-                + "aluCidade = ?,"
-                + "aluCep = ?,"
-                + "aluFone = ?,"
-                + "aluCelular = ?,"
-                + "aluEmail = ?,"
-                + "aluConhecimentoInformatica = ?,"
-                + "aluCarteiraHabilitacao = ?,"
-                + "aluInicioCurso = ?,"
-                + "aluFormatura = ?,"
-                + "curso_curCod = ?,"
-                + "aluTurma = ?"
-                + "where aluMatricula = ? ;";
+        String sql = "UPDATE aluno SET "
+                + " aluNome = ?,"
+                + " aluPeriodo = ?,"
+                + " aluCpf = ?,"
+                + " alunRg = ?,"
+                + " aluOrgEmissor = ?,"
+                + " aluEstadoCivil = ?,"
+                + " aluDataNascimento = ?,"
+                + " aluRepresentanteLegal = ?,"
+                + " aluEndereco = ?,"
+                + " aluEstado = ?,"
+                + " aluCidade = ?,"
+                + " aluCep = ?,"
+                + " aluFone = ?,"
+                + " aluCelular = ?,"
+                + " aluEmail = ?,"
+                + " aluConhecimentoInformatica = ?,"
+                + " aluCarteiraHabilitacao = ?,"
+                + " aluInicioCurso = ?,"
+                + " aluFormatura = ?,"
+                + " curso_curCod = ?,"
+                + " aluTurma = ?"
+                + "WHERE aluMatricula = ? ;";
         try {
             
             
             
             stmt = connection.prepareStatement(sql);
             
-            stmt.setString(1, "%" + a.getNome() + "%");
-            stmt.setString(2,  "%" + a.getAno_Periodo() + "%");
-            stmt.setString(3,  "%" + a.getCpf() + "%");
-            stmt.setString(4, "%" + a.getRg() + "%");
-            stmt.setString(5, "%" + a.getOrgEmissor() + "%");
-            stmt.setString(6, "%" + a.getEstadoCivil() + "%");
-            stmt.setString(7, "%" + a.getDataNascimento() + "%");
-            stmt.setString(8, "%" + a.getRepresentanteLegal() + "%");
-            stmt.setString(9, "%" + a.getEndereco() + "%");
-            stmt.setString(10, "%" + a.getEstado() + "%");
-            stmt.setString(11, "%" + a.getCidade() + "%");
-            stmt.setString(12, "%" + a.getCep() + "%");
-            stmt.setString(13, "%" + a.getFone() + "%");
-            stmt.setString(14, "%" + a.getCelular() + "%");
-            stmt.setString(15, "%" + a.getEmail() + "%");
-            stmt.setString(16, "%" + a.getConhecimento_informatica() + "%");
-            stmt.setString(17, "%" + a.getCarteira_habilitacao() + "%");
-            stmt.setString(18, "%" + a.getInicioDoCurso() + "%");
-            stmt.setString(19, "%" + a.getFormatura() + "%");
+            stmt.setString(1, a.getNome());
+            stmt.setString(2, a.getAno_Periodo());
+            stmt.setString(3, a.getCpf());
+            stmt.setString(4, a.getRg());
+            stmt.setString(5, a.getOrgEmissor());
+            stmt.setString(6, a.getEstadoCivil());
+            stmt.setString(7, a.getDataNascimento());
+            stmt.setString(8, a.getRepresentanteLegal());
+            stmt.setString(9, a.getEndereco());
+            stmt.setString(10, a.getEstado());
+            stmt.setString(11, a.getCidade());
+            stmt.setString(12, a.getCep());
+            stmt.setString(13, a.getFone());
+            stmt.setString(14, a.getCelular());
+            stmt.setString(15, a.getEmail());
+            stmt.setString(16, a.getConhecimento_informatica());
+            stmt.setString(17, a.getCarteira_habilitacao());
+            stmt.setString(18, a.getInicioDoCurso());
+            stmt.setString(19, a.getFormatura());
             stmt.setInt(20, a.getCurCodigo());
-            stmt.setString(21, "%" + a.getTurma() + "%");
-            stmt.setString(22, "%" + a.getMatricula() + "%");
+            stmt.setString(21, a.getTurma());
+            stmt.setString(22, a.getMatricula());
             
             
             stmt.execute();
@@ -310,6 +310,28 @@ public class AlunoMySQLDAO {
             return true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public boolean excluir(AlunoBEAN a) {
+        String sql = "DELETE FROM aluno WHERE aluMatricula = ?;";
+        try {
+            
+            
+            
+            stmt = connection.prepareStatement(sql);
+            
+            stmt.setString(1, a.getMatricula());
+            
+            
+            
+            stmt.execute();
+            stmt.close();
+            
+            return true;
+        } catch (SQLException e) {
+            return false;
+
         }
     }
 

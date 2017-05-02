@@ -61,6 +61,7 @@ public class JFRMEditarOrientador extends javax.swing.JFrame {
         TFEndereco = new javax.swing.JTextField();
         TFArea = new javax.swing.JTextField();
         BTNVoltar = new javax.swing.JButton();
+        lblCodigo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu = new javax.swing.JMenu();
         JMICadastrar = new javax.swing.JMenuItem();
@@ -294,6 +295,11 @@ public class JFRMEditarOrientador extends javax.swing.JFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(390, 390, 390)
+                    .addComponent(lblCodigo)
+                    .addContainerGap(425, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,6 +310,11 @@ public class JFRMEditarOrientador extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(BTNVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(348, 348, 348)
+                    .addComponent(lblCodigo)
+                    .addContainerGap(363, Short.MAX_VALUE)))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -369,18 +380,18 @@ public class JFRMEditarOrientador extends javax.swing.JFrame {
             ori.setEmail(TFEmail.getText());
             ori.setEndereco(TFEndereco.getText());
             ori.setArea(TFArea.getText());
+            ori.setCod(Integer.parseInt(lblCodigo.getText()));
 
-            boolean r = oriControl.cadastrar(ori);
+            boolean r = oriControl.editar(ori);
 
             if (r == true) {
-                JOptionPane.showMessageDialog(null, "Orientador cadastrado com sucesso!!!");
+                JOptionPane.showMessageDialog(null, "Orientador editado com sucesso!!!");
             } else {
-                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
+                JOptionPane.showMessageDialog(null, "Erro ao Editar!!!");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Campos vazios!!!");
+            JOptionPane.showMessageDialog(null, "Erro ao Editar: Campos vazios!!!");
         }
-
 
     }//GEN-LAST:event_JMICadastrarActionPerformed
 
@@ -409,16 +420,17 @@ public class JFRMEditarOrientador extends javax.swing.JFrame {
             ori.setEmail(TFEmail.getText());
             ori.setEndereco(TFEndereco.getText());
             ori.setArea(TFArea.getText());
+            ori.setCod(Integer.parseInt(lblCodigo.getText()));
 
-            boolean r = oriControl.cadastrar(ori);
+            boolean r = oriControl.editar(ori);
 
             if (r == true) {
-                JOptionPane.showMessageDialog(null, "Orientador cadastrado com sucesso!!!");
+                JOptionPane.showMessageDialog(null, "Orientador editado com sucesso!!!");
             } else {
-                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
+                JOptionPane.showMessageDialog(null, "Erro ao Editar!!!");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Campos vazios!!!");
+            JOptionPane.showMessageDialog(null, "Erro ao Editar: Campos vazios!!!");
         }
     }//GEN-LAST:event_BTNCadastrarActionPerformed
 
@@ -504,6 +516,7 @@ public class JFRMEditarOrientador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblName1;
     private javax.swing.JLabel lblName2;
@@ -531,5 +544,6 @@ public class JFRMEditarOrientador extends javax.swing.JFrame {
         TFNome.setText(oriObj.getNome());
         FTFCelular.setText(oriObj.getCelular());
         FTFTelefone.setText(oriObj.getFone());
+        lblCodigo.setText("" + oriObj.getCod());
     }
 }

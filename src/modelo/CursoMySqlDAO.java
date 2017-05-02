@@ -148,6 +148,28 @@ public class CursoMySqlDAO {
         }
         
     }
+
+    public boolean excluir(CursoBEAN curObjEdit) {
+        String sql = "DELETE FROM curso WHERE curNome = ?;";
+        try {
+            
+            
+            
+            stmt = connection.prepareStatement(sql);
+            
+            stmt.setString(1, curObjEdit.getNome());
+            
+            
+            
+            stmt.execute();
+            stmt.close();
+            
+            return true;
+        } catch (SQLException e) {
+            return false;
+
+        }
+    }
     
     
 }

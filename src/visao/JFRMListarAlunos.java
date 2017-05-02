@@ -16,9 +16,9 @@ import modelo.AlunoBEAN;
  * @author user
  */
 public class JFRMListarAlunos extends javax.swing.JFrame {
-    
+
     private DefaultTableModel dTable;
-    ArrayList <AlunoBEAN> alunAL = new ArrayList <AlunoBEAN>();
+    ArrayList<AlunoBEAN> alunAL = new ArrayList<AlunoBEAN>();
     AlunoControle aluC = new AlunoControle();
     AlunoBEAN aluObj = new AlunoBEAN();
 
@@ -28,7 +28,7 @@ public class JFRMListarAlunos extends javax.swing.JFrame {
     public JFRMListarAlunos() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
-        
+
         this.preencheTabela();
     }
 
@@ -444,6 +444,11 @@ public class JFRMListarAlunos extends javax.swing.JFrame {
         });
 
         jButton3.setText("Excluir");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -635,15 +640,15 @@ public class JFRMListarAlunos extends javax.swing.JFrame {
 
     private void tabelaAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaAlunosMouseClicked
 
-            int x = tabelaAlunos.getSelectedRow();
-            aluObj = alunAL.get(x);
-            
-            TFMostraAluno.setText(alunAL.get(x).getNome());
-            TFMostraCPF.setText(alunAL.get(x).getCpf());
-            TFMostraCurso.setText(alunAL.get(x).getCurso());
-            TFMostraMatricula.setText(alunAL.get(x).getMatricula());
-            TFMostraRG.setText(alunAL.get(x).getRg());
-        
+        int x = tabelaAlunos.getSelectedRow();
+        aluObj = alunAL.get(x);
+
+        TFMostraAluno.setText(alunAL.get(x).getNome());
+        TFMostraCPF.setText(alunAL.get(x).getCpf());
+        TFMostraCurso.setText(alunAL.get(x).getCurso());
+        TFMostraMatricula.setText(alunAL.get(x).getMatricula());
+        TFMostraRG.setText(alunAL.get(x).getRg());
+
     }//GEN-LAST:event_tabelaAlunosMouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -657,14 +662,14 @@ public class JFRMListarAlunos extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        if(aluObj.getNome().equals("")){
-            
-        }else{
-        JFRMEditarAluno editar = new JFRMEditarAluno();
-        editar.setVisible(true);
-        editar.setaObjAluno(aluObj);
-        this.dispose();
-    }
+        if (aluObj.getNome().equals("")) {
+            JOptionPane.showMessageDialog(null, "Escolha um aluno para editar!");
+        } else {
+            JFRMEditarAluno editar = new JFRMEditarAluno();
+            editar.setVisible(true);
+            editar.setaObjAluno(aluObj);
+            this.dispose();
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -673,6 +678,23 @@ public class JFRMListarAlunos extends javax.swing.JFrame {
         prin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        if (aluObj.getNome().equals("")) {
+            JOptionPane.showMessageDialog(null, "Escolha um aluno para excluir!");
+        } else {
+            
+            boolean r = aluC.excluir(aluObj);
+            
+            if (r == true) {
+                JOptionPane.showMessageDialog(null, "Aluno Excluido com Sucesso!!!");
+                this.preencheTabela();
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao Excluir: O aluno não pode estar Fazendo um estágio!!!");
+            }
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -794,7 +816,7 @@ public class JFRMListarAlunos extends javax.swing.JFrame {
     }
 
     private DefaultTableModel criaTabela() {
-         //sempre que usar JTable é necessário ter um DefaulttableModel
+        //sempre que usar JTable é necessário ter um DefaulttableModel
         DefaultTableModel dTable = new DefaultTableModel() {
             //Define o tipo dos campos (coluna) na mesma ordem que as colunas foram criadas
             Class[] types = new Class[]{
@@ -829,8 +851,8 @@ public class JFRMListarAlunos extends javax.swing.JFrame {
 
     private void limparTabela() {
         while (tabelaAlunos.getRowCount() > 0) {
-    DefaultTableModel dm = (DefaultTableModel) tabelaAlunos.getModel();
-    dm.getDataVector().removeAllElements();
-    }
+            DefaultTableModel dm = (DefaultTableModel) tabelaAlunos.getModel();
+            dm.getDataVector().removeAllElements();
+        }
     }
 }

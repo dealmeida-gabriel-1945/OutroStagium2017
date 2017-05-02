@@ -75,6 +75,7 @@ public class JFRMEditarEmpresa extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         BTNVoltar = new javax.swing.JButton();
+        lblCodigo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu = new javax.swing.JMenu();
         JMICadastrar = new javax.swing.JMenuItem();
@@ -279,14 +280,15 @@ public class JFRMEditarEmpresa extends javax.swing.JFrame {
                                         .addGap(34, 34, 34)
                                         .addComponent(jLabel11)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jComboBox1, 0, 184, Short.MAX_VALUE))
+                                        .addComponent(jComboBox1, 0, 194, Short.MAX_VALUE))
                                     .addComponent(TFNumDeRegistro)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(FTFCEP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(FTFTelefone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(FTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(TFEstado)))
+                                    .addComponent(TFEstado)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(FTFCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(29, 29, 29)
@@ -374,6 +376,11 @@ public class JFRMEditarEmpresa extends javax.swing.JFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(357, 357, 357)
+                    .addComponent(lblCodigo)
+                    .addContainerGap(358, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -384,6 +391,11 @@ public class JFRMEditarEmpresa extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(BTNVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(357, 357, 357)
+                    .addComponent(lblCodigo)
+                    .addContainerGap(357, Short.MAX_VALUE)))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -452,18 +464,19 @@ public class JFRMEditarEmpresa extends javax.swing.JFrame {
             emp.setFone(FTFTelefone.getText());
             emp.setCep(FTFCEP.getText());
             emp.setRepresentanteLegal(codRep);
+            emp.setCod(Integer.parseInt(lblCodigo.getText()));
 
-            boolean r = empControle.cadastrar(emp);
+            boolean r = empControle.editar(emp);
 
             if (r == true) {
-                JOptionPane.showMessageDialog(null, "Empresa cadastrado com sucesso!!!");
+                JOptionPane.showMessageDialog(null, "Empresa editado com sucesso!!!");
             } else if (r == false) {
-                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Empresa já cadastrado");
+                JOptionPane.showMessageDialog(null, "Erro ao editar: Empresa já cadastrado");
             } else {
-                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
+                JOptionPane.showMessageDialog(null, "Erro ao editar!!!");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Campos vazios!!!");
+            JOptionPane.showMessageDialog(null, "Erro ao Editar: Campos vazios!!!");
         }
     }//GEN-LAST:event_BTNCadastrarActionPerformed
 
@@ -506,18 +519,19 @@ public class JFRMEditarEmpresa extends javax.swing.JFrame {
             emp.setFone(FTFTelefone.getText());
             emp.setCep(FTFCEP.getText());
             emp.setRepresentanteLegal(codRep);
+            emp.setCod(Integer.parseInt(lblCodigo.getText()));
 
-            boolean r = empControle.cadastrar(emp);
+            boolean r = empControle.editar(emp);
 
             if (r == true) {
-                JOptionPane.showMessageDialog(null, "Empresa cadastrado com sucesso!!!");
+                JOptionPane.showMessageDialog(null, "Empresa editado com sucesso!!!");
             } else if (r == false) {
-                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Empresa já cadastrado");
+                JOptionPane.showMessageDialog(null, "Erro ao editar: Empresa já cadastrado");
             } else {
-                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
+                JOptionPane.showMessageDialog(null, "Erro ao editar!!!");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Campos vazios!!!");
+            JOptionPane.showMessageDialog(null, "Erro ao Editar: Campos vazios!!!");
         }
     }//GEN-LAST:event_JMICadastrarActionPerformed
 
@@ -620,6 +634,7 @@ public class JFRMEditarEmpresa extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblName1;
     private javax.swing.JLabel lblName2;
@@ -661,6 +676,7 @@ public class JFRMEditarEmpresa extends javax.swing.JFrame {
         FTFCEP.setText(empObj.getCep());
         FTFCaixaPostal.setText(empObj.getCaixaPostal());
         FTFTelefone.setText(empObj.getFone());
+        lblCodigo.setText("" + empObj.getCod());
         
         this.setaValorNoCB(empresa);
     }

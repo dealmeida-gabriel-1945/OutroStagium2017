@@ -65,6 +65,15 @@ public class EstagioControle {
         return estAL;
     }
 
+    public boolean editar(EstagioBEAN est) {
+        estDAO.editar(est);
+        return true;
+    }
+
+    public boolean excluir(EstagioBEAN estObj) {
+        return estDAO.excluir(estObj);
+    }
+
     
     
 }

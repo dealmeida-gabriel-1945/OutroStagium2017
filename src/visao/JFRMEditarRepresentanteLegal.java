@@ -69,6 +69,7 @@ public class JFRMEditarRepresentanteLegal extends javax.swing.JFrame {
         FTFTelefone = new javax.swing.JFormattedTextField();
         TFEmail = new javax.swing.JTextField();
         BTNVoltar = new javax.swing.JButton();
+        lblCodigo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu = new javax.swing.JMenu();
         JMICadastrar = new javax.swing.JMenuItem();
@@ -139,7 +140,7 @@ public class JFRMEditarRepresentanteLegal extends javax.swing.JFrame {
                 .addComponent(lblName4)
                 .addGap(18, 18, 18)
                 .addComponent(lblName5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -236,9 +237,6 @@ public class JFRMEditarRepresentanteLegal extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel8))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(205, 205, 205)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel9)))
                 .addContainerGap(140, Short.MAX_VALUE))
@@ -286,6 +284,10 @@ public class JFRMEditarRepresentanteLegal extends javax.swing.JFrame {
                                 .addGap(48, 48, 48)
                                 .addComponent(TFEmail)))
                         .addContainerGap())))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(205, 205, 205)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -359,6 +361,11 @@ public class JFRMEditarRepresentanteLegal extends javax.swing.JFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(396, 396, 396)
+                    .addComponent(lblCodigo)
+                    .addContainerGap(437, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -369,6 +376,11 @@ public class JFRMEditarRepresentanteLegal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(BTNVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(365, 365, 365)
+                    .addComponent(lblCodigo)
+                    .addContainerGap(380, Short.MAX_VALUE)))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -437,16 +449,17 @@ public class JFRMEditarRepresentanteLegal extends javax.swing.JFrame {
             rep.setCep(FTFCEP.getText());
             rep.setFone_contato(FTFTelefone.getText());
             rep.setEmail(TFEmail.getText());
+            rep.setCodigo(Integer.parseInt(lblCodigo.getText()));
 
-            boolean r = repControl.cadastrar(rep);
+            boolean r = repControl.editar(rep);
 
             if (r == true) {
-                JOptionPane.showMessageDialog(null, "Representante cadastrado com sucesso!!!");
+                JOptionPane.showMessageDialog(null, "Representante editar com sucesso!!!");
             } else {
-                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
+                JOptionPane.showMessageDialog(null, "Erro ao Editar!!!");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Campos vazios!!!");
+            JOptionPane.showMessageDialog(null, "Erro ao Editar: Campos vazios!!!");
         }
     }//GEN-LAST:event_JMICadastrarActionPerformed
 
@@ -484,16 +497,17 @@ public class JFRMEditarRepresentanteLegal extends javax.swing.JFrame {
             rep.setCep(FTFCEP.getText());
             rep.setFone_contato(FTFTelefone.getText());
             rep.setEmail(TFEmail.getText());
+            rep.setCodigo(Integer.parseInt(lblCodigo.getText()));
 
-            boolean r = repControl.cadastrar(rep);
+            boolean r = repControl.editar(rep);
 
             if (r == true) {
-                JOptionPane.showMessageDialog(null, "Representante cadastrado com sucesso!!!");
+                JOptionPane.showMessageDialog(null, "Representante editar com sucesso!!!");
             } else {
-                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
+                JOptionPane.showMessageDialog(null, "Erro ao Editar!!!");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Campos vazios!!!");
+            JOptionPane.showMessageDialog(null, "Erro ao Editar: Campos vazios!!!");
         }
 
 
@@ -585,6 +599,7 @@ public class JFRMEditarRepresentanteLegal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblName1;
     private javax.swing.JLabel lblName2;
@@ -618,6 +633,7 @@ public class JFRMEditarRepresentanteLegal extends javax.swing.JFrame {
         FTFCEP.setText(repObj.getCep());
         FTFCPF.setText(repObj.getCpf());
         FTFTelefone.setText(repObj.getFone_contato());
+        lblCodigo.setText("" + repObj.getCodigo());
         
         this.setarValorNoCB(representante);
     }

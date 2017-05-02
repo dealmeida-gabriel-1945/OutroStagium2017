@@ -46,5 +46,11 @@ public class CursoControle {
         curDAO.editarCurso(curso);
         return true;
     }
+
+    public boolean excluir(CursoBEAN curObjEdit) {
+        return curDAO.excluir(curObjEdit);
+    }
+
+   
     
 }

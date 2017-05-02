@@ -302,6 +302,11 @@ public class JFRMListarCursos extends javax.swing.JFrame {
         });
 
         jButton3.setText("Excluir");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -484,6 +489,22 @@ public class JFRMListarCursos extends javax.swing.JFrame {
         prin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTNSairActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       if (curObjEdit.getNome().equals("")) {
+            JOptionPane.showMessageDialog(null, "Escolha um curso para excluir!");
+        } else {
+            
+            boolean r = curC.excluir(curObjEdit);
+            
+            if (r == true) {
+                JOptionPane.showMessageDialog(null, "Curso Excluido com Sucesso!!!");
+                this.preencheTabela();
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao Excluir: Curso não pode estar vinculado a um Aluno!!!");
+            }
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

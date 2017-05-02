@@ -162,6 +162,66 @@ public class EmpresaMySqlDAO {
         return empAL;
     }
 
+    public void editar(EmpresaBEAN emp) {
+        String sql=" UPDATE empresa SET"
+                + " empRazaoSocial = ?,"
+                + " empNomeFantasia = ?,"
+                + " empNRegistro = ?,"
+                + " empEndereco = ?,"
+                + " empCaixaPostal = ?,"
+                + " empFone = ?,"
+                + " empCep = ?,"
+                + " empEmail = ?,"
+                + " empCidade = ?,"
+                + " empEstado = ?,"
+                + " representante_repCodigo = ?"
+                + " WHERE empCodigo = ?; ";
+         try {
+             stmt = connection.prepareStatement(sql); 
+             stmt.setString(1, emp.getRazaoSocial_nome());
+             stmt.setString(2, emp.getNomeFantasia());
+             stmt.setString(3, emp.getNumRegistro());
+             stmt.setString(4, emp.getEndereco());
+             stmt.setString(5, emp.getCaixaPostal());
+             stmt.setString(6, emp.getFone());
+             stmt.setString(7, emp.getCep());
+             stmt.setString(8, emp.getEmail());
+             stmt.setString(9, emp.getCidade());
+             stmt.setString(10, emp.getEstado());
+             stmt.setInt(11, emp.getRepresentanteLegalCodigo());
+             stmt.setInt(12, emp.getCod());
+             
+             stmt.executeUpdate();
+            stmt.close();
+             
+           
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean excluir(EmpresaBEAN empObj) {
+        String sql = "DELETE FROM empresa WHERE empNRegistro = ?;";
+        try {
+            
+            
+            
+            stmt = connection.prepareStatement(sql);
+            
+            stmt.setString(1, empObj.getNumRegistro());
+            
+            
+            
+            stmt.execute();
+            stmt.close();
+            
+            return true;
+        } catch (SQLException e) {
+            return false;
+
+        }
+    }
+
     
     
 }

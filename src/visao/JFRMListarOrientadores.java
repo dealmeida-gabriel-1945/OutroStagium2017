@@ -348,6 +348,11 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
         });
 
         jButton3.setText("Excluir");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -540,6 +545,22 @@ public class JFRMListarOrientadores extends javax.swing.JFrame {
         prin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if (oriObj.getNome().equals("")) {
+            JOptionPane.showMessageDialog(null, "Escolha um orientador para excluir!");
+        } else {
+            
+            boolean r = oriC.excluir(oriObj);
+            
+            if (r == true) {
+                JOptionPane.showMessageDialog(null, "Orientador Excluido com Sucesso!!!");
+                this.preencheTabela();
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao Excluir: Orientador não pode estar vinculado a um Estágio!!!");
+            }
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

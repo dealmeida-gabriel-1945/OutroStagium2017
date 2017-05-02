@@ -27,5 +27,14 @@ public class OrientadorControle {
             return oriMSQL.cadastrar(ori);
        
     }
+
+    public boolean editar(OrientadorDoEstagioBEAN ori) {
+        oriMSQL.editar(ori);
+        return true;
+    }
+
+    public boolean excluir(OrientadorDoEstagioBEAN oriObj) {
+        return oriMSQL.excluir(oriObj);
+    }
     
 }

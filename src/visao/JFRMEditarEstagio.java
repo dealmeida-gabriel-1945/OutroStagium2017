@@ -128,6 +128,7 @@ public class JFRMEditarEstagio extends javax.swing.JFrame {
         ftfDataR3 = new javax.swing.JFormattedTextField();
         ftfDataR4 = new javax.swing.JFormattedTextField();
         BTNVoltar = new javax.swing.JButton();
+        lblCodigo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu = new javax.swing.JMenu();
         JMICadastrar = new javax.swing.JMenuItem();
@@ -770,9 +771,11 @@ public class JFRMEditarEstagio extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(22, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         BTNVoltar.setText("Voltar");
@@ -794,6 +797,11 @@ public class JFRMEditarEstagio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(513, 513, 513)
+                    .addComponent(lblCodigo)
+                    .addContainerGap(514, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -807,6 +815,11 @@ public class JFRMEditarEstagio extends javax.swing.JFrame {
                         .addGap(0, 41, Short.MAX_VALUE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(451, 451, 451)
+                    .addComponent(lblCodigo)
+                    .addContainerGap(451, Short.MAX_VALUE)))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -886,17 +899,18 @@ public class JFRMEditarEstagio extends javax.swing.JFrame {
             est.setDataQuartoRelatorio(ftfDataR4.getText());
             est.setAreAtuacao(taArea.getText());
             est.setTipo(tipoEst);
+            est.setCod(Integer.parseInt(lblCodigo.getText()));
 
-            boolean r = estControle.cadastrar1(est);
+            boolean r = estControle.editar(est);
 
             if (r == true) {
-                JOptionPane.showMessageDialog(null, "Estágio cadastrado com sucesso!!!");
+                JOptionPane.showMessageDialog(null, "Estágio editado com sucesso!!!");
             } else {
-                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
+                JOptionPane.showMessageDialog(null, "Erro ao Editar!!!");
             }
 
         } else {
-            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Campos vazios!!!");
+            JOptionPane.showMessageDialog(null, "Erro ao Editar: Campos vazios!!!");
         }
     }//GEN-LAST:event_JMICadastrarActionPerformed
 
@@ -1006,17 +1020,18 @@ public class JFRMEditarEstagio extends javax.swing.JFrame {
             est.setDataQuartoRelatorio(ftfDataR4.getText());
             est.setAreAtuacao(taArea.getText());
             est.setTipo(tipoEst);
+            est.setCod(Integer.parseInt(lblCodigo.getText()));
 
-            boolean r = estControle.cadastrar1(est);
+            boolean r = estControle.editar(est);
 
             if (r == true) {
-                JOptionPane.showMessageDialog(null, "Estágio cadastrado com sucesso!!!");
+                JOptionPane.showMessageDialog(null, "Estágio editado com sucesso!!!");
             } else {
-                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar!!!");
+                JOptionPane.showMessageDialog(null, "Erro ao Editar!!!");
             }
 
         } else {
-            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Campos vazios!!!");
+            JOptionPane.showMessageDialog(null, "Erro ao Editar: Campos vazios!!!");
         }
 
 
@@ -1135,6 +1150,7 @@ public class JFRMEditarEstagio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblName1;
     private javax.swing.JLabel lblName2;
@@ -1230,6 +1246,7 @@ public class JFRMEditarEstagio extends javax.swing.JFrame {
         tfSupervisor.setText(estagio.getSupervisor());
         taArea.setText(estagio.getAreAtuacao());
         tfTotalHoras.setText(estagio.getTotalHoras()+"");
+        lblCodigo.setText("" + estagio.getCod());
         
         this.setaDatas(estagio);
         this.setaBeneficios(estagio);

@@ -223,6 +223,9 @@ public class JFRMEditarAluno extends javax.swing.JFrame {
 
         jLabel7.setText("Turma:");
 
+        TFMatricula.setEditable(false);
+        TFMatricula.setBackground(new java.awt.Color(153, 153, 153));
+
         jLabel8.setText("Matrícula:");
 
         jLabel10.setText("CPF:");

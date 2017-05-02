@@ -56,6 +56,12 @@ public class AlunoControle {
         return alunMSQL.editar1(alu);
     }
 
+   
+
+    public boolean excluir(AlunoBEAN aluObj) {
+        return alunMSQL.excluir(aluObj);
+        
+    }
     
     
 }

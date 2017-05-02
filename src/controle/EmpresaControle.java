@@ -42,5 +42,14 @@ public class EmpresaControle {
         
         return empAL;
     }
+
+    public boolean editar(EmpresaBEAN emp) {
+        eDAO.editar(emp);
+        return true;
+    }
+
+    public boolean excluir(EmpresaBEAN empObj) {
+        return eDAO.excluir(empObj);
+    }
     
 }
