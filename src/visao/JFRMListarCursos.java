@@ -494,16 +494,23 @@ public class JFRMListarCursos extends javax.swing.JFrame {
        if (curObjEdit.getNome().equals("")) {
             JOptionPane.showMessageDialog(null, "Escolha um curso para excluir!");
         } else {
-            
+            int i = JOptionPane.showConfirmDialog(rootPane, "Desejas mesmo excluir?");
+            if((i == 1)||(i==2)){
+            }else{
             boolean r = curC.excluir(curObjEdit);
             
             if (r == true) {
                 JOptionPane.showMessageDialog(null, "Curso Excluido com Sucesso!!!");
+                curObjEdit = new CursoBEAN();
+                this.limpaTFMostra();
+                this.nomenulo();
                 this.preencheTabela();
             } else {
                 JOptionPane.showMessageDialog(null, "Erro ao Excluir: Curso não pode estar vinculado a um Aluno!!!");
             }
         }
+            
+       }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -642,5 +649,15 @@ public class JFRMListarCursos extends javax.swing.JFrame {
     DefaultTableModel dm = (DefaultTableModel) tabelaCursos.getModel();
     dm.getDataVector().removeAllElements();
     }
+    }
+
+    private void limpaTFMostra() {
+        TFMostraArea.setText("");
+                TFMostraNome.setText("");
+                TAMostraDescricao.setText("");
+    }
+
+    private void nomenulo() {
+         curObjEdit.setNome("");
     }
 }
